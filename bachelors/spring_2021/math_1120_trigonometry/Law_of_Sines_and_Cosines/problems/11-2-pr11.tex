@@ -1,0 +1,36 @@
+\begin{problem}[11.]
+    $\alpha = 42\degree$, $a = 39$, $b = 23.5$
+\end{problem}
+
+\begin{solution}
+    \[\alpha = 42\degree \cdot \frac{\pi}{180\degree} = 0.733 \; \text{radians}\]
+    
+    To start, since we know $\alpha$, $a$ and $b$ we can use the law of sines to solve for $\beta$. 
+    
+    \begin{align}
+        \frac{sin(\alpha)}{a} &= \frac{sin(\beta)}{b} \\
+        \sin(\beta) &= \frac{b \cdot \sin(\alpha)}{a} \\
+        \sin(\beta) &= \frac{23.5 \cdot \sin(0.733)}{39} \\
+        \sin(\beta) &= 0.403 \\
+        \beta &= arcsin(0.403)
+    \end{align}
+    \[\boxed{ \beta \approx 0.4149 \; \text{radians}  }\]
+    
+    Now we solve for $\gamma$. We know that $\alpha + \beta + \gamma = \pi$ for all triangles. 
+    
+    \begin{align}
+        \alpha + \beta + \gamma &= \pi \\
+        0.733 + 0.4149 + \gamma &= \pi \\
+        \gamma &= \pi - 0.733 - 0.4149
+    \end{align}
+    \[\boxed{  \gamma \approx 1.994 \; \text{radians}  }\]
+    
+    All we do now is the same as the first step when we solved for $\beta$, this time solving for $c$ instead. 
+    
+    \begin{align}
+        \frac{\sin(\alpha)}{a} &= \frac{\sin(\gamma)}{c} \\
+        c &= \frac{\sin(\gamma) \cdot a}{\sin(\alpha)} \\
+        c &= \frac{\sin(1.994) \cdot 39}{\sin(0.733)}
+    \end{align}
+    \[\boxed{ c \approx 53.145  }\]
+\end{solution}

@@ -1,0 +1,625 @@
+\documentclass[10pt,letterpaper]{amspset}
+\usepackage{fullpage}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplotstable}
+\graphicspath{ {./images/} }
+
+%notice the use of the \newcommand command.  It's making your life a little easier by defining commands that you can use later.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% info for header block in upper right hand corner
+\name{Brady Lamson}
+\class{MATH 1120 SPRING 2021}
+\assignment{Homework Part 1}
+\duedate{Jan 26th}
+
+
+
+\begin{document}
+
+\problemlist{Radian and Degree Measures: Problems 1-20, 29-33, 37-41 }
+
+10.1.2: In exercises 1 - 4, convert the angles into the DMS \footnote{Note: When working under the DMS system it is important to know that there are: 60 minutes ($60'$) in one degree $(1\degree)$ and 60 seconds ($60"$) in one minute (1').} system. Round each of your answers to the nearest second.
+
+
+\begin{problem}[1.]
+    $63.75\degree$ 
+\end{problem}
+
+\begin{solution}[Solution]
+Before we start we need to separate out the two parts of the degree, the integer and the decimal.
+
+    \[63.75 = 63\degree + 0.75\degree\]
+
+From here we take the $0.75\degree$ and separate it out further! To do this we do the following calculation:
+
+    \[0.75 (\frac{60'}{1\degree}) = 45'\]
+
+From here it's easy, just combine the degree and the minutes for the solution!
+
+    \[63.75 = \boxed{63\degree 45'}\]
+
+\end{solution}include command
+    \include{filename}
+    $200.325\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+This is a similar problem as the first so for any logic used please refer to problem 1. 
+
+\begin{align}
+    200.325 = 200\degree + 0.325\degree \\
+    0.325 (\frac{60'}{1\degree}) = 19.5'
+\end{align}
+
+This is where things become different from problem 1. We have to further subdivide this using the exact same process. 
+
+\begin{align}
+    19.5' = 19' + 0.5' \\
+    0.5' (\frac{60"}{1'}) = 30"
+\end{align}
+
+Now all we do is combine them for our solution.
+
+    \[200.325 = \boxed{200\degree 19' 30"}\]
+
+\end{solution}
+
+\pagebreak
+
+\begin{problem} [3.]
+    $ -317.06\degree$    
+\end{problem}
+
+\begin{solution}[Solution: For the logic used please refer to problems 1 and 2]
+\begin{align}
+    -317.06\degree &= -(317\degree + 0.06\degree) \\
+    0.06\degree (\frac{60'}{1\degree}) &= 3.6' \\
+    3.6' &= 3' + 0.6' \\
+    0.6' (\frac{60"}{1'}) &= 36" \\
+    -317.06\degree &= \boxed{-317\degree 3' 36"} \\
+\end{align}
+\end{solution}
+
+
+\begin{problem} [4.]
+    $179.999\degree$
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    179.999\degree &= 179\degree + 0.999\degree \\
+    0.999\degree (\frac{60'}{1\degree}) &= 59.94' \\
+    59.94' &= 59' + 0.94' \\
+    0.94' (\frac{60"}{1'}) &= 56.4" \\
+    -317.06\degree &= \boxed{179\degree 59' 56".} \\
+    \intertext{Note: 56.4" was rounded down to 56".}
+\end{align}
+\end{solution}
+
+
+\hrulefill
+
+
+In exercises 5 - 8, convert the angles into decimal degrees. Round each of your answers to three decimal places.
+
+\begin{problem} [5.]
+    $125\degree 50'$
+\end{problem}
+
+\begin{solution}[Solution]
+For these problems we will be doing the same steps but backwards. So instead of multiplying by $\frac{60'}{1\degree}$ we will be multiplying by $\frac{1\degree}{60'}$. This will allow us to easily convert from seconds to minutes all the way to degrees! 
+
+\begin{align}
+    125\degree 50' &= 125\degree + 50' \\
+    50' (\frac{1\degree}{60'}) &= 0.8333\degree \\
+    125\degree + 0.833\degree &= \boxed{125.833\degree.}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [6.]
+    $ -32\degree 10' 12"$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    -32\degree 10' 12" &= - (32\degree + 12' + 12") \\
+    12" (\frac{1'}{60"}) &= 0.2' \\
+    12' + 0.2' &= 12.2' \\
+    12.2' (\frac{1\degree}{60'}) &= 0.203\degree \\
+    -(32\degree + 0.203\degree) &= \boxed{-32.203\degree.} 
+\end{align}
+\end{solution}
+
+
+\begin{problem} [7.]
+    $ 502\degree 35'$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    502\degree 35' &= 502\degree + 35' \\
+    35' (\frac{1\degree}{60'}) &= 0.583\degree \\
+    502\degree + 0.583\degree &= \boxed{502.583\degree.}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [8.]
+    $ 237\degree 58' 43"$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    237\degree 58' 43" &= 237\degree + 58' + 43"\\
+    43" (\frac{1'}{60"}) &= 0.7167' \\
+    58' + 0.7167' &= 58.7167' \\
+    58.7167' (\frac{1\degree}{60'}) &= 0.9786 \\
+    237\degree + 0.979\degree &= \boxed{237.979\degree.}
+\end{align}
+\end{solution}
+
+\pagebreak
+
+In Exercises 9 - 20, graph the oriented angle in standard position\footnote{It is important to know that a circle is made up of 360\degree when using degree measure, or $2\pi$ radians when using radian measure. Calculations will be made working under these assumptions.}. Classify each angle according to where its terminal side lies and then give two co-terminal angles, one of which is positive and the other negative. 
+
+\begin{problem} [9.]
+$330\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+For this we need to make a few calculations. We're working with 330\degree so to find out what the other angles are we can do some pretty simple stuff. 
+\[a = 330\degree\]
+\[\theta = a + (360\degree * k)\]
+\[\theta = 330\degree + (360\degree *k)\]
+For this we will be substituting k for -1 to find our first co-terminal angle.
+\[\theta = 330\degree - 360\degree\]
+\[a = \boxed{-30\degree}\]
+
+So here we know one of the co-terminal angles is -30\degree! To find another we will instead substitute k with positive 1.
+
+\begin{align}
+    \theta &= 330\degree + (360\degree * 1) \\
+    \theta &= \boxed{690\degree}
+\end{align}
+
+\includegraphics[width=4in,scale=0.5]{images/problem_9.jpg}
+\end{solution}
+
+\pagebreak
+
+
+\begin{problem} [10.]
+$-135\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+For a reference to the logic used in this solution please refer to problem 9. To solve for our first co-terminal we will substitute k for 1. 
+\begin{align}
+    a &= -135\degree \\
+    \theta &= a + (360\degree * k) \\
+    \theta &= -135 + (360\degree * 1) \\
+    \theta &= \boxed{225\degree}
+\end{align}
+
+For our second co-terminal we will substitute k with -1.
+
+\begin{align}
+    \theta &= -135\degree + (360\degree * -1) \\
+    \theta &= -135\degree - 360\degree \\
+    \theta &= \boxed{-495\degree}
+\end{align}
+
+\includegraphics[width=4in,scale=0.5]{images/problem_10.jpg}
+\end{solution}
+
+
+\begin{problem} [11.]
+$120\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= 120\degree \\
+    k &= 1 \\
+    \theta &= a + (360\degree * k) \\
+    \theta &= 120 + (360\degree * 1) \\
+    \theta &= \boxed{480\degree}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= 120 + (360\degree * -1) \\
+    \theta &= 120 - 360 \\
+    \theta &= \boxed{-240\degree}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_11.jpg}
+\end{solution}
+
+
+\begin{problem} [12.]
+$405\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= 405\degree \\
+    k &= 1 \\
+    \theta &= a + (360\degree * k) \\
+    \theta &= 405 + (360\degree * 1) \\
+    \theta &= \boxed{765\degree}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= 405 + (360\degree * -1) \\
+    \theta &= 405 - 360 \\
+    \theta &= \boxed{45\degree}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_12.jpg}
+\end{solution}
+
+
+\begin{problem} [13.]
+$-270\degree$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= -270\degree \\
+    k &= 1 \\
+    \theta &= a + (360\degree * k) \\
+    \theta &= -270 + (360\degree * 1) \\
+    \theta &= \boxed{90\degree}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= -270 + (360\degree * -1) \\
+    \theta &= -270 - 360 \\
+    \theta &= \boxed{-630\degree}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_13.jpg}
+\end{solution}
+
+
+\begin{problem} [14.]
+$\frac{5\pi}{6}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= \frac{5\pi}{6} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{5\pi}{6} + (\frac{4\pi}{2} * 1) \\
+    \theta &= \frac{5\pi}{6} + \frac{12\pi}{6} \\
+    \theta &= \boxed{\frac{17\pi}{6}} \\
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{5\pi}{6} + (\frac{4\pi}{2} * -1) \\
+    \theta &= \frac{5\pi}{6} - \frac{12\pi}{6} \\
+    \theta &= \boxed{-\frac{7\pi}{6}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_14.jpg}
+\end{solution}
+
+
+\begin{problem} [15.]
+$-\frac{11\pi}{3}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= -\frac{11\pi}{3} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= -\frac{11\pi}{3} + (\frac{4\pi}{2} * 1) \\
+    \theta &= -\frac{22\pi}{6} + \frac{12\pi}{6} \\
+    \theta &= -\frac{10\pi}{6} \\
+    \theta &= \boxed{-\frac{5\pi}{3}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= -\frac{11\pi}{3} + (\frac{4\pi}{2} * -1) \\
+    \theta &= -\frac{22\pi}{6} - \frac{12\pi}{6} \\
+    \theta &= -\frac{34\pi}{6} \\
+    \theta &= \boxed{-\frac{17\pi}{3}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_15.jpg}
+\end{solution}
+
+
+\begin{problem} [16.]
+$\frac{5\pi}{4}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= \frac{5\pi}{4} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{5\pi}{4} + (\frac{4\pi}{2} * 1) \\
+    \theta &= \frac{5\pi}{4} + \frac{8\pi}{4} \\
+    \theta &= \boxed{\frac{13\pi}{4}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{5\pi}{4} + (\frac{4\pi}{2} * -1) \\
+    \theta &= \frac{5\pi}{4} - \frac{8\pi}{4} \\
+    \theta &= \boxed{-\frac{3\pi}{4}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_16.jpg}
+\end{solution}
+
+
+\begin{problem} [17.]
+$\frac{3\pi}{4}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= \frac{3\pi}{4} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{3\pi}{4} + (\frac{4\pi}{2} * 1) \\
+    \theta &= \frac{3\pi}{4} + \frac{8\pi}{4} \\
+    \theta &= \boxed{\frac{11\pi}{4}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{3\pi}{4} + (\frac{4\pi}{2} * -1) \\
+    \theta &= \frac{3\pi}{4} - \frac{8\pi}{4} \\
+    \theta &= \boxed{-\frac{5\pi}{4}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_17.jpg}
+\end{solution}
+
+\pagebreak
+
+
+\begin{problem} [18.]
+$-\frac{\pi}{3}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= -\frac{\pi}{3} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= -\frac{\pi}{3} + (\frac{4\pi}{2} * 1) \\
+    \theta &= -\frac{2\pi}{6} + \frac{12\pi}{6} \\
+    \theta &= \frac{10\pi}{6} \\
+    \theta &= \boxed{\frac{5\pi}{3}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= -\frac{\pi}{3} + (\frac{4\pi}{2} * -1) \\
+    \theta &= -\frac{2\pi}{6} - \frac{12\pi}{6} \\
+    \theta &= \boxed{-\frac{7\pi}{3}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_18.jpg}
+\end{solution}
+
+
+\begin{problem} [19.]
+$\frac{7\pi}{2}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= \frac{7\pi}{2} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{7\pi}{2} + (\frac{4\pi}{2} * 1) \\
+    \theta &= \frac{7\pi}{2} + \frac{4\pi}{2} \\
+    \theta &= \boxed{\frac{11\pi}{2}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{7\pi}{2} + (\frac{4\pi}{2} * -1) \\
+    \theta &= \frac{7\pi}{2} - \frac{4\pi}{2} \\
+    \theta &= \boxed{\frac{3\pi}{2}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_19.jpg}
+\end{solution}
+
+
+\begin{problem} [20.]
+$\frac{\pi}{4}$
+\end{problem}
+
+\begin{solution}[Solution]
+\begin{align}
+    a &= \frac{7\pi}{2} \\
+    k &= 1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{\pi}{4} + (\frac{4\pi}{2} * 1) \\
+    \theta &= \frac{\pi}{4} + \frac{8\pi}{4} \\
+    \theta &= \boxed{\frac{9\pi}{4}}
+\end{align}
+
+\begin{align}
+    k &= -1 \\
+    \theta &= a + (\frac{4\pi}{2} * k) \\
+    \theta &= \frac{\pi}{4} + (\frac{4\pi}{2} * -1) \\
+    \theta &= \frac{\pi}{4} - \frac{8\pi}{4} \\
+    \theta &= \boxed{-\frac{7\pi}{4}}
+\end{align}
+\includegraphics[width=4in,scale=0.5]{images/problem_20.jpg}
+\end{solution}
+
+\pagebreak
+In exercises 29 - 33, convert the angle from degree measure into radian measure, giving the exact value in terms of $\pi$. 
+
+\begin{problem} [29.]
+0\degree
+\end{problem}
+
+\begin{solution}
+To convert from degrees to radians we must multiply the degrees by $\frac{\pi}{180\degree}$.
+\begin{align}
+    \theta &= 0\degree (\frac{\pi}{180\degree}) \\
+    \theta &= \boxed{0}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [30.]
+240\degree
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= 240\degree (\frac{\pi}{180\degree}) \\
+    \theta &= 1.3\pi \\
+    1.3\pi &= \frac{4\pi}{3} \\
+    \theta &= \boxed{\frac{4\pi}{3}}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [31.]
+135\degree
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= 135\degree (\frac{\pi}{180\degree}) \\
+    \theta &= 0.75\pi \\
+    0.75\pi &= \frac{3\pi}{4} \\
+    \theta &= \boxed{\frac{3\pi}{4}}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [32.]
+-270\degree
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= -270\degree (\frac{\pi}{180\degree}) \\
+    \theta &= -1.5\pi \\
+    -1.5\pi &= -\frac{3\pi}{2} \\
+    \theta &= \boxed{-\frac{3\pi}{2}}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [33.]
+-315\degree
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= -315\degree (\frac{\pi}{180\degree}) \\
+    \theta &= -1.75\pi \\
+    -1.75\pi &= -\frac{3\pi}{4} \\
+    \theta &= \boxed{-\frac{3\pi}{4}}
+\end{align}
+\end{solution}
+
+
+\begin{problem} [34.]
+150\degree
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= 150\degree (\frac{\pi}{180\degree}) \\
+    \theta &= 0.83\pi \\
+    0.83\pi &= \frac{5\pi}{6} \\
+    \theta &= \boxed{\frac{5\pi}{6}}
+\end{align}
+\end{solution}
+
+In exercises 37 - 41, convert the angle from radian measure into degree measure.
+
+
+\begin{problem} [37.]
+$\pi$
+\end{problem}
+
+\begin{solution}
+For this solution we do a flipped version of the multiplication. So, now we multiply the radian measure by $(\frac{180\degree}{\pi})$
+\begin{align}
+    \theta &= \pi (\frac{180\degree}{\pi}) \\
+    \theta &= \boxed{180\degree} \\
+\end{align}
+\end{solution}
+
+
+\begin{problem} [38.]
+$-\frac{2\pi}{3}$
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= -\frac{2\pi}{3} (\frac{180\degree}{\pi}) \\
+    \theta &= -\frac{2}{3} (\frac{180\degree}{1}) \\
+    \theta &= \boxed{-120\degree} \\
+\end{align}
+\end{solution}
+
+
+\begin{problem} [39.]
+$\frac{7\pi}{6}$
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= \frac{7\pi}{6} (\frac{180\degree}{\pi}) \\
+    \theta &= \frac{7}{6} (\frac{180\degree}{1} \\
+    \theta &= \boxed{210\degree} \\
+\end{align}
+\end{solution}
+
+
+\begin{problem} [40.]
+$\frac{11\pi}{6}$
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= \frac{11\pi}{6} (\frac{180\degree}{\pi}) \\
+    \theta &= \frac{11}{6} (\frac{180\degree}{1} \\
+    \theta &= \boxed{330\degree} \\
+\end{align}
+\end{solution}
+
+
+\begin{problem} [41.]
+$\frac{\pi}{3}$
+\end{problem}
+
+\begin{solution}
+\begin{align}
+    \theta &= \frac{\pi}{3} (\frac{180\degree}{\pi}) \\
+    \theta &= \frac{1}{3} (\frac{180}{1} \\
+    \theta &= \boxed{60\degree} \\
+\end{align}
+\end{solution}
+
+
+
+\end{document}

@@ -1,0 +1,78 @@
+\begin{problem}[21]
+    Cliffs of Insanity Point and Bigfoot Falls from Exercise 20 above both lie on a straight stretch of the Great Sasquatch Canyon. What bearing would the tour helicopter need to follow to go directly from Bigfoot Falls to Cliffs of Insanity Point? Round your angle to the nearest tenth of a degree.
+\end{problem}
+    
+\begin{solution}
+    So first we need to slightly tweak our figure. There are a few ways to do this, but I decided to add new lines to our pre-existing triangle to solve for the new information I needed. 
+
+    \begin{tikzpicture}[scale=0.9]
+        % Draw interior triangle
+        \filldraw[black, thick] (0,0) circle (3pt) node[anchor=south east] {PIA} coordinate (a)
+            -- (3,5) circle (3pt) node[above=3pt] {CIP} coordinate (b)
+                node[midway, sloped, below] {$192$ mi}
+            -- (5,-5) circle (3pt) node[below=3pt] {BFF} coordinate (c)
+                node [midway, sloped, above left] {$313$ mi}
+            -- (0,0) 
+                node[midway, sloped, below] {$207$ mi};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-6) node[below] {S} coordinate (s)
+                -- (0,6) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-6,0) node[left] {W} coordinate (w)
+                -- (6,0) coordinate (e)
+                node[right] {E};
+        % Draw interior angles
+            \pic [draw=red, thick, "$\phi$", angle eccentricity=1.5, angle radius=0.7cm] 
+                {angle = a--b--c};
+            \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius =1.3cm] 
+                {angle = b--c--a};
+            \pic [draw=red, thick, "$103.3\degree$", angle eccentricity=1.5, angle radius = 1.3cm]
+                {angle = c--a--b};
+        % Draw exterior angles/define new coordinates for them
+            \path[] (a) -- (s) coordinate (sorg);
+            \path[] (a) -- (n) coordinate (norg);
+            \pic [draw=blue, thick, "$68.5\degree$", angle eccentricity=1.25, angle radius=1.5cm] 
+                {angle = sorg--a--c};
+            \pic [draw=blue, thick, "$8.2\degree$", angle eccentricity=1.25, angle radius=1.5cm] 
+                {angle = b--a--norg};
+        % Drawing lower outer triangles at the same time - yay one liners
+            \draw[thin] (a) -- (0,-5) coordinate (sw)
+                -- (c) -- (5,5) coordinate (ne)
+                -- (b);
+            % Add the right angle signifiers 
+            \draw[] (4.5,4.5) rectangle (5,5);
+            \draw[] (0.5,-4.5) rectangle (0,-5);
+        % Draw angles for the outside triangles
+            \pic [draw=blue, thick, "$21.5\degree$", angle eccentricity=1.5, angle radius = 1.5cm] 
+                {angle = a--c--sw};
+            \pic [draw=blue, thick, "$\gamma$", angle eccentricity=1.5, angle radius = 1.5cm] 
+                {angle = ne--c--b};
+            \pic [draw=blue, thick, "$\mu$", angle eccentricity=1.5, angle radius = 1cm] 
+                {angle = c--b--ne};
+    \end{tikzpicture}
+    
+    Okay, there's a lot going in the diagram I made but it's important to note that we don't need to solve for everything here. My game-plan involves solving for two things. We need to solve for $\theta$ which will, in turn, let us solve for $\gamma$, which will be our answer. Based on the construction of this diagram we know that $21.5\degree + \theta + \gamma = 90\degree$. \medskip
+    
+    As stated, let's solve for $\theta$. To do that we can use the law of cosines. We know 3 sides and an angle so this is absolutely a viable option. We'll let $\theta = \alpha$, $192 = a$, $207 = b$ and $313 = c$. \medskip
+    
+    Solving for $\theta$:
+    \begin{align}
+        \cos(\alpha) = \frac{b^2 + c^2 - a^2}{2 \cdot b \cdot c} \\[2mm]
+        \cos(\theta) = \frac{207^2 + 313^2 - 192^2}{2 \cdot 207 \cdot 313} \\[2mm]
+        \theta = \arccos \left( \frac{103954}{129582} \right) \\[2mm]
+        \theta = 36.65\degree 
+    \end{align}
+    
+    Solving for $\gamma$
+    \begin{align}
+        \gamma = 90\degree - 36.65\degree - 21.5\degree \\
+        \gamma = 31.8\degree
+    \end{align}
+    
+    The last thing we need to do is know the actual direction this degree refers to. Referring to our diagram it's clear that CIP is northwest of BFF. Think of the line going straight up from BFF as being north. The angle starts at that northern line and goes west. Thus, we can state our answer.
+    
+    \[\boxed{\gamma = N 31.8\degree W}\]
+    
+\end{solution}

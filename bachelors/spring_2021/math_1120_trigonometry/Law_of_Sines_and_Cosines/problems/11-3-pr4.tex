@@ -1,0 +1,36 @@
+\begin{problem}[4]
+    $a=3$, $b=4$, $\gamma=90\degree$    
+\end{problem}
+    
+\begin{solution}
+    Not too much to explain here, I hope the math speaks for itself. I kind of just utilize the law of cosines and change it up depending on what I'm solving for. Refer to the introduction if you're lost. \bigskip
+    
+    Calculating $c$:
+    \begin{align}
+        c^2 &= a^2 + b^2 - (2 \cdot a \cdot b \cdot \cos(\gamma)) \\
+        c^2 &= 3^2 + 4^2 - (2 \cdot 3 \cdot 4 \cdot \cos(90\degree)) \\
+        c^2 &= 9 + 16 - (0) \hspace{+5mm} \text{note:} \; (\cos(90) = 0) \\
+        c &= 5
+    \end{align}
+    
+    Calculating $\alpha$
+    \begin{align}
+        \cos(\alpha) = \frac{b^2 + c^2 - a^2}{2 \cdot b \cdot c} && \alpha = \arccos \left( \frac{32}{40} \right) \\
+        \alpha = \arccos \left( \frac{b^2 + c^2 - a^2}{2 \cdot b \cdot c} \right) && \alpha \approx 0.6435 \; \text{radians} \\ 
+        \alpha = \arccos \left( \frac{4^2 + 5^2 - 3^2}{2 \cdot 4 \cdot 5} \right) && \boxed{\alpha \approx 36.87\degree}
+    \end{align}
+    
+    Calculating $\beta$
+    \begin{align}
+        \cos(\beta) = \frac{a^2 + c^2 - b^2}{2 \cdot a \cdot c} && \beta = \arccos \left( \frac{18}{30} \right) \\
+        \beta = \arccos \left( \frac{a^2 + c^2 - b^2}{2 \cdot a \cdot c} \right) && \beta \approx 0.9273 \; \text{radians} \\ 
+        \beta = \arccos \left( \frac{3^2 + 5^2 - 4^2}{2 \cdot 3 \cdot 5} \right) && \boxed{\beta \approx 53.13\degree}
+    \end{align}
+    
+    \begin{subequations}
+        \begin{empheq}[box=\widefbox]{align}
+            a = 3 && b = 4 && c = 5 \\
+            \alpha \approx 36.87\degree && \beta \approx 53.13\degree && \gamma = 90\degree
+        \end{empheq}
+    \end{subequations}
+\end{solution}

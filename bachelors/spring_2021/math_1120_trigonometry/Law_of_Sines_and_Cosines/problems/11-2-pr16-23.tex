@@ -1,0 +1,70 @@
+\begin{problem}[16.]
+    $\beta = 102\degree, b = 16.75, c = 18$
+\end{problem}
+
+\begin{solution}
+    Calculating $h$: ($\beta, b$ and $c$ are given)
+    \begin{align}
+        h &= c \cdot \sin(\beta) \\
+        h &= 18 \cdot \sin(102\degree) \\
+        h &\approx 17.6 \\
+        16.75 &< 17.6 < 18 \\
+        b &< h < c
+    \end{align}
+    
+    Because $b$ is less than $h$ there are no triangles that satisfy our restrictions. 
+\end{solution}
+
+
+\begin{problem}[22]
+    Using a right triangle with a horizontal leg of length 100 and vertical leg with length 7, show that a $7\%$ grade means that the road (hypotenuse) makes about a $4\degree$ angle with the horizontal. (It will not be exactly $4\degree$ , but it’s pretty close.)
+\end{problem}
+
+\begin{solution}
+    \begin{tikzpicture}
+        % Draw triangle
+        \draw[black, thick] 
+            (0,0)
+                coordinate (a)
+            -- (4,0) 
+                coordinate (b)
+                node[midway, below] {$100$ ft}
+            -- (4,3) 
+                coordinate (c)
+                node [midway, right] {$7$ ft}
+            -- (0,0) 
+                node[midway, above=2mm] {$c$};
+        % Draw interior angles
+            \pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = a--c--b};
+            \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+        % Add the right angle signifiers 
+            \draw[] (4,0) rectangle (3.5,0.5);
+    \end{tikzpicture}
+    
+    All we really need to do here is take the tangent of $\theta$, do some arctangent nonsense and then convert our value of $\theta$ into degrees! Easy.
+    
+    \begin{align}
+        \tan(\theta) &= \frac{7}{100} \\
+        \theta &= \arctan \left( \frac{7}{100} \right) \\
+        \theta &\approx 0.0699 \; \text{radians} \\
+        \theta &\approx 0.0699 \; \text{radians} \cdot \frac{180\degree}{\pi} 
+    \end{align}
+    \[\boxed{\theta \approx 4\degree}\]
+\end{solution}
+
+
+\begin{problem}[23]
+    What grade is given by a $9.65\degree$ angle made by the road and the horizontal?
+\end{problem}
+
+\begin{solution}
+    \begin{align}
+        \phi &= 9.65\degree \\
+        \phi &\approx 9.65\degree \cdot \frac{\pi}{180\degree} \\
+        \phi &\approx 0.168 \; \text{radians} \\
+        \tan(0.168) &\approx 0.17
+    \end{align}
+    \[\boxed{\approx 17\%}\]
+\end{solution}

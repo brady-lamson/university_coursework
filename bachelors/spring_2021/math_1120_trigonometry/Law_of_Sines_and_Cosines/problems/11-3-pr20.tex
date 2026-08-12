@@ -1,0 +1,54 @@
+\begin{problem}[20]
+    From the Pedimaxus International Airport a tour helicopter can fly to Cliffs of Insanity Point by following a bearing of N$8.2\degree$ E for 192 miles and it can fly to Bigfoot Falls by following a bearing of S$68.5\degree$ E for 207 miles. Find the distance between Cliffs of Insanity Point and Bigfoot Falls. Round your answer to the nearest mile.
+\end{problem}
+
+\begin{solution}
+    \begin{tikzpicture}[scale=0.9]
+        % Draw triangle
+        \filldraw[black, thick] (0,0) circle (3pt) node[anchor=south east] {PIA} coordinate (a)
+            -- (3,5) circle (3pt) node[above=3pt] {CIP} coordinate (b)
+                node[midway, sloped, below] {$192$ mi}
+            -- (5,-5) circle (3pt) node[below=3pt] {BFF} coordinate (c)
+                node [midway, sloped, above left] {C}
+            -- (0,0) 
+                node[midway, sloped, below] {$207$ mi};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-6) node[below] {S} coordinate (s)
+                -- (0,6) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-6,0) node[left] {W} coordinate (w)
+                -- (6,0) coordinate (e)
+                node[right] {E};
+        %\draw[dashed] (0,-5) -- (c);
+        % Draw interior angles
+            \pic [draw=red, thick, "$\phi$", angle eccentricity=1.5, angle radius=0.7cm] 
+                {angle = a--b--c};
+            \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius =1.3cm] 
+                {angle = b--c--a};
+            \pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.25, angle radius = 1.3cm]
+                {angle = c--a--b};
+        % Draw exterior angles/define new coordinates for them
+            \path[] (a) -- (s) coordinate (sorg);
+            \path[] (a) -- (n) coordinate (norg);
+            \pic [draw=blue, thick, "$68.5\degree$", angle eccentricity=1.25, angle radius=1.5cm] 
+                {angle = sorg--a--c};
+            \pic [draw=blue, thick, "$8.2\degree$", angle eccentricity=1.25, angle radius=1.5cm] 
+                {angle = b--a--norg};
+    \end{tikzpicture}
+
+    So what's convenient about this setup is that $\gamma$ plus our two other known angles must equal $180\degree$. Our gameplan then is to calculate $\gamma$ and then $c$. \medskip
+    
+    Calculating $\gamma$:
+    \[\gamma = 180 - 8.2 - 68.5 = 103.3\degree\]
+    
+    Calculating $c$:
+    \begin{align}
+        c^2 &= a^2 + b^2 - (2 \cdot a \cdot b \cdot \cos(\gamma)) \\
+        c^2 &= 192^2 + 207^2 - (2 \cdot 192 \cdot 207 \cdot \cos(103.3\degree)) \\
+        c &= \sqrt{192^2 + 207^2 - (2 \cdot 192 \cdot 207 \cdot \cos(103.3\degree))} 
+    \end{align}
+    
+    \[\boxed{c \approx 313 \; \text{miles}}\]
+\end{solution}

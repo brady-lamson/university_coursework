@@ -1,0 +1,36 @@
+\begin{problem}[19]
+    A geologist wants to measure the diameter of a crater. From her camp, it is 4 miles to the northern-most point of the crater and 2 miles to the southern-most point. If the angle between the two lines of sight is $117\degree$ , what is the diameter of the crater? Round your answer to the nearest hundredth of a mile.
+\end{problem}
+
+\begin{solution}
+    First let's make a diagram of what we're working with. \bigskip
+    
+    \begin{tikzpicture}
+        \draw[] (0,0) circle (3);
+        \draw[thick] 
+        (0,3) coordinate (a) 
+            node [above] {N}
+            node [midway, sloped, right] {d}
+        -- (0,-3) coordinate (b) [below] 
+            node {S}
+        -- (-3,0) coordinate (c)
+            node [left] {Camp}
+            node [midway, below=2mm] {2}
+        -- (0,3)
+            node[midway, above=2mm] {4};
+        \pic [draw=red, thick, "$117 \degree$", angle eccentricity=1.5, angle radius = 1cm]
+            {angle = b--c--a};
+    \end{tikzpicture}
+    
+    We need to use the law of cosines to solve for $c$! We'll let $c = d$, $a = 4$, $b = 2$ and $\gamma = 117\degree$. \medskip
+    
+    Calculating $c$:
+    \begin{align}
+        c^2 &= a^2 + b^2 - (2 \cdot a \cdot b \cdot \cos(\gamma)) \\
+        d^2 &= 4^2 + 2^2 - (2 \cdot 4 \cdot 2 \cdot \cos(117\degree)) \\
+        d^2 &\approx 16 + 4 - (16 \cdot -0.454)\\
+        d &= \sqrt{20 + 7.26}
+    \end{align}
+    
+    \[\boxed{d \approx 5.22 \; \text{miles}}\]
+\end{solution}

@@ -1,0 +1,48 @@
+\begin{problem}[1.]
+    $z = 9 + 9i$
+\end{problem}
+
+\begin{solution}
+    The vast majority of this problem can be solved by utilizing the information provided in \textbf{theorem 1}. As such I'll be doing just that. I know the problem states to find a polar representation first, but I'll be doing it last. Let's first define our variables and figure out some basic stuff. \medskip
+    
+    Our given format for a complex number is $z = a + bi$ and we also know that $a = Re(z)$ and $b = Im(z)$. Since this first problem is nice and clean we can easily state the following. 
+    
+    \[z = a + bi\]
+    \[a = 9 \; \text{and} \; b = 9\]
+    \[ \boxed{9 = Re(z)} \; \text{and} \; \boxed{ 9 = Im(z) }\]
+    
+    We can can also represent this equation in rectangular coordinates as $P(a, b)$ and, by extension, $P(9, 9)$. This is particularly useful to do as it gives us insight into what quadrant we're in. Since both $a$ and $b$ are positive, we're in quadrant 1. Next we'll solve for $r$.
+    
+    \begin{align}
+        r^2 &= a^2 + b^2 \\
+        r^2 &= 9^2 + 9^2 \\
+        r &= \sqrt{162}
+    \end{align}
+    \[\boxed{r = \pm 9\sqrt{2}}\]
+    
+    For \textbf{theorem 1} to properly work we need a positive value of $r$, so we'll choose that one.
+    
+    Since $|z| = r$:
+    \[\boxed{|z| = 9\sqrt{2}}\]
+    
+    Next up is $\theta$.
+    \begin{align}
+        \tan(\theta) = \frac{b}{a} \\
+        \tan(\theta) = \frac{9}{9} \\ 
+        \tan(\theta) = 1
+    \end{align}
+    \[\boxed{ \theta = \frac{\pi}{4} + 2\pi k \; \text{for integers k} }\]
+    
+    $arg(z)$ uses a fairly similar format to the above, we just adjust it as such.
+    \[\boxed{ arg(z) = \left\{ \frac{\pi}{4} + 2\pi k \; | \; \text{k is an integer} \right\} }\]
+    
+    \pagebreak 
+    
+    We're just about done here. Next up is the principal argument, $Arg(g)$, which limits $\theta$ to being between $-\pi$ and $\pi$. That one's easy. It's just $\frac{\pi}{4}$. 
+    \[\boxed{Arg(z) = \frac{\pi}{4}}\]
+    
+    Lastly, we finally have all the tools we need to fit this into a polar representation. We refer to \textbf{theorem 4} for the format we desire. Double checking with the answer in the back of the book helps as well! It's important to note that "cis" in this instance is an abbreviated form of $\cos(\theta) + i \sin(\theta)$ and that abbreviated form is what we need.
+    
+    \[ |z|cis(\theta) = |z| [\cos(\theta) + i \sin(\theta)] \]
+    \[\boxed{ \text{Polar Rep.} \; = 9\sqrt{2} \; cis \left( \frac{\pi}{4} \right) }\]
+\end{solution}

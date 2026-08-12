@@ -1,0 +1,47 @@
+\begin{problem}[15.]
+    $\beta = 102\degree, b = 16.75, c = 13$
+\end{problem}
+
+\begin{solution}
+    Calculating $h$: ($\beta, b$ and $c$ are given)
+    \begin{align}
+        h &= c \cdot \sin(\beta) \\
+        h &= 13 \cdot \sin(102\degree) \\
+        h &\approx 12.7159 \\
+        12.7159 &< 13 < 16.75 \\
+    \end{align}
+    
+    Because $b \geq c$, $\gamma$ is acute and we need to solve for one triangle. \medskip
+    
+    Calculating $\gamma$:
+    \begin{align}
+       \frac{sin(\beta)}{b} &= \frac{sin(\gamma)}{c} \\
+       \sin(\gamma) &= \frac{\sin(\beta) \cdot c}{b} \\
+       \sin(\gamma) &= \frac{\sin(102\degree) \cdot 13}{16.75} \\
+       \sin(\gamma) &= 0.7592 \\
+       \gamma &= \arcsin(0.7592)
+   \end{align}
+   \[\boxed{ \gamma \approx 49.39\degree}\]
+   
+   Calculating $\alpha$:
+   \begin{align}
+       \alpha = 180\degree - \beta - \gamma \\
+       \alpha = 180\degree - 102\degree - 43.39\degree 
+   \end{align}
+   \[\boxed{\alpha \approx 28.61 \degree}\]
+   
+   Calculating $a$:
+    \begin{align}
+       \frac{sin(\alpha)}{a} &= \frac{sin(\beta)}{b} \\
+       a &= \frac{\sin(\alpha) \cdot b}{\sin(\beta)} \\
+       a &= \frac{\sin(28.61\degree) \cdot 16.75}{\sin(102\degree)}
+   \end{align}
+   \[\boxed{ a \approx 8.199 }\]
+   
+    \begin{subequations}
+        \begin{empheq}[box=\widefbox]{align}
+            a \approx 8.20 && b = 16.75 && c = 13 \\
+            \alpha \approx 28.61\degree && \beta = 102\degree && \gamma \approx 49.39\degree
+        \end{empheq}
+    \end{subequations}
+\end{solution}

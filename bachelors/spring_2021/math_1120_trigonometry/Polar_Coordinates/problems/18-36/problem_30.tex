@@ -1,0 +1,58 @@
+\begin{problem}[30.]
+    $\left( 5, \arctan\left( -\frac{4}{3} \right) \right)$    
+\end{problem}
+
+\begin{solution}
+    Note: Let $\arctan\left( -\frac{4}{3} \right) = \theta$ \medskip
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw triangle
+            \draw[black, thick] 
+                (0,0)
+                    coordinate (a)
+                -- ++(-4,0) 
+                    coordinate (b)
+                    node[midway, above] {$3$}
+                -- ++(0,-3) 
+                    coordinate (c)
+                    node [midway, left] {$-4$}
+                -- (a) 
+                    node[midway, below=2mm] {$c$};
+            % Draw interior angles
+                %\pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.5, angle radius=1cm] 
+                    {angle = a--c--b};
+                \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius = 1cm]
+                    {angle = b--a--c};
+            % Add the right angle signifiers
+                \path (b) -- 
+                    ++(0.5,-0.5) coordinate (r);
+                \draw[] (b) rectangle (r);
+        \end{tikzpicture}    
+    \end{center}
+    
+    \medskip
+    
+    Calculating $c$:
+    \begin{align}
+        c^2 &= -4^2 + 3^2 \\
+        c &= 5
+    \end{align}
+    
+    Calculating $x$:
+    \begin{align}
+        x &= r \cdot \cos(\theta) \\
+        x &= 5 \cdot \cos \left( \arctan\left( -\frac{4}{3} \right) \right) \\
+        x &= 5 \cdot \frac{3}{5} \\
+        x &= 3
+    \end{align}
+    
+    Calculating $y$:
+    \begin{align}
+        y &= r \cdot \sin(\theta) \\
+        y &= 5 \cdot \sin \left( \arctan\left( -\frac{4}{3} \right) \right) \\
+        y &= 5 \cdot -\frac{4}{5} \\
+        y &= -4
+    \end{align}
+    
+    \[\boxed{ (3, -4) }\]
+\end{solution}

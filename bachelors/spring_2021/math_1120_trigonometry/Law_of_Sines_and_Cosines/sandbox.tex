@@ -1,0 +1,25 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{angles, quotes}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{pst-coil}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{empheq}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\pgfplotsset{compat=1.17}
+
+
+\begin{document}
+    
+Suppose $(\alpha, a)$ and $(\gamma, c)$ are intended to be angle-side pairs in a triangle where $\alpha, a$ and $c$ are given. Let $h = c \cdot \sin(\alpha)$
+    
+        If $a < h$, then no triangle exists which satisfies the given criteria 
+        If $a = h$, then $\gamma = \frac{\pi}{2}$ so exactly one (right) triangle exists which satisfies the criteria.
+        If $h < a < c$, then two distinct triangles exist which satisfy the given criteria.
+        if $a \geq c$, then $\gamma$ is acute and exactly one triangle exists which satisfies the given criteria.
+\end{document}

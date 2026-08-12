@@ -1,0 +1,61 @@
+\begin{problem}[13.]
+    $P\left( -3, -\frac{11\pi}{6} \right)$
+\end{problem}
+\begin{solution}
+    \begin{center}    
+        \begin{tikzpicture}
+            % Draw axis
+                \draw[dashed, thick, <->] 
+                    (-3,0) coordinate (w)
+                    -- (3,0) coordinate (e);
+                \draw[dashed, thick, <->] 
+                    (0,3) coordinate (n)
+                    -- (0,-3) coordinate (s);
+            % Coordinates
+                \filldraw[black] (0,0) circle (2pt) 
+                    coordinate (a);
+                \filldraw[black] 
+                    (a)++(-2,-1) circle (2pt)
+                    coordinate (b)
+                    node[above] {$P$};
+            % Lines
+                \draw[thick, black] (a) -- (b);
+            % Angles
+                % Positive theta
+                    %\pic [draw=blue, thick, ->, "$\frac{\pi}{3}$", angle eccentricity=1.25, angle radius=1.25cm] 
+                        {angle = e--a--b};
+                    \pic [draw=blue, thick, ->, "$\frac{\pi}{6}$", angle eccentricity=1.3, angle radius=1cm]
+                        {angle = w--a--b};
+                    \pic [draw=black, thick, <-, "$-\frac{11\pi}{6}$", above, angle eccentricity=1.4, angle radius=0.8cm]
+                        {angle=b--a--w};
+                % Negative Theta
+                    \pic [draw=red, thick, <-, "$-\frac{5\pi}{6}$", angle eccentricity=1.2, angle radius=1.5cm]
+                        {angle = b--a--e};
+                % Theta > 360 degrees
+                    %\pic [draw=orange, ultra thick, ->, "c", angle eccentricity=1.25, angle radius=1.75cm]
+                        {angle = e--a--b};
+                        % This makes a circle to emulate \theta > 360\degrees
+                        %\draw[thick, orange, ->] (0,0) circle (50pt);
+        \end{tikzpicture}
+    \end{center}
+
+    a) $r < 0$ and $0 \leq \theta \leq 2\pi$ \medskip
+        
+        Our radius stays the same here. We now just need a positive angle. Since our given angle is $\frac{\pi}{6}$ short of one full rotation we know by inspection our new angle is exactly that, $\frac{\pi}{6}$.
+        
+        \[\boxed{\left( -3, \frac{\pi}{6} \right)}\]
+        
+    b) $r > 0$ and $\theta \leq 0$ \medskip
+    
+        Since we're starting from the positive x-axis now we can find our new angle by just taking $\pi$ from our given angle. We skip over half a circles worth of rotation after all. Keep in mind this is a negative angle so we're actually adding. 
+        
+        \[-\frac{11\pi}{6} + \frac{6\pi}{6}\]
+        \[\boxed{\left( 3, -\frac{5\pi}{6} \right)}\]
+        
+    c) $r > 0$ and $\theta \geq 2\pi$ \medskip
+        
+        From the positive x-axis it takes us $\frac{7\pi}{6}$ to reach our point normally if we're using a positive angle. That's half a rotation plus the $\frac{\pi}{6}$ we covered in part a. From there we just need an equivalent angle that's greater than $2\pi$. Easy.
+        
+        \[\frac{7\pi}{6} + \left( \frac{12\pi}{6} \right)\]
+        \[\boxed{ \left( 3, \frac{19\pi}{6} \right)  }\]
+\end{solution}        

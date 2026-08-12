@@ -1,0 +1,60 @@
+\begin{problem}[34.]
+    $\left( \frac{2}{3}, \pi + \arctan\left( 2\sqrt{2} \right) \right)$    
+\end{problem}
+
+\begin{solution}
+    Note: Let $\left( \pi + \arctan\left( 2\sqrt{2} \right) = \theta \right)$. Due to the $+ \pi$ we'll be moved from the first quadrant to the third, resulting in a negative cosine and sine. \medskip
+    
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw triangle
+            \draw[black, thick] 
+                (0,0)
+                    coordinate (a)
+                -- ++(-4,0) 
+                    coordinate (b)
+                    node[midway, above] {$-1$}
+                -- ++(0,-3) 
+                    coordinate (c)
+                    node [midway, left] {$-2\sqrt{2}$}
+                -- (a) 
+                    node[midway, below=2mm] {$c$};
+            % Draw interior angles
+                %\pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.5, angle radius=1cm] 
+                    %{angle = a--c--b};
+                \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius = 1cm]
+                    {angle = b--a--c};
+            % Add the right angle signifiers
+                \path (b) -- 
+                    ++(0.5,-0.5) coordinate (r);
+                \draw[] (b) rectangle (r);
+        \end{tikzpicture}    
+    \end{center}
+    
+    \medskip
+    
+    Calculating $c$:
+    \begin{align}
+        c^2 &= -1^2 + -\sqrt{2}^2 \\
+        c^2 &= 9 \\
+        c &= 3
+    \end{align}
+    
+    Calculating $x$:
+    \begin{align}
+        x &= r \cdot \cos(\theta) \\
+        x &= \frac{2}{3} \cdot \cos \left( \theta \right) \\
+        x &= \frac{2}{3} \cdot -\frac{1}{3} \\
+        x &= -\frac{2}{9}
+    \end{align}
+    
+    Calculating $y$:
+    \begin{align}
+        y &= r \cdot \sin(\theta) \\
+        y &= \frac{2}{3} \cdot \sin \left( \theta \right) \\
+        y &= \frac{2}{3} \cdot -\frac{2\sqrt{2}}{3} \\
+        y &= -\frac{4\sqrt{2}}{9}
+    \end{align}
+    
+    \[\boxed{ \left( -\frac{2}{9}, -\frac{4\sqrt{2}}{9} \right) }\]
+\end{solution}

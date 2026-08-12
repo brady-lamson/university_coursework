@@ -1,0 +1,56 @@
+\begin{problem}[9.]
+    $P(-20, 3\pi)$
+\end{problem}
+\begin{solution}
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw axis
+                \draw[dashed, thick, <->] 
+                    (-3,0) coordinate (w)
+                    -- (3,0) coordinate (e);
+                \draw[dashed, thick, <->] 
+                    (0,3) coordinate (n)
+                    -- (0,-3) coordinate (s);
+            % Coordinates
+                \filldraw[black] (0,0) circle (2pt) 
+                    coordinate (a);
+                \filldraw[black] 
+                    (a)++(2.5,0) circle (2pt)
+                    coordinate (b)
+                    node[above] {$P$};
+            % Lines
+                \draw[ultra thick, red] (a) -- (b);
+            % Angles
+                % Positive theta
+                    %\pic [draw=blue, thick, ->, "$\frac{\pi}{3}$", angle eccentricity=1.25, angle radius=1.25cm] 
+                        {angle = e--a--b};
+                    \pic [draw=blue, thick, ->, "$\pi$", left, angle eccentricity=1.4, angle radius=1cm]
+                        {angle = w--a--b};
+                % Negative Theta
+                    %\pic [draw=red, thick, <-, "$-\frac{7\pi}{6}$", angle eccentricity=1.4, angle radius=1.4cm]
+                        {angle = b--a--e};
+                % Theta > 360 degrees
+                    \pic [draw=black, ultra thick, ->, "$3\pi$", above, angle eccentricity=1.6, angle radius=0.5cm]
+                        {angle = e--a--b};
+                        % This makes a circle to emulate \theta > 360\degrees
+                        \draw[thick, black, ->] (0,0) circle (15pt);
+        \end{tikzpicture}
+    \end{center}
+    a) $r < 0$ and $0 \leq \theta \leq 2\pi$ \medskip
+        
+        Our radius is already negative so we just need a smaller, equivalent angle. By inspection we can tell that is simply $180\degree$ or $1 \pi$.
+        
+        \[\boxed{\left( -20, \pi \right)}\]
+        
+    b) $r > 0$ and $\theta \leq 0$ \medskip
+    
+        Since we have a positive radius now we start from the positive x-axis and just do one full loop around going clockwise for a negative angle. That's simply $-2\pi$. Keep it simple.
+        
+        \[\boxed{\left( 20, -2\pi \right)}\]
+        
+    c) $r > 0$ and $\theta \geq 2\pi$ \medskip
+        
+        Same as last time except we just need that $2\pi$ to be positive. 
+        
+        \[\boxed{ \left( 20, 2\pi \right)  }\]
+\end{solution}        

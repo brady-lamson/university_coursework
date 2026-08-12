@@ -1,0 +1,80 @@
+\begin{problem}[81.]
+Recall that given a complex number $z = a + bi$ it's complex conjugate, denoted $\conj{z}$, is given by $\conj{z} = a - bi$.
+
+\begin{enumerate}[(a)]
+    \item Prove that $|\conj{z}| = |z|$
+    \item Prove that $|z| = \sqrt{z \cdot \conj{z}}$
+    \item Show that $Re(z) = \frac{z + \conj{z}}{2}$ and $Im(z) = \frac{z - \conj{z}}{2i}$
+    \item Show that if $\theta \in arg(z)$ then $-\theta \in arg(\conj{z})$. Interpret this result geometrically. 
+\end{enumerate} 
+\end{problem}
+
+\begin{solution}[(a) Prove that $|\conj{z}| = |z|$]
+
+    \begin{align}
+        z = a + bi && \conj{z} = a - bi \\
+        Re(z) = a && Re(\conj{z}) = a \\
+        Im(z) = b && Im(\conj{z}) = -b
+    \end{align}
+    
+    \[|z| = \sqrt{Re(z)^2 + Im(z)^2} = \sqrt{a^2 + b^2}\]
+    \[|\conj{z}| = \sqrt{Re(\conj{z})^2 + Im(\conj{z})^2} = \sqrt{a^2 + (-b)^2}\]
+    \[\sqrt{a^2 + (b)^2} = \sqrt{a^2 + (-b)^2}\]
+    \[|z| = |\conj{z}|\]
+\end{solution}
+
+\hrule \medskip 
+
+\begin{solution}[(b) Prove that $|z| = \sqrt{z \cdot \conj{z}}$]
+    \begin{align}
+        \sqrt{z \cdot \conj{z}} &= \sqrt{(a + bi) \cdot (a - bi)} \\
+        &= \sqrt{a^2 - abi + abi - bi^2} \\
+        &= \sqrt{a^2 - bi^2} \\
+        i^2 &= -1 \\
+        \sqrt{z \cdot \conj{z}} &= \sqrt{a^2 + b^2} = |z|
+    \end{align}
+\end{solution}
+
+\hrule \medskip 
+
+\begin{solution}[(c) Show that $Re(z) = \frac{z + \conj{z}}{2}$ and $Im(z) = \frac{z - \conj{z}}{2i}$]
+    \begin{align}
+        Re(z) &= \frac{z + \conj{z}}{2} \\
+        &= \frac{(a+bi) + (a - bi)}{2} \\
+        &= \frac{2a}{2} = a \\
+        Re(z) &= a = \frac{z + \conj{z}}{2} 
+    \end{align}
+    
+    \pagebreak 
+    
+    \begin{align}
+        Im(z) &= \frac{z - \conj{z}}{2i} \\
+        &= \frac{(a+bi) - (a - bi)}{2i} \\
+        &= \frac{2bi}{2i} = b \\
+        Im(z) &= b = \frac{z - \conj{z}}{2i} 
+    \end{align}
+\end{solution}
+
+\hrule \medskip 
+
+\begin{solution}[(d) Show that if $\theta \in arg(z)$ then $-\theta \in arg(\conj{z})$. Interpret this result geometrically.]
+    . \linebreak 
+    
+    For this we'll let $\phi$ be an angle for $\conj{z}$ and $\theta$ will be an angle for $z$.
+    
+    \[Im(\conj{z}) = -Im(z)\]
+    \[Re(\conj{z}) = Re(z)\]
+    
+    \[\theta = arctan \left( \frac{Im(z)}{Re(z)} \right) \]
+    \[ \phi = arctan \left( \frac{Im(\conj{z})}{Re(\conj{z})} \right) \] 
+    
+    Due to the above relationships this can otherwise be written as:
+    
+    \[ \phi = arctan \left( \frac{-Im(z)}{Re(z)} \right) \]
+    
+    Therefore: 
+    
+    \[\phi = -\theta\]
+    
+    I'm not 100\% sure where to go from here. How do I fit this into the argument format? I know this final step is incredibly simple but it just isn't quite clicking for me. 
+\end{solution}

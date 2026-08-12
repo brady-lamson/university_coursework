@@ -1,0 +1,88 @@
+\begin{problem}[13.]
+    $a = 57$, $\alpha = 6\degree$, $b = 100$
+\end{problem}
+
+\begin{solution}
+   \[\alpha = 6\degree \cdot \frac{\pi}{180\degree} = 0.1047 \; \text{radians}\] 
+   
+   Calculating $\beta$:
+   \begin{align}
+       \frac{sin(\alpha)}{a} &= \frac{sin(\beta)}{b} \\
+       \sin(\beta) &= \frac{b \cdot \sin(\alpha)}{a} \\
+       \sin(\beta) &= \frac{100 \cdot \sin(0.1047)}{57} \\
+       \sin(\beta) &= 0.1833 \\
+       \beta &= arcsin(0.1833)
+   \end{align}
+   \[\boxed{ \beta \approx 0.1843 \; \text{radians}  }\]
+    
+   Calculating $\gamma$:
+    \begin{align}
+        \alpha + \beta + \gamma &= \pi \\
+        0.1047 + 0.1843 + \gamma &= \pi \\
+        \gamma &= \pi - 0.1047 - 0.1843
+    \end{align}
+    \[\boxed{  \gamma \approx 2.853 \; \text{radians}  }\]
+    
+    Calculating $c$:
+    \begin{align}
+        \frac{\sin(\alpha)}{a} &= \frac{\sin(\gamma)}{c} \\
+        c &= \frac{\sin(\gamma) \cdot a}{\sin(\alpha)} \\
+        c &= \frac{\sin(2.853) \cdot 57}{\sin(0.1047)}
+    \end{align}
+    \[\boxed{ c \approx 155.225  }\]
+    
+    Testing for number of solutions: 
+    \begin{align}
+        h &= c \cdot \sin(\alpha) \\
+        h &= 155.225 \cdot \sin(0.1047) \\
+        h &\approx 16.222 \\
+    \end{align}
+    
+    What we find here is that $h < a < c$, so we have \textbf{two} possible solutions to this problem. We aren't done yet. Let's think again about exactly \emph{what} we're trying to even do here. We're given a single angle and two sides at the beginning. Those are our restrictions. The problem is asking what triangles, if any at all, can be made using these restrictions. In other words, we can play around with what isn't restricted. That being 1 side and 2 angles. 
+    
+    \pagebreak
+    
+    Looking again at what we're given at the beginning, let's solve for $\beta$. To really hammer home why this can be done using two different values of $\beta$ let's use a basic example.
+    
+    \[sin(\theta) = \frac{1}{2}\]
+    \[arcsin\left( \frac{1}{2} \right) = \theta\]
+    \[\theta = \frac{\pi}{6}, \frac{5\pi}{6}, \frac{13\pi}{6}, \frac{17\pi}{6}, ...\]
+    \[\theta = 30\degree, 150\degree, 390\degree, 510\degree, ...\]
+    
+    There are multiple possible options here depending on what you're restricted to! \emph{So}, to get to the point solving for our other value of $\beta$ is easy! We subtract it from $\pi$ (or $180\degree$)! Since $\alpha$ is set to $6\degree$ we're restricted to $0 < \beta < 174\degree$. If the result doesn't fall within that range of we know it can't be done. Note: $174\degree \approx 3.036$ radians.
+    
+    Solving for $\beta_1$:
+    \begin{align}
+        \beta_0 + \beta_1 = \pi \\
+        \beta_1 = \pi - \beta_0 \\
+        \beta_1 = \pi - 0.1843
+    \end{align}
+    \[\boxed{\beta_1 \approx 2.957 \; \text{radians}}\]
+    
+    Solving for $\gamma_1$: 
+    \begin{align}
+        \beta_1 + \gamma_1 \approx 3.036 \\
+        \gamma_1 \approx 3.036 - 2.957
+    \end{align}
+    \[\boxed{\gamma_1 \approx 0.079 \; \text{radians}}\]
+    
+    Both fall within our restricted range so we're good to go! All we do now is solve for $c$ and we're done! 
+    
+    Calculating $c_1$:
+    \begin{align}
+        \frac{\sin(\beta_1)}{b} &= \frac{\sin(\gamma_1)}{c_1} \\
+        c_1 &= \frac{\sin(\gamma_1) \cdot b}{\sin(\beta_1)} \\
+        c_1 &= \frac{\sin(0.079) \cdot 100}{\sin(2.957)}
+    \end{align}
+    \[\boxed{ c_1 \approx 42.99  }\]
+    
+    \begin{subequations}
+        \begin{empheq}[box=\widefbox]{align}
+            a = 57 && b = 100 && c \approx 155.225 \\
+            \alpha \approx 0.1047 \; \text{rad} && \beta \approx 0.1843 \; \text{rad} && \gamma \approx 2.853 \; \text{rad} \\
+            \\
+            a = 57 && b = 100 && c_1 \approx 42.99 \\
+            \alpha \approx 0.1047 \; \text{rad} && \beta_1 \approx 2.957 \; \text{rad} && \gamma_1 \approx 0.079 \; \text{rad}
+        \end{empheq}
+    \end{subequations}
+\end{solution}

@@ -1,0 +1,61 @@
+\begin{problem}[5.]
+    $P\left( 12, -\frac{7\pi}{6} \right)$
+\end{problem}
+\begin{solution}
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw axis
+                \draw[dashed, thick, <->] 
+                    (-3,0) coordinate (w)
+                    -- (3,0) coordinate (e);
+                \draw[dashed, thick, <->] 
+                    (0,3) coordinate (n)
+                    -- (0,-3) coordinate (s);
+            % Coordinates
+                \filldraw[black] (0,0) circle (2pt) 
+                    coordinate (a);
+                \filldraw[black] 
+                    (a)++(-2,1) circle (2pt)
+                    coordinate (b)
+                    node[above] {$P$};
+            % Lines
+                \draw[thick, black] (a) -- (b);
+            % Angles
+                % Positive theta
+                    %\pic [draw=blue, thick, ->, "$\frac{\pi}{3}$", angle eccentricity=1.25, angle radius=1.25cm] 
+                        {angle = e--a--b};
+                    \pic [draw=blue, thick, ->, "$\frac{11\pi}{6}$", angle eccentricity=1.4, angle radius=0.8cm]
+                        {angle = w--a--b};
+                    \pic [draw=black, thick, "$\frac{\pi}{6}$", angle eccentricity=1.4, angle radius=0.7cm]
+                        {angle=b--a--w};
+                % Negative Theta
+                    \pic [draw=red, thick, <-, "$-\frac{7\pi}{6}$", angle eccentricity=1.4, angle radius=1.4cm]
+                        {angle = b--a--e};
+                % Theta > 360 degrees
+                    %\pic [draw=orange, ultra thick, ->, "c", angle eccentricity=1.25, angle radius=1.75cm]
+                        {angle = e--a--b};
+                        % This makes a circle to emulate \theta > 360\degrees
+                        %\draw[thick, orange, ->] (0,0) circle (50pt);
+        \end{tikzpicture}
+    \end{center}
+    a) $r < 0$ and $0 \leq \theta \leq 2\pi$ \medskip
+        
+        For this our radius will be negative so we can start our angle on the negative x axis and go counter-clockwise to reach our point. To get our new radius we can be a little clever. $-\frac{7\pi}{6}$ goes $\frac{\pi}{6}$ past the negative x-axis. Based on that we know that an angle wrapping all the way around to our point will be $2\pi - \frac{\pi}{6}$.
+        
+        \[\frac{12\pi}{6} - \frac{\pi}{6}\]
+        \[\boxed{\left( -12, \frac{11\pi}{6} \right)}\]
+        
+    b) $r > 0$ and $\theta \leq 0$ \medskip
+    
+        We can keep our radius the same and simply change our angle. To do so we can just subtract $2\pi$ from it to keep the angle equivalent. 
+        
+        \[-\frac{7\pi}{6} - \frac{12\pi}{6}\]
+        \[\boxed{\left( 12, -\frac{19\pi}{6} \right)}\]
+        
+    c) $r > 0$ and $\theta \geq 2\pi$ \medskip
+        
+        Same thing, different direction. We need to add $2\pi$ to our given angle. Sadly doing so will still result in an angle that's too small. So we need to do it twice. 
+        
+        \[-\frac{7\pi}{6} + 2\cdot \left( \frac{12\pi}{6} \right)\]
+        \[\boxed{ \left( 12, \frac{17\pi}{6} \right)  }\]
+\end{solution}        

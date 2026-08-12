@@ -1,0 +1,79 @@
+\begin{problem}[98.]
+    Use the Law of Cosines to develop a formula for the distance between two points in polar coordinates.
+\end{problem}
+
+\begin{problem}[Theorem 3. Law of Cosines:]
+    Given a triangle with angle-side opposite pairs $(\alpha, a), (\beta, b), (\gamma, c)$, the following equations hold:
+    
+    \begin{align}
+        \notag a^2 = b^2 + c^2 - 2 \cdot b \cdot c \cdot cos(\alpha) && b^2 = a^2 + c^2 - 2 \cdot a \cdot c \cdot cos(\beta) && c^2 = a^2 + b^2 - 2 \cdot a \cdot b \cdot cos(\gamma)
+    \end{align}
+    
+    or, solving for the cosine in each equation, we have
+    
+    \begin{align}
+        \notag \cos(\alpha) = \frac{b^2 + c^2 - a^2}{2bc} && \cos(\beta) = \frac{a^2 + c^2 - b^2}{2ac} && \cos(\gamma) = \frac{a^2 + b^2 - c^2}{2ab}
+    \end{align}
+\end{problem}
+
+\begin{solution}
+    Here was the first solution I came up with. It is simply a conversion of the distance formula to polar coordinates. I personally don't think this is sufficient though.  \bigskip
+    
+    Normal distance formula:
+    \[d_{cart} = \sqrt{ (x_1 - x_0)^2 + (y_1 - y_0)^2 } \]
+    
+    To use this format we need to convert. \bigskip 
+    
+    Converted to polar coordinates:
+    \[ d_{polar} = \sqrt{ ((r_1 \cos(\gamma)) - (r_0 \cos(\theta)))^2 + ((r_1 \sin(\gamma)) - (r_0 \sin(\theta)))^2  }  \]
+    
+    My second solution I think is more robust and ignores none of the given parameters in the problem. It would be best to represent this solution with a diagram. The breakdown will be on the following page. 
+    
+    \begin{tikzpicture}[scale=0.9]
+        % Draw interior triangle
+        \filldraw[black, thick] (0,0) circle (3pt) coordinate (a)
+            -- (3,5) circle (3pt) node[above=3pt] {$(r_0 , \theta)$} coordinate (b)
+                node[midway, sloped, above] {$r_0$}
+            -- (5,-5) circle (3pt) node[below=3pt] {$(r_1 , \gamma)$} coordinate (c)
+                node [midway, sloped, above left] {$d$}
+            -- (0,0) 
+                node[midway, sloped, below] {$r_1$};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-6) node[below] {S} coordinate (s)
+                -- (0,6) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-6,0) node[left] {W} coordinate (w)
+                -- (6,0) coordinate (e)
+                node[right] {E};
+        % Draw interior angles
+            \pic [draw=blue, thick, "$\phi$", angle eccentricity=1.2, angle radius=1.75cm] 
+                {angle = c--a--b};
+            \pic [draw=black, thick, ->, "$\gamma$", angle eccentricity=1.5, angle radius =0.7cm] 
+                {angle = e--a--c};
+            \pic [draw=red, thick, ->, "$\theta$", angle eccentricity=1.2, angle radius = 1cm]
+                {angle = e--a--b};
+            \pic [draw=purple, thick, "$\alpha$", angle eccentricity=1.25, angle radius=1.25cm] 
+                {angle = c--a--e};
+        % Draw exterior angles/define new coordinates for them
+            \path[] (a) -- (s) coordinate (sorg);
+            \path[] (a) -- (n) coordinate (norg);
+            %\pic [draw=blue, thick, "$68.5\degree$", angle eccentricity=1.25, angle radius=1.5cm] 
+                %{angle = sorg--a--c};
+    \end{tikzpicture}
+    
+    Since both points we're using are based from the origin we can easily construct a triangle and solve using the law of cosines! The distance between points will be the side opposite our given angles. Since we have two sides represented by our two radii once we can get a working angle out of this mess we can solve. Let's do that. \medskip
+    
+    Our first step is to solve for $\alpha$ using $\theta$ and $\gamma$! What we know about $\alpha$ is that, by construction, it is simply the difference between $\gamma$ and a full rotation, otherwise represented by $2\pi - \gamma$ when $\gamma > 0$\footnote{When $\gamma < 0$ use $2\pi + \gamma$ instead}. From there, we can solve for $\phi$ by simply adding $\alpha$ and $\theta$ together.
+    
+    \begin{align}
+        \alpha = 2\pi - \gamma \\
+        \phi = \alpha + \theta 
+    \end{align}
+    
+    From here we simply use the law of cosines.
+    
+    \[d^2 = r_0^2 + r_1^2 - 2 \cdot r_0 \cdot r_1 \cdot \cos(\phi)\]
+    \[\boxed{d = \sqrt{r_0^2 + r_1^2 - 2 \cdot r_0 \cdot r_1 \cdot \cos(\phi)}}\]
+\end{solution}

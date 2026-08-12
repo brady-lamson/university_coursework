@@ -1,0 +1,60 @@
+\begin{problem}[1.]
+    $P \left( 2, \frac{\pi}{3} \right)$
+\end{problem}
+\begin{solution}
+    \begin{center}
+        \begin{tikzpicture}
+            % Draw axis
+                \draw[dashed, thick, <->] 
+                    (-3,0) coordinate (w)
+                    -- (3,0) coordinate (e);
+                \draw[dashed, thick, <->] 
+                    (0,3) coordinate (n)
+                    -- (0,-3) coordinate (s);
+            % Coordinates
+                \filldraw[black] (0,0) circle (2pt) 
+                    coordinate (a);
+                \filldraw[black] 
+                    (a)++(1,2) circle (2pt)
+                    coordinate (b)
+                    node[above] {$P$};
+            % Lines
+                \draw[thick, black] (a) -- (b);
+            % Angles
+                % Positive theta
+                    \pic [draw=blue, thick, ->, "$\frac{\pi}{3}$", angle eccentricity=1.25, angle radius=1.25cm] 
+                        {angle = e--a--b};
+                    \pic [draw=black, thick, ->, "$\frac{4\pi}{3}$", angle eccentricity=1.4, angle radius=0.8cm]
+                        {angle = w--a--b};
+                % Negative Theta
+                    \pic [draw=red, thick, <-, "$-\frac{5\pi}{3}$", angle eccentricity=1.5, angle radius=1.5cm]
+                        {angle = b--a--e};
+                % Theta > 360 degrees
+                    %\pic [draw=orange, ultra thick, ->, "c", angle eccentricity=1.25, angle radius=1.75cm]
+                        {angle = e--a--b};
+                        % This makes a circle to emulate \theta > 360\degrees
+                        %\draw[thick, orange, ->] (0,0) circle (50pt);
+        \end{tikzpicture}
+    \end{center}
+    
+    a) $r < 0$ and $0 \leq \theta \leq 2\pi$ \medskip
+        
+        For this our radius will be negative so we can start our angle on the negative x axis and go counter-clockwise to reach our point. To get our new radius just flip our given radius' sign. To calculate $\theta$ we just add $\pi$ to our given angle.
+        
+        \[\frac{\pi}{3} + \frac{3\pi}{3}\]
+        \[\boxed{\left( -2, \frac{4\pi}{3} \right)}\]
+        
+    b) $r > 0$ and $\theta \leq 0$ \medskip
+    
+        Here our radius will stay the same but we need a negative angle instead. To accomplish this we can just subtract $2\pi$ from our angle. 
+        
+        \[\frac{\pi}{3} - \frac{6\pi}{3}\]
+        \[\boxed{\left( 2, -\frac{5\pi}{3} \right)}\]
+        
+    c) $r > 0$ and $\theta \geq 2\pi$ \medskip
+        
+        This final part will have the same radius again, but we need an angle larger than $2\pi$. We just now add $2\pi$ to our given angle. 
+        
+        \[\frac{\pi}{3} + \frac{6\pi}{3}\]
+        \[\boxed{ \left( 2, \frac{7\pi}{3} \right)  }\]
+\end{solution}

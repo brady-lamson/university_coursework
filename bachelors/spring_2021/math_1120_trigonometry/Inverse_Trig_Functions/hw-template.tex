@@ -1,0 +1,64 @@
+\documentclass[10pt,letterpaper]{amspset}
+\usepackage{fullpage}
+
+%notice the use of the \newcommand command.  It's making your life a little easier by defining commands that you can use later.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+% info for header block in upper right hand corner
+\name{Your Name}
+\class{MATH 1120 SPRING 2021}
+\assignment{Homework Part \#}
+\duedate{Due Date}
+
+
+
+\begin{document}
+
+\problemlist{Sample homework template title (perhaps name this after the module heading for your records)}
+
+ I've never had a student so gung-ho on using \LaTeX! Good job! To help you in your typing and to give you something to even improve upon if you choose, I've prepared this \LaTeX document for you to use.  You will also need the \texttt{*.cls} file included in the zip file; save it in your directory for each HW assignment or, if you know how, put it with your other \texttt{*.cls} files.  Also, be sure to be reading "Math written well" by Dr. Francis Su (in the 'resources' module on Canvas).
+
+\begin{problem}[1.]
+ This is the problem statement.
+\end{problem}
+
+\begin{solution}[Solution]
+
+Here are some suggestions on how to better display your mathematics.  To display calculations, use the align environment:
+
+\begin{align}
+\notag x+5&=7\\	
+3x&=2\\
+\notag x&=\frac{2}{3}.
+\end{align}
+
+\noindent For single lines of math that you want to \emph{display}:
+
+\[3x+5=7.\]
+
+\noindent Notice the use of punctation.  Sometimes, it is okay to leave the mathematics in the body of the paragraph. This is referred to as 'inline' as opposed to 'display.'  Such mathematics is typically some short snippet, e.g.,  $3x+5$.\footnote{The abbreviation 'e.g.' means \emph{for example} and the abbreviation 'i.e.' means \emph{in other words}. These are latin phrases succinctly abbreviated so that those that don't know still wont know what you're talking about.  Yay for Latin!!!}
+
+
+When you are typing a new paragraph, indentation is appropriate. The absence of indentation at the beginning of this solution is not a mistake; that is part of what is called the style file.  It is important to keep your text and math as clean as possible.  Spacing is important and usually taken care of by \LaTeX.  I would also suggest making use of particular environments so that \LaTeX has further information on how to determine the appropriate spacing.  That said, sometimes you want to add your own spacing.  I strongly advise \textbf{not} to use the \texttt{vspace} command.  It will eventually produce undesired results when you are typing longer documents.  Instead, consider using the \texttt{smallskip}, \texttt{medskip} or \texttt{bigskip} commands.  
+
+\bigskip
+Here is a small skip below.
+
+\smallskip
+
+Here is a medium skip below.
+
+\medskip
+
+Here is a big skip below.
+
+\bigskip
+Can you see the difference?
+
+\end{solution}
+
+
+\end{document}

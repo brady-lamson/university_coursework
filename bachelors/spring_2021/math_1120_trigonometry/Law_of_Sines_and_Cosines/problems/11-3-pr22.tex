@@ -1,0 +1,158 @@
+\begin{problem}[22]
+    A naturalist sets off on a hike from a lodge on a bearing of $S 80\degree W$. After 1.5 miles, she changes her bearing to $S 17\degree W$ and continues hiking for 3 miles. Find her distance from the lodge at this point. Round your answer to the nearest hundredth of a mile. What bearing should she follow to return to the lodge? Round your angle to the nearest degree.
+\end{problem}
+
+\begin{solution}
+    There's a lot going on in this problem but don't be overwhelmed. Take this problem step by step. If you try to dive into the meat of it too quickly you won't have enough information to solve it. First construct a visual aid. 
+    
+    There are two strategies for making a diagram here. You can either make one visual or multiple. For me, I find one large diagram becomes too complex and cumbersome so I decide to instead opt for multiple simpler diagrams. The first here will construct a triangle based on our path from the lodge to the characters first stop before changing bearings. This will be the path from point A to point B. 
+    
+    \begin{tikzpicture}
+        % Draw our path
+        \filldraw[black, thick] (0,0) circle (3pt) node[anchor=south east] {A} coordinate (a)
+            -- (-4,-3) circle (3pt) node[above=3pt] {B} coordinate (b)
+                node[midway, sloped, above] {$1.5$ mi}
+            -- (0,-3) circle (1pt) coordinate (c)
+                node [midway, sloped, below] {$x_1$}
+            -- (0,0) 
+                node[midway, right] {$y_1$};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-6) node[below] {S} coordinate (s)
+                -- (0,2) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-6,0) node[left] {W} coordinate (w)
+                -- (2,0) coordinate (e)
+                node[right] {E};
+        % Draw interior angles
+            \pic [draw=red, thick, "$10\degree$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = c--b--a};
+            \pic [draw=red, thick, "$80\degree$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+            % Add the right angle signifiers 
+            \draw[] (0,-3) rectangle (-.5,-2.5);
+    \end{tikzpicture}
+    
+    The next step is to solve for $y_1$ and then $x_1$. \medskip
+    
+    Solving for $y_1$:
+    \begin{align}
+        \sin(10\degree) &= \frac{y_1}{1.5} \\
+        y_1 &= 1.5 \cdot \sin(10\degree) \\
+        y_1 &\approx 0.2605 \; mi
+    \end{align}
+    
+    Solving for $x_1$
+    \begin{align}
+        x_1^2 + y_1^2 &= 1.5^2 \\
+        x_1^2 &= 1.5^2 - y_1^2 \\
+        x_1 &= \sqrt{1.5^2 - y_1^2} \\
+        x_1 &= \sqrt{1.5^2 - 0.26^2} \\
+        x_1 &\approx 1.477 
+    \end{align}
+    
+    \pagebreak
+    
+    Now we need our second diagram. This will showcase the path from point B to point C. 
+    
+    \begin{tikzpicture}
+        % Draw our path
+        \filldraw[black, thick] (0,0) circle (3pt) node[anchor=south east] {B} coordinate (a)
+            -- (-4,-3) circle (3pt) node[above=3pt] {C} coordinate (b)
+                node[midway, sloped, above] {$3$ mi}
+            -- (0,-3) circle (1pt) coordinate (c)
+                node [midway, sloped, below] {$x_2$}
+            -- (0,0) 
+                node[midway, right] {$y_2$};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-6) node[below] {S} coordinate (s)
+                -- (0,2) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-6,0) node[left] {W} coordinate (w)
+                -- (2,0) coordinate (e)
+                node[right] {E};
+        % Draw interior angles
+            \pic [draw=red, thick, "$73\degree$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = c--b--a};
+            \pic [draw=red, thick, "$17\degree$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+            % Add the right angle signifiers 
+            \draw[] (0,-3) rectangle (-.5,-2.5);
+    \end{tikzpicture}
+    
+    We just do the exact same thing as last time now. \medskip
+    
+    Solving for $y_2$:
+    \begin{align}
+        \sin(73\degree) &= \frac{y_2}{1.5} \\
+        y_2 &= 3 \cdot \sin(73\degree) \\
+        y_2 &\approx 2.87 \; mi
+    \end{align}
+    
+    Solving for $x_2$
+    \begin{align}
+        x_2^2 + y_2^2 &= 3^2 \\
+        x_2^2 &= 3^2 - y_2^2 \\
+        x_2 &= \sqrt{3^2 - y_2^2} \\
+        x_2 &= \sqrt{3^2 - 2.87^2} \\
+        x_2 &\approx 0.877 \; mi
+    \end{align}
+    
+    Before we make our final triangle we need to calculate some totals. These will become the sides of our final triangle. \medskip
+    
+    Calculating $x_{total}$ and $y_{total}$:
+    \begin{align}
+        x_t = x_1 + x_2 && y_t = y_1 + y_2 \\
+        x_t \approx 2.354 \; mi && y_t \approx 3.13 \; mi
+    \end{align}
+    
+    \pagebreak
+    
+    \begin{tikzpicture}
+        % Draw our path
+        \filldraw[black, thick] (0,0) circle (3pt) node[anchor=south east] {C} coordinate (a)
+            -- (4,4) circle (3pt) node[above=3pt] {A} coordinate (b)
+                node[midway, sloped, below] {d}
+            -- (0,4) circle (1pt) coordinate (c)
+                node [midway, sloped, above] {$2.354$}
+            -- (0,0) 
+                node[midway, left] {$3.13$};
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-2) node[below] {S} coordinate (s)
+                -- (0,6) coordinate (n)
+                node[above] {N};
+            \draw[dashed, thin, <->]
+                (-2,0) node[left] {W} coordinate (w)
+                -- (6,0) coordinate (e)
+                node[right] {E};
+        % Draw interior angles
+            \pic [draw=red, thick, "$\boldsymbol{\phi}$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = c--b--a};
+            \pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+            % Add the right angle signifiers 
+            \draw[] (0,4) rectangle (0.5,3.5);
+    \end{tikzpicture}
+    
+    This diagram shows us the path from point C back to point A. Things are simple from here. We don't need any laws either, we just do the same exact simple thing we've done from the beginning. It's kind of funny, I can't help but feel as if I missed an easier way of solving this problem because I didn't touch either law for this entire solution. \medskip
+    
+    Solving for $d$:
+    \begin{align}
+        d^2 &\approx 3.13^2 + 2.354^2 \\
+        d &\approx \sqrt{3.13^2 + 2.354^2} \\
+        d &\approx 3.916 \; \text{miles}
+    \end{align}
+    
+    Solving for $\gamma$:
+    \begin{align}
+        \sin(\gamma) &\approx \frac{3.13}{3.916} \\
+        \gamma &\approx \arcsin \left( \frac{3.13}{3.916} \right) \\ 
+        \gamma &\approx N 37\degree E
+    \end{align}
+    
+    \[\boxed{ d \approx 3.916 \; \text{miles} \; \text{and} \; \gamma \approx N 37\degree E  }\]
+\end{solution}

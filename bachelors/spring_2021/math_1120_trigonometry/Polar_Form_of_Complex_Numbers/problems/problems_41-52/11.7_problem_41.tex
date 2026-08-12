@@ -1,0 +1,60 @@
+\begin{problem}[41.]
+    $zw$
+\end{problem}
+
+\begin{solution}
+    To start it is advisable to convert both $z$ and $w$ to polar form to make some calculations easier. This requires some legwork, but nothing we haven't done before. If you need clarification on my process for this please refer back to \textbf{problem 1}. First let's tackle $z$. 
+    
+        \[z = -\frac{3\sqrt{3}}{2} + \frac{3}{2} i \] 
+        \[z = a + bi\]
+        \[ \boxed{-\frac{3\sqrt{3}}{2} = Re(z)} \; \text{and} \; \boxed{ \frac{3}{2} = Im(z) }\]
+        
+        Calculating $|z|$:
+        \begin{align}
+            |z|^2 &= Re(z)^2 + Im(z)^2 \\
+            |z|^2 &= \left( -\frac{3\sqrt{3}}{2} \right)^2 + \left( \frac{3}{2} \right)^2 \\ 
+            |z| &= \sqrt{ \frac{27}{4} + \frac{9}{4} } = \sqrt{\frac{36}{4} } = \sqrt{9} = 3
+        \end{align}
+        \[\boxed{|z| = 3}\]
+        
+        Calculating $\theta$:
+        \begin{align}
+            \tan(\theta) &= \frac{Im(z)}{Re(z)} \\
+            \tan(\theta) &= -\frac{ \frac{3}{2} }{ \frac{3\sqrt{3}}{2} } \\
+            &= -\frac{3}{2} \cdot \frac{2}{3\sqrt{3}} \\
+            &= -\frac{\sqrt{3}}{3}
+        \end{align}
+        \[\boxed{\theta = \frac{5\pi}{6} + \pi k \; \text{for integers k}}\]
+        
+        \[\boxed{ \text{Polar Rep of z.} \; = 3 \; cis \left( \frac{5\pi}{6} \right) }\]
+        
+        \pagebreak
+        
+        Now we do the same thing for $w$.
+        
+        \[w = 3\sqrt{2} - 3i \sqrt{2}\]
+        \[w = a + bi\]
+        \[ \boxed{3\sqrt{2} = Re(w)} \; \text{and} \; \boxed{ -3\sqrt{2} = Im(w) }\]
+        
+        Calculating $|w|$:
+        \
+        \begin{align}
+            |w|^2 &= Re(w)^2 + Im(w)^2 \\
+            |w|^2 &= (3\sqrt{2})^2 + (- 3\sqrt{2})^2 \\
+            |w| &= \sqrt{36}
+        \end{align}
+        \[\boxed{|w| = 6 \; \text{and} \; r = \pm 6}\]
+        
+        Let $\phi$ be the angle of $w$ in polar coordinates. For $\tan(\phi)$ we can be lazy and avoid calculations. Upon inspection it is clear that since both $Re(w)$ and $Im(w)$ are the same with one being negative. As such $tan(\phi) = -1$. Since $Re(w)$ is positive and $Im(w)$ is negative that places us in quadrant 3. Since $\phi$ needs to be between $-\pi$ and $\pi$ we can state: 
+        
+        \[\boxed{ \phi = -\frac{\pi}{4} + \pi k \; \text{for integers k.} }\]
+        \[\boxed{ \text{Polar Rep of $w$} \; = 6 \; cis \left( -\frac{\pi}{4} \right) }\]
+        
+        From here the rest is easy. We just multiply $z$ and $w$ together, simplify it down as much as possible and we get our solution. 
+        
+        \begin{align}
+            z \cdot w &= 3 cis \left( \frac{5\pi}{6} \right) \cdot 6 cis \left( -\frac{\pi}{4} \right) \\
+            &= 18 cis \left( \frac{5\pi}{6} - \frac{\pi}{4} \right) = 18 cis \left( \frac{10\pi}{12} - \frac{3\pi}{12} \right)
+        \end{align}
+        \[\boxed{zw = 18 cis \left( \frac{7\pi}{12} \right) }\]
+\end{solution}

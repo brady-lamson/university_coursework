@@ -1,0 +1,35 @@
+\begin{problem}[8]
+    $a=300$, $b=302$, $c=48$    
+\end{problem}
+    
+\begin{solution}
+    You know the drill.
+    
+    Calculating $\alpha$:
+    \begin{align}
+        \cos(\alpha) = \frac{b^2 + c^2 - a^2}{2 \cdot b \cdot c} && \alpha = \arccos \left( \frac{3508}{28992} \right) \\
+        \alpha = \arccos \left( \frac{b^2 + c^2 - a^2}{2 \cdot b \cdot c} \right) && \alpha \approx 1.4495 \; \text{radians} \\ 
+        \alpha = \arccos \left( \frac{302^2 + 48^2 - 300^2}{2 \cdot 302 \cdot 48} \right) && \boxed{\alpha \approx 83.05024 \degree}
+    \end{align}
+    
+    Calculating $\beta$
+    \begin{align}
+        \cos(\beta) = \frac{a^2 + c^2 - b^2}{2 \cdot a \cdot c} && \beta = \arccos \left( \frac{2304}{28800} \right) \\
+        \beta = \arccos \left( \frac{a^2 + c^2 - b^2}{2 \cdot a \cdot c} \right) && \beta \approx 1.5326 \; \text{radians} \\ 
+        \beta = \arccos \left( \frac{300^2 + 48^2 - 302^2}{2 \cdot 300 \cdot 48} \right) && \boxed{\beta \approx 87.8 \degree}
+    \end{align}
+    
+    Calculating $\gamma$: 
+    \begin{align}
+        \cos(\gamma) = \frac{a^2 + b^2 - c^2}{2 \cdot a \cdot b} && \gamma = \arccos \left( \frac{178900}{181200} \right) \\
+        \gamma = \arccos \left( \frac{a^2 + b^2 - c^2}{2 \cdot a \cdot b} \right) && \gamma \approx 0.1595 \; \text{radians} \\ 
+        \gamma = \arccos \left( \frac{300^2 + 302^2 - 48^2}{2 \cdot 300 \cdot 302} \right) && \boxed{\gamma \approx 9.14 \degree}
+    \end{align}
+    
+    \begin{subequations}
+        \begin{empheq}[box=\widefbox]{align}
+            a = 300 && b = 302 && c = 48 \\
+            \alpha \approx 83.05\degree && \beta \approx 87.8\degree && \gamma \approx 9.14 \degree
+        \end{empheq}
+    \end{subequations}
+\end{solution}

@@ -1,0 +1,86 @@
+\begin{problem}[24]
+    Along a long, straight stretch of mountain road with a $7\%$ grade, you see a tall tree standing perfectly plumb alongside the road. From a point 500 feet downhill from the tree, the angle of inclination from the road to the top of the tree is $6\degree$. Use the Law of Sines to find the height of the tree.
+\end{problem}
+
+\begin{solution}
+    \begin{tikzpicture}
+        % Draw triangle
+        \draw[black, thick] 
+            (0,0)
+                coordinate (a)
+            -- (4,0) 
+                coordinate (b)
+                node[midway, below] {$100$ ft}
+            -- (4,3) 
+                coordinate (c)
+                node [midway, right] {$7$ ft}
+            -- (0,0) 
+                node[midway, above=2mm] {$c$};
+        % Draw interior angles
+            \pic [draw=red, thick, "$\boldsymbol{\gamma}$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = a--c--b};
+            \pic [draw=red, thick, "$\theta$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+        % Add the right angle signifiers 
+            \draw[] (4,0) rectangle (3.5,0.5);
+    \end{tikzpicture}
+    \begin{tikzpicture}
+        % Draw triangle
+        \draw[black, thick] 
+            (0,0)
+                coordinate (a)
+            -- ++(5,0) 
+                coordinate (b)
+                node[midway, below] {$500$ ft}
+            -- ++(0,4) 
+                coordinate (c)
+                node [midway, right] {$35$ ft}
+            -- (a) 
+                node[midway, below=2mm] {$c$};
+        % Draw upper triangle
+            \draw[dashed, thick]
+                (c)
+                -- ++(0,2) coordinate (d)
+                    node [midway, right] {h}
+                -- (a)
+                    node [midway, above=0.5cm] {d};
+        % Draw interior angles for primary triangle
+            \pic [draw=red, thick, "$\boldsymbol{\gamma_0}$", angle eccentricity=1.5, angle radius=1cm] 
+                {angle = a--c--b};
+            \pic [draw=red, thick, "$\boldsymbol{\theta}$", angle eccentricity=1.5, angle radius = 1cm]
+                {angle = b--a--c};
+            % Add the right angle signifiers 
+                \draw[] (5,0) rectangle (4.5,0.5);
+        % Draw interior angles for secondary triangle
+            \pic [draw=blue, thick, "$\boldsymbol{\gamma_1}$", angle eccentricity=1.5, angle radius=0.5cm] 
+                {angle = d--c--a};
+            \pic [draw=blue, thick, "$\boldsymbol{\phi}$", angle eccentricity=1.5, angle radius = 0.5cm]
+                {angle = a--d--c};
+            \pic [draw=blue, thick, "$6\degree$", angle eccentricity=1.25, angle radius = 2cm]
+                {angle = c--a--d};            
+    \end{tikzpicture}
+    
+    We now have two functional diagrams describing what's going on here. It's important to note that $\theta$ here is known. We calculated it in problem 22. We know its value is $4\degree$. This knowledge allows us to snowball out of control a bit here. Because we know $\theta$ AND that the angle attached to it is $6\degree$ what we can do is solve for $\phi$ by treating this as one large right triangle with angles $10\degree, 90\degree$, and $\phi$!
+    
+    \[\phi = 180\degree - 10\degree - 90\degree\]
+    \[\phi = 80\degree\]
+    
+    From here we can solve for the angle next to $\gamma$. We'll refer to it as $\gamma_1$. Our dotted triangle has angles $6\degree, 80\degree$, and $\gamma_1$.
+    \[\gamma_1 = 180\degree - 80\degree - 6\degree\]
+    \[\gamma_1 = 94\degree\]
+    
+    For us to use the law of sines we need to know 2 angles and a side. We can solve for $c$ using the Pythagorean Theorem on the right triangle to get that one side we need. 
+    
+    \[c^2 = 500^2 + 35^2\]
+    \[c = \sqrt{500^2 + 35^2}\]
+    \[c = \sqrt{251225} \; \text{or} \; \approx 501\]
+    
+    Now the law of sines finally comes into play. 
+    
+    \begin{align}
+        \frac{\sin(\phi)}{c} = \frac{sin(6\degree)}{h} \\
+        h = \frac{\sin(6\degree) \cdot c}{\sin(\phi)} \\
+        h \approx \frac{\sin(6\degree) \cdot 501}{\sin(80\degree)}
+    \end{align}
+    \[\boxed{h \approx 53ft}\]
+\end{solution}
