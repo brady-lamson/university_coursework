@@ -1,0 +1,6 @@
+    System.out.println("\nQuiz Report For " + userName);
+
+            System.out.println("\nQuiz average: "
+                    + String.format("%.1f", this.average)+ "%"
+            + "\nQuiz grade: " + letterGrade);
+

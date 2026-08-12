@@ -1,0 +1,28 @@
+BradyLamson_01_Chess_Out.txt
+
+Date: June 18, 2021
+
+ ----jGRASP exec: java BradyLamson_01_Chess
+Please input a lowcase letter between 'a' and 'h' 
+followed by a positive integer between 1 and 8:
+c5
+Square c5 is black.
+
+ ----jGRASP: operation complete.
+
+ ----jGRASP exec: java BradyLamson_01_Chess
+Please input a lowcase letter between 'a' and 'h' 
+followed by a positive integer between 1 and 8:
+c4
+Square c4 is white.
+
+ ----jGRASP: operation complete.
+
+ ----jGRASP exec: java BradyLamson_01_Chess
+Please input a lowcase letter between 'a' and 'h' 
+followed by a positive integer between 1 and 8:
+z9
+Please input information within provided range (a-h and 1-8)
+
+ ----jGRASP: operation complete.
+

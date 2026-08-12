@@ -1,0 +1,62 @@
+Peduocode:
+
+General makeup of program:
+
+Class Calculator{
+	Variables:
+	methodCounters
+	totalCounter
+	Scanner
+	
+	default constructor(){
+		Sets stuff to default values. Does nothing else.	
+	}
+
+	printIntro(){
+		print("This is a scientific calculator, you will have four operations to choose from shown below")
+	}
+	
+	calc(){
+		print(Show all options with corresponding letter)
+		userInput = scanned input
+		calculation = converted userInput to uppercase for less if statements
+		bool = true
+		
+		print(enter your numbers)
+		number1 = scannumber
+		number2 = scannumber
+		// comment: The number scanning can be done out here or in each if statement individually. 		
+		
+		while(bool = true){
+			if (m)
+			{
+				do max stuff
+				iterate max counter up
+			}
+			if else (n)
+			{
+				Do min stuff
+				iterate min counter up
+			}
+			So on so forth for other methods.
+			
+			else (t)
+			{
+				bool = false
+				this does nothing else
+			}
+		}
+		probably return nothing. The counters are all we need to save and those are a part of the class. 
+	}
+	
+	printReport(){
+		print(a nice message with all the counter totals)
+	}
+	
+	main(){
+		new calculator mycalc
+		printIntro
+		calc()
+		printreport
+	}
+}

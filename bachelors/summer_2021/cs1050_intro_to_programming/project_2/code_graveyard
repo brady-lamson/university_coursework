@@ -1,0 +1,112 @@
+---------------------------------------------------------------------------------------------------------------------
+
+//        if (userInput.equals("N") || userInput.equals("n"))
+//        {
+//            chosenOperation = "Minimum";
+//        }
+//
+//        else if (userInput.equals("X") || userInput.equals("x"))
+//        {
+//            chosenOperation = "Maximum";
+//        }
+//
+//        else if (userInput.equals("P") || userInput.equals("p"))
+//        {
+//            chosenOperation = "Power";
+//        }
+//
+//        else if (userInput.equals("A") || userInput.equals("a"))
+//        {
+//            chosenOperation = "Absolute Value";
+//        }
+//
+//        else if (userInput.equals("T") || userInput.equals("t"))
+//        {
+//            chosenOperation = "Total Count";
+//        }
+//        else
+//        {
+//            System.out.println("Please input a valid character to select an operation.");
+//            System.exit(0);
+//        }
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+        switch (userInput) {
+            case "N":
+                chosenOperation = "Minimum";
+                break;
+            case "X":
+                chosenOperation = "Maximum";
+                break;
+            case "P":
+                chosenOperation = "Power";
+                break;
+            case "A":
+                chosenOperation = "Absolute Value";
+                break;
+            case "T":
+                chosenOperation = "Total Count";
+                break;
+            default:
+                System.out.println("Please input a valid character to select an operation.");
+                System.exit(0);
+        }
+
+---------------------------------------------------------------------------------------------------------------------
+
+//        if (chosenOperation.equals("Total Count"))
+//        {
+//            System.out.println("Caclulator Report: \n" +
+//                    "Minimum Problems: " + minCount + "\n" +
+//                    "Maximum Problems: " + maxCount + "\n" +
+//                    "Power Problems: " + powerCount + "\n" +
+//                    "Absolute Value Problems: " + absoluteCount + "\n" +
+//                    "\n" +
+//                    "Total Problems " + totalCount);
+//        }
+
+---------------------------------------------------------------------------------------------------------------------
+
+    // print report method --------------------------------
+    public void printReport() {
+        int totalCount = this.maxCount + this.minCount + this.powerCount + this.absoluteCount;
+        // Note: "this." is an easy way to reference members of the current object.
+        System.out.println("BradyLamson_001_02 Report: \n" +
+                    "Minimum Problems: " + minCount + "\n" +
+                    "Maximum Problems: " + maxCount + "\n" +
+                    "Power Problems: " + powerCount + "\n" +
+                    "Absolute Value Problems: " + absoluteCount + "\n" +
+                    "\n" +
+                    "The total number of calculations done was " + totalCount);
+    }
+
+----------------------------------------------------------------------------------------------------------------------
+/*
+    Goal:
+    Write a simple program that replicates a scientific calculator. It does the following:
+        - Prints a basic introduction of the program
+        - Gives user options for calculations to run
+            * user interacts with options via a scanner that takes input from keyboard
+        - Uses provided input to do specified calculation. These calculations are:
+            * Minimum: uses Math.min() method
+            * Maximum: uses Math.max() method
+            * Power: uses Math.pow() method
+            * Absolute Value: uses Math.abs() method
+            * Total calculations: Exits program and provides report on the number of calculations done.
+        - This loops until the user selects total calculations. This breaks the loop and moves on to
+          print the report and lists the amount of each calculation done along with a total.
+*/
+
+                  System.out.println("\nYou selected maximum. \n"
+                            + "Enter your first number:");
+                    userNumber1 = scan.nextDouble();
+                    System.out.println("Enter your second number:");
+                    userNumber2 = scan.nextDouble();
+                    answer = Math.max(userNumber1, userNumber2);
+                    System.out.println("The maximum is "
+                            + formatter.format(answer)
+                            + "\n");
+                    maxCount++;
+                    break;

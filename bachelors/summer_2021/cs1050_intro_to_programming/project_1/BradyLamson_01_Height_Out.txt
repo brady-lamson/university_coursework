@@ -1,0 +1,14 @@
+BradyLamson_01_Height_Out.txt
+
+Date: June 18, 2021
+
+ ----jGRASP exec: java BradyLamson_01_Height
+Please input a positive integer in feet. (0 to exit):
+5
+Please input a positive integer in inches. (0 to exit):
+8
+Your height is 5'8"
+Your height is 1.73 meters or 172.72 centimeters
+
+ ----jGRASP: operation complete.
+

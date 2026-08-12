@@ -1,0 +1,40 @@
+File: 1050 - Project 03 - Test Data - Grocery.txt
+
+Test Data Set 1
+Cereal
+2.50
+no
+Milk
+3.5
+Yes
+Beans
+0.99
+no
+Peas
+0.89
+no
+Peanut Butter
+1.75
+yes
+
+
+Test Data Set 2
+Bottled Water
+4.50
+Yes
+Bottled Air
+0.01
+no
+Bottled Sand
+1.25
+n
+Bottled Beans
+1.00
+yes
+
+
+Test Data Set 3
+Bottled Bottles
+2
+yes
+

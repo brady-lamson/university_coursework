@@ -1,0 +1,37 @@
+/home/brady/.jdks/openjdk-16.0.1/bin/java -javaagent:/home/brady/.local/share/JetBrains/Toolbox/apps/IDEA-C/ch-0/211.7442.40/lib/idea_rt.jar=36817:/home/brady/.local/share/JetBrains/Toolbox/apps/IDEA-C/ch-0/211.7442.40/bin -Dfile.encoding=UTF-8 -classpath /home/brady/repos/cs1050/project_2/out/production/project_2 BradyLamson_001_02
+
+This program is a simple scientific calculator. You can choose from four different operations. 
+The operations are minimum, maximum, power and absolute value. 
+
+Select the problem type you want to calculate by entering the first letter of the operation. 
+(N) Minimum of two numbers. 
+(X) Maximum of two numbers. 
+(P) First operand raised to the power of the second operand. 
+(A) Find the absolute value of a number. 
+
+(T) Display total Counts, then exit the program. 
+
+Operation? n
+
+You selected minimum.
+Enter your first number:
+3.14159
+Enter your second number:
+2.71828
+The answer is 2.72
+
+Select the problem type you want to calculate by entering the first letter of the operation. 
+(N) Minimum of two numbers. 
+(X) Maximum of two numbers. 
+(P) First operand raised to the power of the second operand. 
+(A) Find the absolute value of a number. 
+
+(T) Display total Counts, then exit the program. 
+
+Operation? t
+Calculator Report:
+Minimum Problems: 1
+Total number of calculations done: 1
+
+Process finished with exit code 0
+
