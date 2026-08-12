@@ -1,0 +1,196 @@
+---
+title: "Homework 1"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+# Problem 1.5
+
+When asked to state the simple linear regression model, a student wrote it as follows:
+
+$$
+E\{Y_i\} = \beta_0 + \beta_1X_i + \epsilon_i
+$$
+
+Do you agree?
+
+**Answer**
+
+No. The thing that ruins their answer is that it is giving the expected value of $Y_i$. That changes things. The book on page nine points out that:
+
+$$
+E\{Y_i\} = \beta_0 + \beta_1X_i
+$$
+
+Note the lack of an epsilon at the end. 
+
+# 1.7 
+
+In a simulation exercise, regression model applies with $\beta_0=100$, $\beta_1=20$ and $\sigma^2 = 25$. An observation on Y will be made for $X=5$.
+
+## Part A
+
+Can you state the exact probability that Y will fall between 195 and 205? Explain? 
+
+No. Not unless I know the distribution of the error is normal.
+
+## Part B
+
+Yes. 
+
+$$
+\begin{aligned}
+E(\hat{Y}) &= \beta_0 + \beta_1 X_i = 100 + 20(5) = 200 \\
+\sigma &= \sqrt{25} = 5
+\end{aligned}
+$$
+
+```{r}
+bounds <- c(195,205)
+mean <- 200
+sd <- 5
+
+# This creates a vector of two probabilities, one from (-inf,195) 
+# and another from (-inf, 205). 
+probs <- pnorm(bounds, mean, sd)
+
+# Subtract upper bound prob from lower bound prob
+# Equivalent to normalcdf(195,205,)
+prob <- probs[2] - probs[1]
+```
+
+```{r, echo=FALSE}
+glue::glue("The probability the predicted value falls between ({bounds[1]}, {bounds[2]}) is approximately {round(prob, 3)}")
+```
+
+
+# 1.18 
+
+$\sum e_i = 0$ when regression model 1.1 is fitted to a set of n cases by the method of least squares. Is it also true that $\sum \epsilon_i = 0$? 
+
+I would assume that no, it doesn't apply. As $\epsilon$ is an unknown batch of random variables that are independent and uncorrelated so the sum of these values is also random and unknown. 
+
+# 1.19
+
+```{r}
+data_pr19 <- read.table("CH01PR19.txt", header = T)
+reg_19 <- lm(gpa ~ act.score, data=data_pr19)
+reg_19 |> summary()
+```
+
+## Part A
+
+$$
+\begin{aligned}
+\beta_0 &= 2.114 \\
+\beta_1 &= 0.038 \\ 
+\hat{Y} &= 2.114 + 0.038X \\
+\end{aligned}
+$$
+
+## Part B
+
+```{r}
+plot(data_pr19$act.score, data_pr19$gpa, main = "ACT Scores vs. GPA", pch=20)
+abline(reg = reg_19, col="red", lwd = 3)
+```
+
+This line doesn't appear to fit the data *well* and the $R^2$ is only $0.07$ which indicates some large deviation away from the line. Regardless, there does seem to be a noticable though slight positive relationship here.
+
+## Part C
+
+```{r}
+predict(reg_19, newdata = data.frame(act.score=30))
+```
+
+## Part D
+```{r}
+predict(reg_19, newdata = data.frame(act.score=31))
+```
+
+# 1.21
+
+```{r}
+data_pr21 = read.table("CH01PR21.txt", header = T)
+reg_21 <- lm(ampules ~ transfers, data=data_pr21)
+reg_21 |> summary()
+```
+
+## Part A and Part D
+
+$$
+\hat{Y} = 10.2 + 4X
+$$
+
+```{r}
+plot(x=data_pr21$transfers, y=data_pr21$ampules, pch=20, main="Transfers vs. Ampules")
+abline(reg_21, col="blue", lwd=3)
+points(x=mean(data_pr21$transfers), y=mean(data_pr21$ampules), col = "red", pch=20, cex=3)
+```
+
+The line appears to be a good fit with a high $R^2$ of 0.9. 
+
+## Part B
+
+```{r}
+new_data = data.frame(transfers = 1)
+predict(reg_21, new_data)
+```
+
+## Part C
+
+Going from 1 transfer to 2 transfers it is expected for the number of broken ampules to increase by 4.
+
+## Part D
+
+The red dot on the plot above from part B represents $(\overline{X}, \overline{Y})$. As the line crosses through the line this has been verified.
+
+# 1.23 
+
+## Part A
+
+```{r}
+reg_19$residuals |> sum()
+```
+
+This only doesn't show 0 due to a computational rounding error. This is essentially 0.
+
+## Part B
+
+```{r}
+sd_reg <- reg_19$residuals |> sd()
+var_reg <- sd_reg^2
+c(sd_reg, var_reg)
+```
+
+$\sigma$ is expressed in units of the response variable, which in this case is destroyed ampules. 
+
+# 1.25
+
+## Part A
+
+```{r}
+reg_21$residuals[1]
+```
+
+1.8 is the first residual but after reading what I could I still really do not understand the relationship between this and the first random error $\epsilon_1$. 
+
+## Part B
+
+```{r}
+reg_21$residuals^2 |> sum()
+```
+
+```{r}
+reg_21 |> anova()
+```
+
+$$
+\begin{aligned} 
+\sum e_i^2 = 17.6 \\
+MSE = 2.2
+\end{aligned}
+$$
+
+MSE estimates the variance of the residuals.
