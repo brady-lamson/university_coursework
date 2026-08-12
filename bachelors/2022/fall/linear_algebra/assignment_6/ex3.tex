@@ -1,0 +1,29 @@
+\section*{Exercise 3}
+
+Consider the subspace of $M_{2 \times 2}$ that contains all invertible matrices, 
+
+$S = \left\{ A \in M_{2 \times 2} | A^{-1} \; \text{exists} \right\}$. 
+
+Prove that $S$ is NOT a subspace of this vector space.
+
+\subsection*{Proof}
+
+Consider the counter-example.
+
+Let 
+
+\[
+	\begin{aligned}
+		S &= \left\{ A \in M_{2 \times 2} | A^{-1} \; \text{exists} \right\}, \\
+		\vec{v} &= \genpmat{0&1\\2&0}, \\
+		\vec{u} &= \genpmat{1&1\\2&8}
+	\end{aligned}
+\]
+
+As both $\vec{v}$ and $\vec{u}$ are invertible, both are in $S$. From this though we see that
+
+\[\vec{v} + \vec{u} = \genpmat{1&2\\4&8}\]
+
+which is not invertible as its columns are not linearly independent.
+
+Therefore, $S$ is not closed under vector addition and is not a subspace of $M_{2 \times 2}$. $\blacksquare$

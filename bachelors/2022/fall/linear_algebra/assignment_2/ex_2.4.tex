@@ -1,0 +1,204 @@
+\section*{Exercise 2.4}
+
+\textbf{Problem:} Write down a basis for the following vector spaces.
+
+\subsection*{2.4a} $3 \times 3$ symmetric matrices;
+
+We can use similar logic to exercise 2.3 here, but it's important to note that a $3 \times 3$ is obviously larger than a $2 \times 2$. We can't just take for granted a simple $n - 1$ count for basis vectors as we now have more points in the matrix that match. Let's take a look at a generic $3 \times 3$ matrix transpose.
+
+\[
+	\begin{Bmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{Bmatrix}^T
+=
+	\begin{Bmatrix}
+		a & d & g \\
+		b & e & h \\
+		c & f & i
+	\end{Bmatrix}
+\]
+
+From this transpose we can take note of the values that need to be the same. That is the following:
+
+\[
+	\begin{aligned}
+		b &= d \\
+		c &= g \\
+		f &= h
+	\end{aligned}
+\]
+
+We have three sets of matching points. That means three pairs of points that can each be controlled by their own scalar which results in $(3 \cdot 3) - 3 = 6$ basis vectors necessary.
+
+Our basis in this case is $S = \left\{ \vec{e_{1}}, \vec{e_{2}}, \vec{e_{3}}, \vec{e_{4}} \vec{e_{5}}, \vec{e_{6}}\right\}$.
+
+\[
+	\begin{aligned}
+	\vec{e_{1}} &= \begin{Bmatrix}
+		1 & 0 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+	\end{Bmatrix} &
+	\vec{e_{2}} &= \begin{Bmatrix}
+		0 & 1 & 0 \\
+		1 & 0 & 0 \\
+		0 & 0 & 0 \\
+	\end{Bmatrix} &
+	\vec{e_{3}} &= \begin{Bmatrix}
+		0 & 0 & 0 \\
+		0 & 1 & 0 \\
+		0 & 0 & 0 \\
+	\end{Bmatrix} \\
+	\vec{e_{4}} &= \begin{Bmatrix}
+		0 & 0 & 1 \\
+		0 & 0 & 0 \\
+		1 & 0 & 0 \\
+	\end{Bmatrix} &
+	\vec{e_{5}} &= \begin{Bmatrix}
+		0 & 0 & 0 \\
+		0 & 0 & 1 \\
+		0 & 1 & 0 \\
+	\end{Bmatrix} &
+	\vec{e_{6}} &= \begin{Bmatrix}
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 1 \\
+	\end{Bmatrix}
+	\end{aligned}
+\]
+
+\subsection*{2.4b} $n \times n$ symmetric matrices;
+
+We can build on the knowledge we've built up over the past two sections of this problem. 
+
+To think about how to construct this lets take a look at at $M_{2 \times 2}$ and $M_{3 \times 3}$. roman numerals will be used for coordinates that match in a symmetric transpose.  
+
+\[
+	\begin{pmatrix}
+		a & i \\
+		i & b
+	\end{pmatrix},
+	\begin{pmatrix}
+		a & i & ii \\
+		i & b & iii \\
+		ii & iii & c
+	\end{pmatrix}
+\]
+
+What we can see from this, is that going from $2 \times 2$ to $3 \times 3$, one of the matching pairs is already accounted for! Looking at this in a more general sense we get.
+
+\[
+	\begin{pmatrix}
+		a_{11} & a_{12} & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		a_{31} & a_{32} & \dots & a_{3n} \\
+		\dots & \dots & \dots & \dots \\
+		a_{n1} & a_{n2} & \dots & a_{nn}
+	\end{pmatrix} 
+	\begin{pmatrix}
+		\text{1st row: n basis} \\
+		\text{2nd row: n-1 basis} \\
+		\text{3rd row: n-2 basis} \\
+		\dots \\
+		\text{nth row: 1 basis}
+	\end{pmatrix}
+\]
+
+So, from this, a basis for any symmetric matrix has 
+
+\[n + n(n-1) + (n - 2) + \dots + 1\]
+
+vectors, or, even more generally:
+
+\[\text{number of basis vectors} = \frac{n(n+1)}{2}\]
+
+Where $n$ is the number of rows or columns in a symmetric matrix.
+
+\subsubsection*{Clarification from class:}
+
+In an actual more general sense we can define the base of a symmetric $n \times n$ matrix A. Elements of A will be noted as $a_{ij}$ where i represents the $i^{th}$ row and j represents the $j^{th}$ column. 
+
+\[
+	A = A^T \; \text{so} \; a_{ij} = a_{ji}
+\]
+
+From this a basis would look like:
+
+\[
+	\begin{bmatrix}
+		1&0&\dots&0\\
+		0&0&\dots&0\\
+		\vdots & \vdots & \vdots & \vdots \\
+		0&0&\dots&0\\
+	\end{bmatrix},	
+	\begin{bmatrix}
+		0&1&\dots&0\\
+		1&0&\dots&0\\
+		\vdots & \vdots & \vdots & \vdots \\
+		0&0&\dots&0\\
+	\end{bmatrix},	
+	\begin{bmatrix}
+		0&0&\dots&1\\
+		0&0&\dots&0\\
+		\vdots & \vdots & \vdots & \vdots \\
+		1&0&\dots&0\\
+	\end{bmatrix} 
+	\dots
+	\begin{bmatrix}
+		0&0&\dots&0\\
+		0&0&\dots&0\\
+		\vdots & \vdots & \vdots & \vdots \\
+		0&0&\dots&1\\
+	\end{bmatrix}
+\]
+
+\subsection*{2.4c} $n \times n$ \emph{antisymmetric} $\left( A^T = -A \right) $matrices;
+
+Let's look at what this definition of antisymmetric really means. 
+
+\[
+	\begin{pmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{pmatrix}^T = 
+	-\begin{pmatrix}
+		a & d & g \\
+		b & e & h \\
+		c & f & i
+	\end{pmatrix}
+\]
+
+This is differently in a devilishly subtle way from the previous situation. One thing of note is that a subset of our $3 \times 3$ basis can be used here, with a slight tweak. Any of the diagonal basis vectors need one of their 1's to have their sign flipped. 
+
+At first glance it might seem like that's all that needs to be done. With this we just need to modify our base a touch but keep the same amount. But don't forget about the top left to bottom right diagonal set of points that don't move in a transpose. The only way for those to be equal to the negative of themselves is for them to equal 0. This means we don't need them to be part of their basis as they aren't influenced by scalars! 
+
+So, to summarise, we keep the same count of basis vectors at first, taking care to ensure any diagonal-pair non-zero values have opposite signs. We take that count and subtract out the number of basis vectors we \emph{would} have if the top left to bottom right diagonal was included. The number for that is the same as the number of columns or rows, $n$. That leaves us with:
+
+\[\text{number of basis vectors} = \frac{n(n+1)}{2} - n\]
+\[
+	\begin{bmatrix}
+		0&-1&0&\dots&0\\
+		1&0&0&\dots&0\\
+		0&0&0&\dots&0\\
+		\vdots & \vdots &\vdots & \vdots & \vdots \\
+		0&0&0&\dots&0\\
+	\end{bmatrix},	
+	\begin{bmatrix}
+		0&0&-1&\dots&0\\
+		0&0&0&\dots&0\\
+		1&0&0&\dots&0\\
+		\vdots & \vdots &\vdots & \vdots & \vdots \\
+		0&0&0&\dots&0\\
+	\end{bmatrix}
+	\dots
+	\begin{bmatrix}
+		0&0&0&\dots&-1\\
+		0&0&0&\dots&0\\
+		0&0&0&\dots&0\\
+		\vdots & \vdots &\vdots & \vdots & \vdots \\
+		1&0&0&\dots&0\\
+	\end{bmatrix}
+\]

@@ -1,0 +1,23 @@
+Sand CarbonFiber CastingHardness WetMoldStrength
+0Pct 0Pct 61.0 34.0
+0Pct 0Pct 63.0 16.0
+15Pct 0Pct 67.0 36.0
+15Pct 0Pct 69.0 19.0
+30Pct 0Pct 65.0 28.0
+30Pct 0Pct 74.0 17.0
+0Pct 0.25Pct 69.0 49.0
+0Pct 0.25Pct 69.0 48.0
+15Pct 0.25Pct 69.0 43.0
+15Pct 0.25Pct 74.0 29.0
+30Pct 0.25Pct 74.0 31.0
+30Pct 0.25Pct 72.0 24.0
+0Pct 0.50Pct 67.0 55.0
+0Pct 0.50Pct 69.0 60.0
+15Pct 0.50Pct 69.0 45.0
+15Pct 0.50Pct 74.0 43.0
+30Pct 0.50Pct 74.0 22.0
+30Pct 0.50Pct 74.0 48.0
+
+
+
+

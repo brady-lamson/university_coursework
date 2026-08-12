@@ -1,0 +1,108 @@
+\section{Exercise 3.3}
+
+Using column or row operations compute the determinants.
+
+\subsection{Matrix 1}
+
+\[
+	\genericmat{v}{0 & 1 & 2 \\ -1 & 0 & -3 \\ 2 & 3 & 0}
+\]
+
+I was able to solve this using only row operations. The order of these operations was as follows.
+
+For clarity's sake, first, second and third will reference the previous matrix. I will not reference the original matrix beyond the first operation.
+
+First: Switch the first and second row. (This flips the sign of the determinant)
+
+\[
+	\genericmat{b}{-1 & 0 & -3 \\ 0 & 1 & 2 \\ 2 & 3 & 0}
+\]
+
+Second, switch the second and third rows. (This flips the sign of the determinant back to normal)
+
+\[
+	\genericmat{b}{-1 & 0 & -3 \\ 2 & 3 & 0 \\ 0 & 1 & 2 }
+\]
+
+Third, I scale the first row by 2. (This scales the determinant by 2)
+
+\[
+	\genericmat{b}{-2 & 0 & -6 \\ 2 & 3 & 0 \\ 0 & 1 & 2 }
+\]
+
+Fourth, I change the first row to be itself plus 3 times the second row. (Determinant does not change)
+
+\[
+	\genericmat{b}{-2 & 3 & 0 \\ 2 & 3 & 0 \\ 0 & 1 & 2 }
+\]
+
+Finally, I change the first row to be itself plus -1 times the second row. (Determinant does not change)
+
+\[
+	\genericmat{b}{-4 & 0 & 0 \\ 2 & 3 & 0 \\ 0 & 1 & 2 }
+\]
+
+From here, as we have a lower triangular matrix, we can calculate the determinant as the product of the diagonals. 
+
+So we get, for our altered matrix $M_a$: 
+
+\[
+	\begin{aligned}	
+		det(M_a) &= -4 \cdot 3 \cdot 2 \\
+		&= -24	
+	\end{aligned}
+\]
+
+Since we scaled a row by 2, that means the original matrix has a determinant of half of this result. So.
+
+\[det(M) = -12\]
+
+I utilized the TI-84 Plus to verify my answer here. The result I acquired was -12.
+
+\subsection{Matrix 2}
+
+\[
+	\genericmat{v}{1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9}
+\]
+
+This matrix is (thankfully) far quicker to get through. We only need one row and one column operation to get the determinant.
+
+For better clarity I will use $r_n$ and $c_n$ notation to represent rows and columns respectively.
+
+First step (no change to determinant):
+
+\[r_3 \to r_3 + (-4)r_1\]
+
+\[
+	\genericmat{b}{1 & 2 & 3 \\ 4 & 5 & 6 \\ 3 & 0 & -3}
+\]
+
+Second step (no change to determinant):
+
+\[c_1 = c_1 + c_3 + (-3)c_2\]
+
+\[
+	\genericmat{b}{0 & 2 & 3 \\ 0 & 5 & 6 \\ 0 & 0 & -3}
+\]
+
+As nothing scaled the matrix or changed its sign we can safely note that this altered matrix has the same determinant as the original. Thus,
+
+\[det(M) = 0 \cdot 5 \cdot -3 = 0\]
+
+Both my TI-84 and R gave me 0 as the determinant for verification. 
+
+\subsection{Matrix 3}
+
+\[
+	\genericmat{v}{1 & 0 & -2 & 3 \\ -3 & 1 & 1 & 2 \\ 0 & 4 & -1 & 1 \\ 2 & 3 & 0 & 0}
+\]
+
+I am unable to solve this one manually, I've tried various paths and keep reaching dead ends.
+
+The determinant of this matrix is 76 as per the result of my calculator. 
+
+\subsection{Matrix 4}
+
+\[
+	\genericmat{v}{1 & x \\ 1 & y}
+\]

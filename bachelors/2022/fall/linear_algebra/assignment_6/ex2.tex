@@ -1,0 +1,33 @@
+\section*{Exercise 2}
+
+Consider the subset of $M_{2 \times 2}$ that contains all upper triangular matrices, namely all matrices of the form $A = \genpmat{a&b\\c&0}$. Prove that $S$ is a subspace of this vector space.
+
+\subsection*{Proof}
+
+Let 
+\[
+	\begin{aligned}
+		S &= \left\{ \genpmat{a&b\\c&0}, a,b,c \in \R \right\}, \\ 
+		\vec{v} &= \genpmat{x_1 & x_2 \\ x_3 & 0}, \\ 
+		\vec{u} &= \genpmat{y_1 & y_2 \\ y_3 & 0}
+	\end{aligned}
+\] 
+
+So, $\vec{v}, \vec{u} \in S$. Also let $\alpha$ be any scalar in $\R$.
+
+It follows that:
+
+\[\vec{v} + \vec{u} = \genpmat{x_1 + y_1 & x_2 + y_2 \\ x_3 + y_3 & 0}\]
+
+As $\vec{v} + \vec{u} \in S$, $S$ is closed under vector addition.
+
+It also follows that:
+
+\[\alpha \vec{v} = \genpmat{\alpha x_1 & \alpha x_2 \\ \alpha x_3 & 0}\]
+
+As $\alpha \vec{v} \in S$, $S$ is also closed under scalar multiplication.
+
+There is also nothing restricting the existence of some vector $\vec{w}$ with $a=b=c=0$, so $\vec{0} \in S$.
+
+As $S$ is closed under vector addition, scalar multiplication and also contains the zero vector, it is a subspace of $M_{2 \times 2}$. $\blacksquare$
+

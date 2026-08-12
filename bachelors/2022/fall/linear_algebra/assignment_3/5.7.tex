@@ -1,0 +1,64 @@
+\section*{Exercise 5.7}
+
+Construct a non-zero matrix $A$ such that $A^2 = \vec{0}$.
+
+Let 
+
+\[
+	A = \genericmat{p}{a&b\\c&d}
+\]
+
+So,
+
+\[
+A \cdot A = 
+\genericmat{p}{
+a^2 + bc & ab + bd \\
+ac + cd & cb + d^2
+} 
+= \vec{0}
+\]
+
+With this set up, we can handle the elements in $A^2$ as a system of equations. 
+
+\[
+	\begin{aligned}
+		a^2 + bc &= 0
+		ab + bd &= 0
+		ac + cd &= 0
+		bc + d^2 &= 0
+	\end{aligned}
+\]
+
+We get a lot of useful information from this. The first and fourth equations are basically identical and the second and third equations can have variables factored out of each. The useful information we gain is as follows:
+
+\[
+	\begin{aligned}
+		a^2 = -bc = d^2 \\
+		a = d \; \text{or} \; a = -d \\
+		c(a + d) = 0 \\
+		b(a + d) = 0
+	\end{aligned}
+\]
+
+This is actually enough information to construct our vector. One obvious solution here is every variable being 0, but of course that is not in option for this exercise. As such we can think of what options we have. 
+
+Let's look at what happens when we set $a$ and $d$ to be 0. We get:
+
+\[-bc = 0\]
+
+So either b or c can be 0 here, it doesn't matter which. From this we can construct the matrix:
+
+\[A = 
+	\genericmat{p}{0 & 1\\0&0}
+\]
+
+\[A^2 = 
+	\genericmat{p}
+	{
+		0(0) + 1(0) & 0(1) + 1(0)\\
+		0 + 0 & 0(1) + 0
+	}
+	=
+	\genericmat{p}{0 & 0\\0 & 0}
+\]

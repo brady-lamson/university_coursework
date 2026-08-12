@@ -1,0 +1,45 @@
+\section*{Exercise 2.3}
+
+Recall, that a matrix is called \emph{symmetric} if $A^T = A$. Write down a basis in the space of \emph{symmetric} $2 \times 2$ matrices. How many elements are in the basis?
+
+For this problem I find it useful to visualize a symmetric transpose. This requires square matrices. With a square transpose it is important to remember the top left and bottom right cells stay where they are.  
+
+\[
+	\begin{Bmatrix}
+		a & b \\
+		c & d
+	\end{Bmatrix}^T
+= 
+\begin{Bmatrix}
+	a & c \\
+	b & d
+\end{Bmatrix}
+\]
+
+For the transpose to be equal to the original matrix there is a restriction; that $b = c$. This is critical here. Normally a matrix with $n$ elements is going to require $n$ basis vectors to create a basis, but that's not the case here. Because the top right and bottom left need to be the same, they can both be handled by one scalar. So, a basis can be accomplished with $4 - 1 = 3$ basis vectors.
+
+Here we have $S = \{e_{1}, e_{2}, e_{3}\}$ as our basis.
+
+\[
+\begin{aligned}
+e_{1} &= 
+\begin{Bmatrix}
+	1 & 0 \\
+	0 & 0
+\end{Bmatrix}
+\\ 
+e_{2} &= 
+\begin{Bmatrix}
+	0 & 1 \\
+	1 & 0
+\end{Bmatrix}
+\\
+e_{3} &= 
+\begin{Bmatrix}
+	0 & 0 \\
+	0 & 1
+\end{Bmatrix}
+\end{aligned}
+\]
+
+

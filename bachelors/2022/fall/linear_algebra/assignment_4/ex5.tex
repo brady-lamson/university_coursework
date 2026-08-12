@@ -1,0 +1,27 @@
+\section*{Problem 5}
+
+Find parameters $h, k$ such that the system of equations below has infinitely many solutions.
+
+\[
+	\begin{cases}
+		x_1 - 3x_2 = 1 \\
+		2x_1 + hx_2 = k
+	\end{cases}
+\]
+
+Solving the top equation for $x_1$ gives us:
+
+\[x_1 = 3x_2 + 1\]
+
+So we can rewrite the second equation as:
+
+\[
+	\begin{aligned}
+		6x_2 + 2 + hx_2 &= k \\
+		(6 + h)x_2 &= k-2
+	\end{aligned}
+\]
+
+To get infinitely many solutions from this we need $x_2$ to be a free variable, that means the second equation needs to result in $0 = 0$.
+
+So, to get 0 on the lefthand side we need $h = -6$, and on the righthand side we need $k = 2$.

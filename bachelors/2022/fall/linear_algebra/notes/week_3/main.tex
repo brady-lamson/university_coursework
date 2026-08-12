@@ -1,0 +1,583 @@
+%        File: main.tex
+%     Created: Tue Sep 06 11:00 AM 2022 M
+% Last Change: Tue Sep 06 11:00 AM 2022 M
+%
+\documentclass[a4paper]{article}
+\input{preamble.tex}
+
+\begin{document}
+
+\part*{1.2: Standard Vector Spaces and Their Bases}
+
+\subsection*{Definition:}
+
+Given a vector space $V$, a basis of $v$ is a (finite) set of specific vectors, $\left\{ \vec{v_{1}}, \vec{v_{2}}, \dots, \vec{v_{n}} \right\}$
+
+that are:
+
+i: A system of generators
+
+ii: Linearly independent
+
+
+\subsection*{Theorem (Linear Independence)}
+
+Given a vector space $V$ and a set of vectors $\left\{ \vec{v_{1}}, \vec{v_{2}}, \dots, \vec{v_{n}} \right\}$, the following statements are equivalent:
+
+i: Our vectors are linear independent
+
+ii: $\exists \vec{v} \in \left\{ \vec{v_1}, \vec{v_2}, \vec{v_n} \right\}$ that can be written as a linear decomp of the remaining ones.
+
+iii: The equation $\alpha_1 \vec{v_1} + \alpha_2 \vec{v_2} + \dots + \alpha_3 \vec{v_3 = \vec{0}}$ has only the trivial solution $\alpha_1 = \alpha_2 = \dots = \alpha_n = 0$
+
+\subsection*{Examples}
+\subsubsection*{Example 1}
+
+Consider the vectors
+\[
+\begin{Bmatrix}
+	(1,0)^T, (1,1)^T, (2,6)^T
+\end{Bmatrix}
+\; \text{in} \; \bb{R}
+\]
+
+These are linearly dependent because we can write $\vec{v_3} = (2,6)^T$ as a linear combination of $(1,0)^t$ and $(1,1)^T$, namely:
+
+\[
+	\begin{pmatrix}
+		2 \\
+		6
+	\end{pmatrix}
+	=
+	-4 \cdot \begin{pmatrix}
+		1 \\
+		0
+	\end{pmatrix}
+	+
+	6 \cdot	\begin{pmatrix}
+		1 \\
+		1
+	\end{pmatrix}
+\]
+
+\newpage
+\section*{Standard Vector Spaces $\bb{R}^n, \bb{P}_{n}, M_{n \times m}$}
+\subsection*{Euclidean Vector Spaces $\bb{R}^n$}
+
+\begin{table}[h]
+\begin{tabular}{lll}
+Dimension & Standard Basis                          & Other Basis                                                                  \\
+$\R^1$    & $e_1 = 1$                               & Any nonzero number                                                           \\
+$\R^2$    & $\{ \vec{e}_1, \vec{e}_2 \}$            & \begin{tabular}[c]{@{}l@{}}Any 2 linearly\\ independent vectors\end{tabular} \\
+$\R^3$    & $\{ \vec{e}_1, \vec{e}_2, \vec{e}_3 \}$ & \begin{tabular}[c]{@{}l@{}}Any 3 linearly\\ independent vectors\end{tabular} \\
+$\R^n$	  & $\{ \vec{e}_1, \vec{e}_2, \dots, \vec{e}_n \}$ & \begin{tabular}[c]{@{}l@{}}Any $n$ linearly\\ independent vectors\end{tabular}
+\end{tabular}
+\end{table}
+
+\textbf{NOTE:} To computationally check $\bb{R}^{3+}$ for linear independence that will be covered in Chapter 2 of the textbook. 
+
+\subsection*{Polynomial Sets $\bb{P}_{n}$}
+
+This is with polynomial addition and scalar multiplication
+
+\begin{table}[h]
+\begin{tabular}{lll}
+Dimension & Standard Basis    & Other Basis                                                                                   \\
+$\P^1$    & $\{1, t \}$       & \begin{tabular}[c]{@{}l@{}}Any 2 linearly \\ independent vectors\\ (polynomials)\end{tabular} \\
+$\P^2$    & $\{ 1, t, t^2 \}$ & \begin{tabular}[c]{@{}l@{}}Any 3 linearly \\ independent vectors\\ (polynomials)\end{tabular}
+\end{tabular}
+\end{table}
+
+\textbf{$\bb{P}_{2}$ (Quadratic)}
+
+Standard Basis:
+
+$\left\{ 1, t, t^2 \right\}$
+
+\[
+	7 + 10t - 2t^2 = 7 \vec{v_{1}} + 10 \vec{v_{2}} - 2 \vec{v_{3}}
+\]
+
+Thus, the vector $\vec{v}$ has coordinates $\left\{ 7, 10, -2 \right\}$ with regards to the standard basis.
+
+\section*{$M_{n \times n}$: Matrix vector spaces and their basis}
+
+\[
+	M_{2 \times 2} = 
+	\begin{Bmatrix}
+		\begin{pmatrix}
+			a & b \\
+			cd & d
+		\end{pmatrix} 
+		| \; a,b,c,d \in \bb{R}
+	\end{Bmatrix}
+\]
+
+\[
+A = 
+\begin{pmatrix}
+	a & b \\
+	cd & d
+\end{pmatrix}
+=
+a? + b? + c? + d?
+\]
+
+\subsection*{Standard basis notation:}
+
+$E_{ij}$ specifies the location in the matrix for the location of the ones where $i$ is the row and $j$ is the column. All other entries must be 0.
+
+\[
+	E_{11} = 
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & 0
+	\end{pmatrix}
+\]
+
+\subsubsection*{Symmetric Matrices}
+
+Symmetric means we must have a square matrix.
+
+$2 \times 2$
+
+\[
+A = 
+\begin{pmatrix}
+	a & b \\
+	c & d
+\end{pmatrix}
+\]
+
+\[
+A^T = 
+\begin{pmatrix}
+	a & c \\
+	b & d
+\end{pmatrix}
+\]
+
+So, this is symmetric if $b = d$.
+
+The standard basis then are:
+
+\[
+	\begin{pmatrix}
+		1 & 0 \\
+		0 & 0
+	\end{pmatrix},
+	\begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix},
+	\begin{pmatrix}
+		0 & 0 \\
+		0 & 1
+	\end{pmatrix}
+\]
+
+\subsection*{Symmetric $n \times n$}
+
+\[
+	\begin{pmatrix}
+		a_{11} & a_{12}  & \dots & a_{1n} \\
+		a_{21} & a_{22} & \dots & a_{2n} \\
+		\dots & \dots & \dots & \dots \\
+	\end{pmatrix}
+\]
+
+So, to figure out the basis for this guy we can take advantage of the fact that $a_{12} = a_{2a}$ to say the following:
+
+1st row needs $n$ parameters. But, one of those parameters covers ONE of the points in the next row. So\ldots
+
+2nd row needs $n - 1$ parameters. 
+
+3rd row needs $n - 2$ parameters and so on. The final row then needs one extra parameter. 
+
+So a basis has $n + (n - 1) + (n - 2) + \dots + 1$ vectors, or $\frac{n(n + 1)}{2}$.
+
+\pagebreak
+\part*{1.3: Linear Transformations}
+
+Question, consider the basis of $\bb{R}^3, \bb{p_{3}}, M_{2 \times 2}$. How are they the same?
+
+\section*{Part 1: What is the equivalent of functions for vector spaces?} 
+
+\fbox{\begin{minipage}{30em}
+	A linear transformation is a mapping
+	
+	\[T: V \to W\]
+	
+	Where $V$ and $W$ are vector spaces such that
+
+	\[\forall \vec{u}, \vec{v} \in V, T(\vec{u} + \vec{v}) = T(\vec{u}) + T(\vec{v})\]
+
+and
+
+	\[\forall \vec{u} \in V, \forall \alpha \in \bb{R}, T(\alpha \vec{u}) = \alpha T(\vec{u})\]
+\end{minipage}
+}
+
+\subsection*{Example 1: The derivative operation}
+
+\[\frac{d}{dt}: \bb{P}_{3} \to \bb{P}_{2}\]
+
+\[\frac{d}{dt}(p) = p'\]
+
+\[\frac{d}{dt}(7 - t + t^2 + 5t^3) = -1 + 2t + 15t^2\]
+
+Then 
+
+\[\frac{d}{dt}(p_1 + p_2) = \frac{d}{dt}(p_1) + \frac{d}{dt}(p_2)\]
+
+\[\frac{d}{dt}(cp) = c \frac{d}{dt}(p)\]
+
+\subsection*{Example 2: Rotating the plane by $\frac{\pi}{2}$ degrees.}
+
+$\vec{v} = (x, y)^T$
+
+$T(\vec{v} = (-y, x)^T)$
+
+The map
+
+\[T: \bb{R}^2 \to \bb{R}^2\]
+
+\[T \psmall{x \\ y} = \psmall{-y \\ x} \]
+
+is a linear transformation.
+
+\subsubsection*{Justification:}
+
+i: $\forall \vec{u}, \vec{v} \in V$, vector addition works as expected
+
+Let $\vec{u} = \psmall{u_1 \\ u_2}$ and $\vec{v} = \psmall{v_1 \\ v_2}$ be two vectors.
+
+Then $T(\vec{u}) = \psmall{-u_2 \\ u_1}$, and $T(\vec{v}) = \psmall{-v_2 \\ v_1}$. 
+
+So 
+
+\[T(\vec{u}) + T(\vec{v}) = 
+\begin{pmatrix}
+	-u_2 - v_2 \\
+	u_1 + v_1
+\end{pmatrix}
+\]
+
+ii: Scalar multiplication
+
+\[\forall \vec{u} \in V, \forall \alpha \in \bb{R}, T(\alpha \vec{u}) = \alpha T(\vec{u})\]
+
+I'm behind on notes here, just know this works as expected.
+
+\subsection*{Conclusion:}
+
+The big takeaway with transformations is to isolate the basis vectors and see what happens to them. From this you can scale those basis vectors to see where you end up. Everything follows the basis vectors.
+
+\section*{Proposition}
+Given $V$ a vector space with basis $\left\{ \vec{v_1}, \vec{v_2}, \dots \vec{v_n} \right\}$ and $T: V \to W$ a linear transformation, T, is completly determined by the values (vectors in w) $T(\vec{v_1}), T(\vec{v_2}), \dots, T(\vec{v_n})$. 
+
+This follows from the conclusion listed above.
+
+\subsection*{Proof}
+Suppose $\vec{v} \in V$ is any vector. Because $\vec{v_1}, \vec{v_2}, \dots, \vec{v_n}$ is a basis there exists a unique coefficient $\alpha_i \in \R$ such that:
+
+\[
+	\vec{v} = \sum_{i = 1}^{n}\alpha_i \cdot \vec{v_i}
+\]
+
+So 
+
+\[
+T(\vec{v}) = T\left(\sum_{i = 1}^{n}\alpha_i \cdot \vec{v_i}\right)
+= \sum_{i = 1}^{n}T(\alpha_i \vec{v}_i)
+\]
+
+So
+
+\[
+	T(\vec{v}) = \sum_{i=1}^{n}\alpha_i T(\vec{v}_i)
+\]
+
+\section*{Example 2}
+\[
+	\begin{aligned}
+T&: \R^3 \to \R^2 \\
+T\psmall{x \\ y \\ z} &= 
+\begin{pmatrix}
+	2x - y + 32 \\
+	-x + 4y - 5z
+\end{pmatrix} \\
+T(\vec{e_1}) &= T\psmall{1\\0\\0} = \psmall{2\\-1} \\
+T(\vec{e_2}) &= T\psmall{0\\1\\0} = \psmall{-1\\4} \\
+T(\vec{e_3}) &= T\psmall{0\\0\\1} = \psmall{3\\-5} \\
+\end{aligned}
+\]
+
+Check that $T(\vec{v} = \sum \alpha_i T(\vec{v}_i))$
+\[
+\begin{aligned}
+	\vec{v} &= 
+	\begin{pmatrix}
+		x\\y\\z
+	\end{pmatrix} =
+	x\vec{e_1} + y\vec{e_2} + z\vec{e_3} \\
+	&= x T(\vec{e_1}) + y T(\vec{e_2}) + z T(\vec{e_3}) \\
+	&= x \psmall{2 \\ -1} + y \psmall{-1 \\ 4} + z \psmall{3 \\ -5}
+	&= 
+	\begin{pmatrix}
+		2x - y + 32 \\
+		-x + 4y - 5z
+	\end{pmatrix} =
+	T(\vec{v})
+\end{aligned}
+\]
+
+\part*{2: Matrix Multiplication}
+
+\section*{Example 1}
+Consider $A = (1, 2, 5)$ and $B = (-3, 7, 10)^T$
+
+Then
+\[
+	\begin{aligned}
+	AB &= (1, 2, 5) \cdot 
+	\begin{pmatrix}
+		-3\\7\\10
+	\end{pmatrix} \\
+	&= 1 \cdot (-3) + 2 \cdot (7) + 5 \cdot (10)
+	\end{aligned}
+\]
+
+Therefore $AB = 61$
+
+So
+
+\[row \cdot column = number\]
+
+\section*{Example 2}
+\[
+A = 
+\begin{pmatrix}
+	2&3\\2&1
+\end{pmatrix} \\
+B = 
+\begin{pmatrix}
+	-1&5\\4&-3
+\end{pmatrix}
+\]
+
+So\ldots
+
+\[AB = 
+\begin{pmatrix}
+	2&3\\2&1
+\end{pmatrix} \cdot 
+\begin{pmatrix}
+	-1&5\\4&-3
+\end{pmatrix}
+\]
+
+To calculate this we do, ordering from top left of row one, to top right of row one and on\ldots
+
+\[
+	\begin{pmatrix}
+		\text{1st row $\cdot$ 1st column} & \text{1st row $\cdot$ 2nd column} \\
+		\text{2nd row times $\cdot$ column} & \text{2nd row $\cdot$ 2nd column}
+	\end{pmatrix}
+\]
+
+So we get\ldots
+
+\[
+	\begin{pmatrix}
+		2(-1)+3\cdot4 & 2\cdot5+3(-3) \\
+		2(-1)+1\cdot4 & 2\cdot5+1(-3)
+	\end{pmatrix} = 
+	\begin{pmatrix}
+		10 & 1 \\ 2 & 7
+	\end{pmatrix}
+\]
+
+Note that order matters here. $AB \neq BA$. That's not worth typing out, it is left as an exercise to gloss over the fact that I fell behind.
+
+\section*{Definitions}
+\subsection*{1:}
+Given two matrices A and B, the product AB exists if the number of columns in A is equal to the number of rows in B.
+
+Moreover, the ij-entry in the matrix AB is obtained from the ith row of A and the jth column of B.
+
+$A(m \times n) \cdot B(p \times q)$ exists if $n = p$ and the product is a $n \times q$ matrix.
+
+Note that $AB \neq BA$ in general.
+
+\section*{Example 3}
+\[
+A = 
+\begin{pmatrix}
+	0&1\\1&0
+\end{pmatrix}
+\]
+
+\[
+A^2 =
+\begin{pmatrix}
+	0&1\\1&0
+\end{pmatrix}
+\cdot
+\begin{pmatrix}
+	0&1\\1&0
+\end{pmatrix}
+=
+\begin{pmatrix}
+	0+1 & 0+0 \\ 0 + 0 & 1 + 0
+\end{pmatrix}
+\]
+\[
+A^2 = 
+\begin{pmatrix}
+	1&0\\0&1
+\end{pmatrix}
+\]
+
+\section*{Example 4}
+\[
+A =
+\begin{pmatrix}
+	1&2&1\\
+	3&0&1\\
+	2&1&0
+\end{pmatrix} \;
+B = 
+\begin{pmatrix}
+	1&0&1&-1\\
+	2&0&0&2\\
+	1&1&1&-1
+\end{pmatrix}
+\]
+
+So A is a $3 \times 3$ matrix and B is a $3 \times 4$ matrix.
+
+From this we know that AB exists and will result in a $3 \times 4$ matrix but BA does not exist.
+
+\[
+	\begin{aligned}
+		AB &=
+		\begin{pmatrix}
+	1&2&1\\
+	3&0&1\\
+	2&1&0
+\end{pmatrix} 
+\begin{pmatrix}
+	1&0&1&-1\\
+	2&0&0&2\\
+	1&1&1&-1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+	1+4+1 & 0+0+1 & 1+0+1 & -1+4+(-1) \\
+	3+0+1 & 0+0+1 & 3+0+1 & -3+0-1 \\
+	2+2+0 & 0+0+0 & 2+0+0 & -2+2+0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+	6&1&2&2\\
+	4&1&4&-4\\
+	4&0&2&0
+\end{pmatrix}
+	\end{aligned}
+\]
+
+\section*{Continuing on with the 90 degree rotation}
+\[T: \R^2 \to \R^2\]
+\[T\psmall{x\\y} = \psmall{-y\\x}\]
+
+\[
+	\begin{aligned}
+		T(e_1) &= \psmall{0\\1} \\
+		T(e_2) &= \psmall{-1\\0}
+	\end{aligned}
+\]
+
+\[A_T = 
+	\begin{pmatrix}
+		0&-1\\1&0
+	\end{pmatrix}
+\]
+
+Then 
+\[T(\vec{v}) = A_T \cdot \vec{v}\]
+
+\[
+	T(\psmall{x\\y}) = 
+	\begin{pmatrix}
+		0&-1\\1&0
+	\end{pmatrix}
+	\begin{pmatrix}
+		x\\y
+	\end{pmatrix} =
+	\begin{pmatrix}
+		o\cdot x + (-1)y \\
+		1\cdot x + 0\cdot y
+	\end{pmatrix}
+\]
+
+\section*{Proposition:}
+\subsection*{Part 1}
+If $T: \R^n \to \R^n$ is a linear transformation, then for any vector $\vec{v} \in \R^n$, 
+\[T(\vec{v}) = A_T \vec{v}\]
+
+where $A_T$(the matrix associated to T) is the matrix with columns $T(\vec{e_1}), T(\vec{e_2}), \dots, T(\vec{e_n})$
+
+Note: $A_T$ is a $(m \times n) matrix$ and we can think of m as the target dimension and n as the domain dimension. 
+
+\subsection*{Part 2}
+
+If $T: \R^n \to \R^m$ is given by $T(\vec{v}) = A \cdot \vec{v}$ then T is linear. 
+
+\subsection*{Conclusion}
+
+For any euclidean vector spaces, the notion of a linear transformation is completely described by matrix multiplication.
+
+\subsection*{Summarised Proposition}
+Suppose $\vec{v} = \sum_{i=1}^{n}\alpha_i \vec{v}_i$.
+
+Then
+
+\[\text{T is linear} \iff T(\vec{v}) = \sum_{i=1}^{n}\alpha_i T(\vec{v}_i)\]
+
+\subsection*{Justification}
+
+Consider $\vec{u_1}$ and $\vec{u_2}$ any 2 vectors. 
+So
+
+\[
+	\begin{aligned}
+		\vec{u_1} &= \sum^{n}_{i=1} \alpha_i \vec{v_i} \\[3mm]
+		\vec{u_2} &= \sum^{n}_{i=1} \beta_i \vec{v_i} 
+	\end{aligned}
+\]
+
+So:
+
+\[
+	\begin{aligned}
+		\vec{u_1} + \vec{u_2} &= \sum^{n}_{i=1} (\alpha_i + \beta_i) \vec{v_i} \\
+		T\left(\vec{u_1} + \vec{u_2}\right) &= T\left(\sum^{n}_{i=1} (\alpha_i \beta_i) \vec{v_i}\right)
+	\end{aligned}
+\]
+
+From here we can utilize the fact that this transformation is linear to rewrite this equality. This is pulled from the summarised proposition above the justification.
+
+\[
+	\begin{aligned}
+		T\left(\sum^{n}_{i=1} (\alpha_i \beta_i) \vec{v_i}\right) &= \sum_{i=1}^{n} \left( \alpha_i + \beta_i \right) \cdot T(\vec{v_i})\\[3mm]
+		&= \left( \alpha_1 + \beta_1 \right) T(\vec{v_1}) + \left( \alpha_ + \beta_2 \right) T(\vec{v_2}) + \dots \\[3mm]
+		&\text{We can distribute the scalars here.} \\[3mm]
+		&= \left( \alpha_1 T(\vec{v_1}) + \beta_1 T(\vec{v_1}) \right) + \left( \alpha_2 T(\vec{v_2}) + \beta_2 T(\vec{v_2}) \right) + \dots \\[3mm]
+		&\text{Isolating out the alphas and betas gives us:} \\[3mm]
+		&= \left( \alpha_1 T(\vec{v_1}) + \alpha_2 T(\vec{v_2}) + \dots + \alpha_n T(\vec{v_n}) \right) +		\left( \beta_1 T(\vec{v_1}) + \beta_2 T(\vec{v_2}) + \dots + \beta_n T(\vec{v_n}) \right) \\[3mm]
+		T\left(\vec{u_1} + \vec{u_2}\right) &= T(\vec{v_1}) + T(\vec{v_2})
+	\end{aligned}
+\]
+
+\end{document}

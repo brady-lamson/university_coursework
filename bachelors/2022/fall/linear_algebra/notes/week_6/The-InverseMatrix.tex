@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}      % Specifies the document class
+\parskip=5pt
+%% amount of indent you want before the first line of each paragraph
+\parindent=0pt
+%% Uncomment the next line if you want to use Adobe Times postscript fonts
+%\usepackage{times}
+%% Uncomment the next line if you want to use AMS-LaTeX package
+%\usepackage{amsmath}
+%\numberwithin{equation}{section} %% {part of the amsmath package}
+
+\renewcommand{\baselinestretch}{1.1}
+
+\addtolength{\oddsidemargin}{-.6in}
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\textwidth}{1.75in}
+
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1in}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mdframed}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[title]{appendix}
+\usepackage{systeme,mathtools}
+
+\include{preamble.tex}
+
+\renewcommand{\baselinestretch}{1.1}
+
+
+
+\newcommand{\mz}{\mathbf{Z}}
+\newcommand{\mq}{\mathbf{Q}}
+\newcommand{\mr}{\mathbf{R}}
+\newcommand{\mc}{\mathbf{C}}
+\newcommand{\lra}{\longrightarrow}
+
+
+
+\newmdtheoremenv{theorem}{Theorem}
+\newmdtheoremenv{lemma}[theorem]{Lemma}
+\newmdtheoremenv{proposition}[theorem]{Proposition}
+\newmdtheoremenv{corollary}[theorem]{Corollary}
+\newmdtheoremenv{mydef}[theorem]{Definition}
+\newmdtheoremenv{example}[theorem]{Example}
+
+
+\usepackage{multicol}
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy} \fancyhead[RO, RE] {\texttt{ The Inverse of a Matrix}}
+
+\begin{document}
+
+The starting idea for this section, is to understand the difference between linear equations of the form $ax=b$ and matrix equations of the form $AX=B$:
+
+$ax = b$
+
+$a = b/a$ IF $a \neq 0$.
+
+For matrices this is slightly different as they lack division. Go back to the above equation, we can rewrite it as
+
+$a = b(\frac{1}{a}) = b \cdot a^{-1}$
+
+We simply multiply b by the inverse of a. That same principle can be used for matrices! Remember, division doesn't actually exist, it's just multiplication times an inverse.
+
+\[A^{-1} \cdot (AX = B)\]
+
+If $A^{-1} \cdot A = 1$, then 
+\[A^{-1} \cdot (AX) = A^{-1}B\] 
+
+\[x = A^{-1}B\]
+
+\hrule
+\begin{center}
+\underline{I. The Identity Matrix $\mathbf{I_n}$}
+\end{center}
+\textbf{Step 1}:  What does it mean that a matrix $A$ has an inverse? 
+
+A has an inverse if I can reverse multiplying by A.
+
+\textbf{Note!} Order of multiplication matters here, we need $AA^{-1} = 1$
+
+\vskip .5truein
+\textbf{Step 2}:  What is the equivalent of "1" in the matrix universe?
+
+One is $1 \cdot X = X$ for any matrix.
+\vskip .5truein
+\hrule
+\pagebreak
+\begin{mydef}
+The identity matrix $\mathbf{I_n}$ is the matrix:
+
+$$\mathbf{I_n}=\left( \begin{array}{ccccc}
+1 & 0 &0 &&\\
+0 & 1 &0 &&\\
+0 & 0 & 1&&\end{array} \right)$$
+
+So 
+
+\[
+	I_n = \left( \vec{e_1}, \vec{e_2}, \vec{e_n} \right)
+\]
+
+\end{mydef}
+Examples:
+
+Recall matrix multiplication
+
+\[
+A + 0n = A \\
+\genpmat{1&2\\3&4} + \genpmat{0&0&0&0} = \genpmat{1&2\\3&4}
+\]
+
+Matrix Multiplication
+
+\[A \cdot I_n = A\]
+
+\[\genpmat{1&2\\3&4} \cdot \genpmat{1&0&0&1} = \genpmat{1&2\\3&4}\]
+
+\textbf{Notes on Identity Matrix}
+
+\[I_2 = \genpmat{1&0\\0&1}\]
+
+\[I_3 = \genpmat{1&0&0\\0&1&0\\0&0&1}\]
+
+Note that only square matrices might have an inverse.
+
+The identity matrix is always a square matrix.
+
+\pagebreak
+\begin{center}
+\underline{II. The Inverse Matrix $A^{-1}$}
+\end{center}
+
+\begin{mydef}
+Given a square $n\times n$ matrix $A$, we say that $A$ has an inverse, $A^{-1}$ if:
+$$AA^{-1}=A^{-1}A=\mathbf{I_n}$$
+\end{mydef}
+
+\begin{example}
+Consider the matrix we talked about last time, $A=\left( \begin{array}{cc}
+-1 &0\\
+0 & -1 \\
+\end{array} \right)$. Recall that this represents a linear transformation that: 
+
+\[T\genpmat{x\\y} = \genpmat{-1&0\\0&-1}\genpmat{x\\y} = \genpmat{-x\\-y}\]
+
+What would the inverse matrix mean in the geometric description? What is the inverse here?
+\end{example}
+
+Here $A \cdot A = I_2$
+
+\[
+	\genpmat{-1&0\\0&-1}
+	\genpmat{-1&0\\0&-1}
+	=
+	\genpmat{1&0\\0&1}
+\]
+
+
+\vskip 1truein
+
+\begin{example}
+Find another matrix $A$ such that: $A^2 = I_2$
+\end{example}
+
+For example, A = symmetry over y-axis:
+
+\[A\vec{v} = A\genpmat{x\\y} = \genpmat{-x\\y}, A = \genpmat{-1&0&0&1}\]
+
+Then $A^2 = I_2$
+
+\pagebreak
+
+\begin{center}
+\underline{III. An Algebraic Method to Find the Inverse Matrix $A^{-1}$}
+\end{center}
+
+Recall that, by definition, we need to solve the equation $A A^{-1}=\mathbf{I_n}$:
+
+\[A \cdot A^{-1} = \genpmat{1&0&0\\0&1&0\\0&0&1}\]
+
+\[A(col_1) = \genpmat{1\\0\\0}\]
+
+Let's set up some arbitrary A
+
+\[A = \genpmat{1&2&3\\4&5&6\\7&8&9}\]
+
+\[
+	\genpmat{
+		&&\bigm|&1\\
+		&A&\bigm|&0\\
+		&&\bigm|&0		
+	}
+	\to
+	\genpmat{
+		1&0&0&\bigm|&\\
+		0&1&0&\bigm|&A^{-1}_1\\
+		0&0&1&\bigm|&		
+	}
+\]
+
+To explain the weird notation here, $A^{-1}_1$ is the first column of the inverse matrix. 
+
+We do this same process and multiply the original matrix of A by each column of its inverse, which gets us each column of the identity matrix!
+
+So\ldots
+
+We can take A, place the first column as the 
+
+\vfill
+\hrule
+\begin{example}
+Use the above method to find the inverse of $A=\left( \begin{array}{ccc}
+1 & 2&0\\
+1 & 0& 2 \\
+1& 1 &0
+\end{array} \right)$. Check your answer!
+\end{example}
+\vfill
+
+\pagebreak
+
+\begin{center}
+\underline{IV. The 2D Case}
+\end{center}
+
+Find the inverse of the general 2D matrix $A=\left( \begin{array}{cc}
+a &b\\
+c & d \\
+\end{array} \right)$:
+\vfill
+\hrule
+\begin{example}
+Use the formula derived above to find the inverse of the matrix $A=\left( \begin{array}{cc}
+1 & 2\\
+2 & 3
+\end{array} \right)$
+\end{example}
+\vskip 1truein
+\hrule
+What is the connection between matrices $A$ that have no inverses and the system $AX=B$?
+
+\vfill
+
+\end{document}

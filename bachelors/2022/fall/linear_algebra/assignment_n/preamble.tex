@@ -1,0 +1,51 @@
+\usepackage[utf8]{inputenc}
+
+\title{Assignment 2}
+\author{lamsonbrady }
+\date{September 3rd, 2022}
+
+% General packages
+\usepackage{parskip}
+
+% Header related stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{MTH 3140 - Linear Algebra}  
+\fancyhead[L]{Homework 3}               
+\fancyfoot[R]{Brady Lamson}
+\fancyfoot[L]{MSU Denver}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Creates small p-matrix ----
+\newcommand{\psmall}[1]{
+	\left(\begin{smallmatrix}
+		#1
+	\end{smallmatrix} \right)
+}
+
+\newcommand{\genericmat}[2]{
+	\ensuremath{
+		\begin{#1matrix}
+			#2
+		\end{#1matrix}
+	}
+}
+
+% Generates n-dimensional basis vectors
+\newcommand{\genericvec}{
+	\ensuremath{
+		\left\{\vec{e_1}, \vec{e_2}, \dots, \vec{e_n} \right\}
+	}
+}
+
+% makes mathbb commands faster to type
+\newcommand{\bb}{\mathbb}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Makes vectors slightly faster
+% \newcommand{\v}[#1]{\vec{#1}}

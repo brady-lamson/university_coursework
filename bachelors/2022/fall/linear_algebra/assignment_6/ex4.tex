@@ -1,0 +1,27 @@
+\section*{Exercise 4}
+
+Give an example of a 2-dimensional subspace of $M_{2 \times 2}$.
+
+\[S = \left\{ A = \genpmat{a&0\\0&b} | a,b \in \R \right\}\]
+
+Closed under vector addition with some vectors $\vec{v}, \vec{u}$:
+
+\[
+	\begin{aligned}
+		\vec{v} &= \genpmat{x_1 & 0 \\ 0 & x_2} \\ 
+		\vec{u} &= \genpmat{y_1 & 0 \\ 0 & y_2} \\
+		\vec{v} + \vec{u} &= \genpmat{x_1 + y_1 & 0 \\ 0 & x_2 + y_2}
+	\end{aligned}
+\]
+
+Closed under scalar multiplication with any scalar $\alpha$:
+
+\[
+	\begin{aligned}
+		\alpha \cdot \vec{v} = \genpmat{\alpha x_1 & 0 \\ 0 & \alpha x_2}
+	\end{aligned}
+\]
+
+There are also no restrictions that would prevent some vector $\vec{w}$ with $a=b=0$, so $\vec{0} \in S$.
+
+$S$ is closed under vector addition, scalar multiplication and the zero vector is in it. Therefore it is a subspace of $M_{2 \times 2}$.

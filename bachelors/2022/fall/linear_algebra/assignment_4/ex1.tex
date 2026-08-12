@@ -1,0 +1,17 @@
+\section*{Problem 1}
+
+Decide if the transformations given by $T(x_1, x_2, x_3) = \genericmat{p}{x_1 + x_2 \\ x_1 - 1}$ is linear or not. Completely justify your answer.
+
+We can test this using any arbitrary vector. We will test the rule that states:
+
+\[\alpha T(\vec{v}) = T(\alpha \vec{v})\]
+
+\[
+	5 \cdot T \genpmat{1\\2\\3} = 5 \cdot \genpmat{3\\0} = \genpmat{15\\0}
+\]
+
+\[
+	T\left(5 \cdot \genericmat{}{1\\2\\3}\right) = T \genpmat{5\\10\\15} = \genpmat{15\\4}
+\]
+
+As $\genpmat{15\\0} \neq \genpmat{15\\4}$, $T$ is not a linear transformation.

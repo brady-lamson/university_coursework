@@ -1,0 +1,20 @@
+Formulation Speed Yield 
+One Sixty 189.7
+One Sixty 188.6
+One Sixty 190.1
+One Seventy 185.1
+One Seventy 179.4
+One Seventy 177.3
+One Eighty 189.0
+One Eighty 193.0
+One Eighty 191.1
+Two Sixty 165.1
+Two Sixty 165.9
+Two Sixty 167.6
+Two Seventy 161.7
+Two Seventy 159.8
+Two Seventy 161.6
+Two Eighty 163.3
+Two Eighty 166.6
+Two Eighty 170.3
+

@@ -1,0 +1,37 @@
+\section*{Equivalency Between CIs and Hypotheses Tests}
+
+CIs can be used to test hypotheses. 
+
+A CI for a parameter $\theta$ with level of confidence $100(1 - \alpha)\%$ can be used to test the hypotheses
+
+\[
+	\begin{aligned}
+		H_0: \theta &= \theta_0 \\
+		H_a: \theta &\neq \theta_0
+	\end{aligned}
+\]
+
+with significance level $\alpha$ by invoking the following decision rule:
+
+Reject $H_0$ if the ci doesn't contain $\theta_0$
+
+Fail to reject $H_0$ if it does contain $\theta_0$
+
+The CI approach will always reach the same conclusion as the associated hypothesis test.
+
+\subsection{Example}
+
+For a test of 
+
+\[
+	\begin{aligned}
+		H_0: \mu &= 50 \\
+		H_a: \mu &\neq 50
+	\end{aligned}
+\]
+
+The p-value for this is 0.16. Thus, $H_0$ would not be rejected at either the 5\% or the 10\% significance levels.
+
+\textbf{Question:} Would a 95\% CI for $\mu$ contain the value 50?
+
+\textbf{Answer} Yes. Since we failed reject the null under an $\alpha = 0.05$, that means that 50 is contained in the confidence interval.

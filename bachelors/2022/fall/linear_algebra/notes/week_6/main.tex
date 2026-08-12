@@ -1,0 +1,171 @@
+%        File: main.tex
+%     Created: Tue Sep 27 12:00 PM 2022 M
+% Last Change: Tue Sep 27 12:00 PM 2022 M
+%
+\documentclass[a4paper]{article}
+\input{preamble.tex}
+\begin{document}
+\part*{Linear Independence in $\R^n$}
+\section{Example 1}
+Consider 
+
+\[
+\begin{aligned}
+	\vec{v_1} &= \genpmat{1\\2\\1\\3} \\
+	\vec{v_2} &= \genpmat{2\\3\\1\\4} \\
+	\vec{v_3} &= \genpmat{1\\1\\0\\1}
+\end{aligned}
+\]
+
+in $\R^4$.
+
+Are these vectors linearly independent in $\R^4$
+
+\subsection{Step 1}
+Set up the equation $x_1 \vec{v_1} + x_2 \vec{v_2} x_3 \vec{v_3} = \vec{0}$
+
+\[
+	\genpmat{
+		1&2&2\\
+		2&3&1\\
+		1&1&0\\
+		3&4&1\\
+	}
+	\cdot
+	\genpmat{x_1\\x_2\\x_3}
+	=
+	\genpmat{0\\0\\0\\0}
+\]
+
+So the augmented matrix is:
+
+\[
+	\genpmat{
+		1&2&1& \bigm| & 0 \\
+		2&3&1& \bigm| & 0 \\
+		1&1&0& \bigm| & 0 \\
+		3&4&1& \bigm| & 0 \\
+	} \to
+\genpmat{
+		1&0&-1& \bigm| & 0 \\
+		0&1&1& \bigm| & 0 \\
+		0&0&0& \bigm| & 0 \\
+		0&0&0& \bigm| & 0 \\
+	}
+\]
+
+So,
+
+\[
+	\begin{cases}
+		x_1 - x_3 = 0 \\
+		x_2 + x_3 = 0 \\
+		x_3 = \text{free}
+	\end{cases}
+\]
+
+\subsection{Step 2}
+Check number of solutions.
+
+Requires $x_1 = x_2 = x_3 = 0$ for a unique solution and independence.
+
+We have infinitely many solutions due to $x_3$ being a free variable. 
+
+\subsection{Conclusion}
+
+A given set of vectors $\left\{ \vec{v_1}, \vec{v_2}, \vec{v_3}, \vec{v_n}\right\}$ is linearly independent if the RREF augmented matrix has a pivot 1 in every column.
+
+In particular, our vectors MUST BE linearly dependent if the number of columns is greater than the number of rows. In other words, if the number of vecotrs is greater than the number of coordinates (or dimension).
+
+\section{Systems of Generators in $\R^n$}
+
+Consider 
+
+\[
+\begin{aligned}
+	\vec{v_1} &= \genpmat{10\\2\\4} \\
+	\vec{v_2} &= \genpmat{-7\\6\\5} \\
+	\vec{v_3} &= \genpmat{2\\1\\0} \\
+	\vec{v_4} &= \genpmat{4\\3\\7}
+\end{aligned}
+\]
+
+in $\R^3$.
+
+Can I write the vector 
+
+\[\vec{v} = \genpmat{-5\\-2\\0}\]
+
+as a linear combination of the given vectors? If yes, find the coordinates.
+
+\subsection{Step 1}
+$x_1 \vec{v_1} + x_2 \vec{v_2} + \cdots + x_3 \vec{v_3} + x_4 \vec{v_4} = \vec{v}$
+
+\[
+	\genpmat{
+		10&-7&2&4\\
+		2&6&1&3\\
+		4&5&0&7
+	}
+	\cdot
+	\genpmat{x_1\\x_2\\x_3\\x_4}
+	=
+	\genpmat{-5\\-2\\0}
+\]
+
+So the augmented matrix is:
+
+\[
+	\genpmat{
+		10&-7&2&4 \bigm| & -5 \\
+		2&6&1&3 \bigm| & -2 \\
+		4&5&0&7 \bigm| & 0 \\
+	} \to
+\genpmat{
+	1&0&0&1.16& \bigm|& -0.05 \\
+	0&1&0&0.47& \bigm|& 0.38 \\
+	0&0&1&-2.2& \bigm|& -2.13
+	}
+\]
+
+So,
+
+\[
+	\begin{cases}
+		x_1 = -5/106 - 123/106 x_4 \\
+		x_2 = 2/53 - 25/53 x_4 \\
+		x_3 = -113/53 + 114/53 \\
+		x_4 = \text{free}
+	\end{cases}
+\]
+
+\subsection{Conclusion}
+A given set of vectors $\left\{ \vec{v_1}, \vec{v_2}, \vec{v_n} \right\}$ form a set of generators if the RREF matrix has a pivot of 1 in every row. 
+
+In other words, our vectors are not a system of generators IF the number of rows is larger than the number of columns. So, if the number of coordinates is greater than the number of vectors it is NOT a system of generators.
+
+The above vectors then ARE a system of generators. 
+
+\section{Bases for $\R^n$}
+
+Given a set of vectors $\left\{ \vec{v_1}, \vec{v_2}, \cdots \vec{v_k} \right\}$ in $\R^n$, this is a basis for $\R^n$ if 
+
+- $k = n$
+
+- The vectors are a generating set OR are linearly independent. In this situation one requirement implies the other.
+
+\section{Theorem}
+
+Consider a square matrix. Then the following are equivalent. 
+
+- The columns of A are linearly independent vectors.
+
+- The columns of A are a system of generators for $\R^n$
+
+- The equation $A \cdot \vec{x} = \vec{0}$ has a unique solution.
+
+- The equation $A \cdot \vec{x} = \vec{b}$ has a unique solution for any vector $\vec{b} \in \R^n$.
+
+\end{document}
+
+

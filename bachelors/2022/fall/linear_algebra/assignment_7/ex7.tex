@@ -1,0 +1,38 @@
+\section*{Exercise 7}
+
+Let $A$ be an $n \times n$ matrix. What is the relation between $det(A)$ and $det(-A)$?
+
+Let's start by looking at some basic general examples. 
+
+\[
+	M = \genpmat{a&b\\c&d}
+	-M = \genpmat{-a&-b\\-c&-d}
+\]
+
+\[
+	\begin{aligned}
+		det(M) &= ad-bc \\
+		det(-M) &= (-a \cdot -d) - (-b \cdot -c) \\
+		det(-M) &= ad-bc \\
+		det(M) &= det(-M)
+	\end{aligned}
+\]
+
+I won't write out the $3 \times 3$ example, but visualizing the process we need to do, we'll be multiplying negatives 3 times instead of twice in that case. This results in $det(-M) = -det(M)$. 
+
+This trend continues up as the dimension of $M$ increases. To understand why we can look at how scalars manipulate the determinate.
+
+Let us examine the case with one scalar $\alpha$.
+
+\[D(\alpha\vec{v_1}, \vec{v_2}, \dots, \vec{v_n}) = \alpha D(\vec{v_1}, \vec{v_2}, \cdots \vec{v_n})\]
+
+We can think of $-M$ as a negative one scalar being applied to every single element in $M$. So, using that same logic we get:
+
+\[
+	\begin{aligned}
+	Det(-M) &= D(-\vec{v_1}, -\vec{v_2}, \cdots, -\vec{v_n}) \\
+	&= -1 \cdot -1 \cdot \cdots \cdot -1 D(\vec{v_1}, \vec{v_2}, \cdots, \vec{v_n}) 
+	\end{aligned}
+\]
+
+So, we can see that whether the determinant of $M$ ends up having a flipped sign from $-M$ depends on whether $n$ is even or odd. If $n$ is even, $Det(-M) = Det(M)$. If $n$ is odd, $Det(-M) = -Det(M)$.

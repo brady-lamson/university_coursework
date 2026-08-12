@@ -1,0 +1,109 @@
+<html><head><style type="text/css">pre { margin: 1px }
+			.fmt0 {  } /* normal */
+			.fmt1 {  } /* background */
+			.fmt2 { background-color: #8d0b2b; } /* line:error */
+			.fmt3 { background-color: #5e4807; } /* line:warning */
+			.fmt4 { background-color: #07485e; } /* line:badbox */
+			.fmt5 {  } /* line:bookmark */
+			.fmt6 {  } /* line:bookmark0 */
+			.fmt7 {  } /* line:bookmark1 */
+			.fmt8 {  } /* line:bookmark2 */
+			.fmt9 {  } /* line:bookmark3 */
+			.fmt10 {  } /* line:bookmark4 */
+			.fmt11 {  } /* line:bookmark5 */
+			.fmt12 {  } /* line:bookmark6 */
+			.fmt13 {  } /* line:bookmark7 */
+			.fmt14 {  } /* line:bookmark8 */
+			.fmt15 {  } /* line:bookmark9 */
+			.fmt16 { color: #59a56c; } /* magicComment */
+			.fmt17 { font-weight: 700;color: #a55992; } /* commentTodo */
+			.fmt18 { color: #667299; } /* comment */
+			.fmt19 { color: #60cdf2; } /* keyword */
+			.fmt20 { font-weight: 700;color: #a960f2; } /* extra-keyword */
+			.fmt21 { color: #60f285; } /* math-keyword */
+			.fmt22 { border-bottom: 1px solid #184ef2;color: #184ef2; } /* link */
+			.fmt23 { font-weight: 700;color: #184ef2; } /* align-ampersand */
+			.fmt24 { color: #85f260; } /* verbatim */
+			.fmt25 { color: #6085f2; } /* sweave-block */
+			.fmt26 { font-weight: 700;color: #a960f2; } /* sweave-delimiter */
+			.fmt27 { color: #6085f2; } /* pweave-block */
+			.fmt28 { font-weight: 700;color: #a960f2; } /* pweave-delimiter */
+			.fmt29 { color: #f2f260; } /* picture */
+			.fmt30 { color: #60f285; } /* picture-keyword */
+			.fmt31 { font-weight: 700;background-color: #0b4c8d; } /* braceMatch */
+			.fmt32 { font-weight: 700;color: #f2f218;background-color: #8d0b0b; } /* braceMismatch */
+			.fmt33 { color: #f2f218;background-color: #48075e; } /* search */
+			.fmt34 { color: #f2a960; } /* numbers */
+			.fmt35 { color: #85f218; } /* math-delimiter */
+			.fmt36 { color: #b0f218; } /* math-text */
+			.fmt37 {  } /* text */
+			.fmt38 { color: #f260a9; } /* escapeseq */
+			.fmt39 { border-bottom: 1px dashed #f2184e; } /* spellingMistake */
+			.fmt40 { border-bottom: 1px dashed #f2f218; } /* wordRepetition */
+			.fmt41 { border-bottom: 1px dashed #f2f218; } /* wordRepetitionLongRange */
+			.fmt42 { text-decoration: line-through; } /* badWord */
+			.fmt43 { border-bottom: 1px dashed #184ef2; } /* grammarMistake */
+			.fmt44 { background-color: #4c8d0b; } /* grammarMistakeSpecial1 */
+			.fmt45 { background-color: #0b8d4c; } /* grammarMistakeSpecial2 */
+			.fmt46 { background-color: #0b8d8d; } /* grammarMistakeSpecial3 */
+			.fmt47 { background-color: #0b4c8d; } /* grammarMistakeSpecial4 */
+			.fmt48 { background-color: #8d4c0b; } /* latexSyntaxMistake */
+			.fmt49 { font-style: italic;color: #0b2b8d; } /* temporaryCodeCompletion */
+			.fmt50 { color: #60cdf2; } /* environment */
+			.fmt51 { color: #60f260; } /* referencePresent */
+			.fmt52 { border-bottom: 1px dashed #60f260;color: #60f260; } /* referenceMissing */
+			.fmt53 { border-bottom: 1px dashed #f24e18;color: #f24e18; } /* referenceMultiple */
+			.fmt54 { color: #60f260; } /* citationPresent */
+			.fmt55 { border-bottom: 1px dashed #60f260;color: #60f260; } /* citationMissing */
+			.fmt56 { color: #60f260; } /* packagePresent */
+			.fmt57 { border-bottom: 1px dashed #60f260;color: #60f260; } /* packageMissing */
+			.fmt58 { font-weight: 700; } /* structure */
+			.fmt59 { background-color: #3c3c42; } /* current */
+			.fmt60 { background-color: #071d5e; } /* selection */
+			.fmt61 { background-color: #5e0733; } /* replacement */
+			.fmt62 { text-decoration: line-through;background-color: #5e1d07; } /* diffDelete */
+			.fmt63 { background-color: #075e33; } /* diffAdd */
+			.fmt64 { background-color: #5e4807; } /* diffReplace */
+			.fmt65 { background-color: #6d0b8d; } /* previewSelection */
+			.fmt66 { font-weight: 700;color: #60a9f2; } /* txs-test */
+			.fmt67 { font-weight: 700; } /* txs-test-summary */
+			.fmt68 { color: #85f260; } /* txs-test-pass */
+			.fmt69 { color: #f26085; } /* txs-test-fail */
+			.fmt70 { color: #f2a960; } /* txs-test-warn */
+			.fmt71 { color: #cdf260; } /* txs-test-qdebug */
+			.fmt72 { color: #f260a9; } /* dtx:guard */
+			.fmt73 { font-weight: 700;color: #60f285; } /* dtx:macro */
+			.fmt74 { color: #85f260; } /* dtx:verbatim */
+			.fmt75 { color: #f260a9; } /* dtx:specialchar */
+			.fmt76 { font-weight: 700;color: #60f285; } /* dtx:commands */
+			.fmt77 { color: #f26085; } /* lua:keyword */
+			.fmt78 { color: #667299; } /* lua:comment */
+			.fmt79 { color: #6085f2; } /* asymptote:block */
+			.fmt80 { color: #f26085; } /* asymptote:keyword */
+			.fmt81 { color: #f2f260; } /* asymptote:type */
+			.fmt82 { color: #f2a960; } /* asymptote:numbers */
+			.fmt83 { color: #60f260; } /* asymptote:string */
+			.fmt84 { color: #667299; } /* asymptote:comment */
+			.fmt85 { color: #667299; } /* qtscript:comment */
+			.fmt86 { color: #60f260; } /* qtscript:string */
+			.fmt87 { color: #f2a960; } /* qtscript:number */
+			.fmt88 { color: #f26085; } /* qtscript:keyword */
+			.fmt89 { color: #6060f2; } /* qtscript:txs-variable */
+			.fmt90 { font-style: italic; } /* qtscript:txs-function */
+			.fmt91 { background-color: #8d6d0b; } /* preedit */
+		</style></head><body><pre><span class="fmt19">\documentclass</span>{<span class="fmt56">article</span>} </pre>
+		<pre><span class="fmt19">\usepackage</span>[utf8]{<span class="fmt56">inputenc</span>} </pre>
+		<pre> </pre>
+		<pre><span class="fmt19">\title</span>{workspace} </pre>
+		<pre><span class="fmt19">\author</span>{lamsonbrady} </pre>
+		<pre><span class="fmt19">\date</span>{May 2022} </pre>
+		<pre> </pre>
+		<pre><span class="fmt19">\include</span>{preamble.tex} </pre>
+		<pre> </pre>
+		<pre><span class="fmt20"><span class="fmt31">\begin{</span></span><span class="fmt20"><span class="fmt50"><span class="fmt31">document</span></span></span><span class="fmt20"><span class="fmt31">}</span></span> </pre>
+		<pre>	 </pre>
+		<pre>	<span class="fmt35">\[</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\m</span></span></span><span class="fmt34">{b}{a</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">b}</span><span class="fmt35">\]</span> </pre>
+		<pre>	<span class="fmt35">\[</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_1</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\m</span></span></span><span class="fmt34">{b}{a</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">b}</span><span class="fmt34"> </span><span class="fmt34">+</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_2</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\m</span></span></span><span class="fmt34">{B}{c</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">d}</span><span class="fmt34"> </span><span class="fmt34">+</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_3</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\m</span></span></span><span class="fmt34">{V}{e</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">f}</span><span class="fmt35">\]</span> </pre>
+		<pre>	<span class="fmt35">\[</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_1</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\psmall</span></span></span><span class="fmt34">{a</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">b}</span><span class="fmt34"> </span><span class="fmt34">+</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_2</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\psmall</span></span></span><span class="fmt34">{c</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">d}</span><span class="fmt34"> </span><span class="fmt34">+</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\alpha</span></span></span><span class="fmt34">_3</span><span class="fmt34"> </span><span class="fmt19"><span class="fmt34"><span class="fmt21">\psmall</span></span></span><span class="fmt34">{e</span><span class="fmt19"><span class="fmt34"><span class="fmt21">\\</span></span></span><span class="fmt34">f}</span><span class="fmt35">\]</span> </pre>
+		<pre>	 </pre>
+		<pre><span class="fmt20"><span class="fmt31">\end{</span></span><span class="fmt20"><span class="fmt50"><span class="fmt31">document</span></span></span><span class="fmt20"><span class="fmt31">}</span></span> </pre></body></html>

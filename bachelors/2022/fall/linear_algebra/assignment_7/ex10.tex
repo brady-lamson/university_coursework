@@ -1,0 +1,31 @@
+\section*{Exercise 10}
+
+Show that 
+
+\[
+	\genericmat{v}{
+		1&x&x^2\\
+		1&y&y^2\\
+		1&z&z^2
+	} =
+	(z-x)(z-y)(y-z)
+\]
+
+Computing this determinant manually gives us:
+
+\[
+	z^2y + y^2x + x^2z - z^2x - y^2z - x^2y
+\]
+
+To see if these are equal to the above triple product we can expand that one out!
+
+\[
+	\begin{aligned}
+		(z-x)(z-y)(y-z) &= z^2 - zy - zx + xy \\
+		&= (y-x)(z^2 - zy - zx + xy) \\
+		&= z^2y - zy^2 - zxy + xy^2 - z^2x + zxy + 2x^2 - x^2y \\
+		&= z^2y + y^2x + x^2z - z^2x - y^2z - x^2y
+	\end{aligned}
+\]
+
+Which is the same as what we manually computed above! 

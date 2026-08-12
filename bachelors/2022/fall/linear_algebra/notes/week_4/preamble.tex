@@ -1,0 +1,52 @@
+\usepackage[utf8]{inputenc}
+
+\title{Notes}
+\author{lamsonbrady }
+\date{September 13th - 15th, 2022}
+
+% General packages
+\usepackage{parskip}
+
+% Header related stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{MTH 3220 - Linear Algebra}  
+\fancyhead[L]{Week 4 Notes}               
+\fancyfoot[R]{Brady Lamson}
+\fancyfoot[L]{MSU Denver}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% image package
+\usepackage{graphicx}
+
+% Creates small p-matrix ----
+\newcommand{\psmall}[1]{
+\left(\begin{smallmatrix}
+#1
+\end{smallmatrix} \right)
+}
+
+% Creates any type of generic matrix quickly ----
+\newcommand{\genericmat}[2]{
+	\ensuremath{
+		\begin{#1matrix}
+			#2
+		\end{#1matrix}
+	}
+}
+
+% makes mathbb commands faster to type
+\newcommand{\bb}{\mathbb}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Generates n-dimensional basis vectors
+\newcommand{\genericvec}[1]{
+	\ensuremath{
+		\left\{\vec{#1_1}, \vec{#1_2}, \dots, \vec{#1_n} \right\}
+	}
+}

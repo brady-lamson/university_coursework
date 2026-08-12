@@ -1,0 +1,24 @@
+% Head related stuff
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[R]{MTH 3170 - Discrete Math}  
+\fancyhead[L]{Homework 1}               
+\fancyfoot[R]{Brady Lamson}
+\fancyfoot[L]{MSU Denver}
+
+% Math packages
+\usepackage{amsmath}
+
+% Creates quick matrix of any type ----
+% NOTE: p for paran, b for brackets, B for curly braces, v for pipes, V for double pipes 
+\newcommand{\m}[2]{\begin{#1matrix}#2\end{#1matrix}}
+
+% Creates small p-matrix ----
+\newcommand{\psmall}[1]{
+	\left(\begin{smallmatrix}
+		#1
+	\end{smallmatrix} \right)
+}
+
+% makes mathbb commands faster to type
+\newcommand{\bb}{\mathbb}

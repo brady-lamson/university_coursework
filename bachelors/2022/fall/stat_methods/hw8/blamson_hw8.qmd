@@ -1,0 +1,376 @@
+---
+title: "Homework 8"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+
+# Section 12.1
+
+## Problem 7
+
+- $y = $ 28-day standard cured strength (psi)
+
+- $x = $ accelerated strength (psi)
+
+$$
+y = 1800 + 1.3x
+$$
+
+### Part A
+
+What is the expected value of 28-day strength when accelerated strength is 2500?
+
+```{r}
+x <- 2500
+
+1800 + (1.3*x)
+```
+
+### Part B
+
+By how much can we expect 28-day strength to change when accelerated strength increases by 1 psi?
+
+The slope, so we can expect it to increase by 1.3 psi.
+
+### Part C
+
+By how much can we expect 28-day strength to change when accelerated strength increases by 100 psi?
+
++130 psi
+
+### Part D
+
+By how much can we expect 28-day strength to change when accelerated strength increases by 100 psi?
+
+-130
+
+# Section 12.2
+
+## Problem 15
+
+### Part B
+
+Is the value of strength completely and uniquely determined by the value of MOE? Explain.
+
+I would wager no. If that was the case there would be no up and down fluctuation in strength as MOE increases. Obviously other things have an effect as well.
+
+### Part C
+
+$$
+y = 3.2925 + 0.10748x
+$$
+Where y is the strength and x is the modus of elasticity
+
+```{r}
+x <- 40
+y <- 3.2925 + (0.10748*x)
+y
+```
+
+I wouldn't feel comfortable predicting a value for strength off of a MOE of 100. As we have no values that high we can't determine this relationship continues linearly.
+
+### Part D
+
+$$
+\begin{aligned}
+SSE &= 18.736 \\
+SST &= 71.605 \\
+r^2 &= 0.738
+\end{aligned}
+$$
+
+They do indicate that the regression does a good job. If more of the total sum of squares was made up by the error and the $r^2$ was lower I would not say this. 
+
+## Problem 16
+
+```{r}
+df <- tibble(
+  rainfall = c(5,12,14,17,23,30,40,47,55,67,72,81,96,112,127),
+  runoff = c(4,10,13,15,15,25,27,46,38,46,53,70,82,99,100)
+)
+
+df %>%
+  ggplot(aes(x=rainfall, y=runoff)) +
+  geom_point() +
+  theme_bw()
+```
+
+The scatterplot does support the use of a simple linear regression model.
+
+### Part B
+
+```{r}
+reg <- lm(runoff ~ rainfall, data = df)
+reg %>% summary()
+```
+
+Point estimate of the slope is 0.82697. Point estimate of the intercept is -1.12830. 
+
+### Part C
+
+```{r}
+predict.lm(reg, newdata = data.frame(rainfall = c(50)))
+```
+
+### Part D
+
+```{r}
+reg %>% anova()
+```
+
+$$
+\sigma = \sqrt{\frac{SSE}{n-2}} = \sqrt{\frac{27.5}{13}} \approx 1.45
+$$
+
+### Part E
+
+0.9753
+
+## Problem 17
+
+### Part A
+
+```{r, echo=FALSE}
+df <- 
+    tibble(
+        x = c(99,101.1,102.7,103,105.4,107,108.7,110.8,112.1,112.4,113.6,113.8,115.1,115.4,120),
+        y = c(28.8,27.9,27,25.2,22.8,21.5,20.9,19.6,17.1,18.9,16,16.7,13,13.6,10.8)
+    )
+
+reg <- lm(y ~ x, data = df)
+
+reg %>% summary()
+```
+
+$$
+y = 118.91 - 0.90x
+$$
+
+```{r, echo=FALSE}
+df %>%
+    ggplot(aes(x=x, y=y)) +
+    geom_point() +
+    theme_bw()
+```
+
+Based on the output of the linear regression and the scatterplot, it does appear that the model is going to explain a great deal of the observed variation in y.
+
+### Part B
+
+The slope indicates that as x increases, y decreases.
+
+### Part C
+
+```{r}
+x <- 135
+y <- 118.91 - (.9*x)
+y
+```
+
+You get a negative value for porosity percent which should be impossible. You shouldn't predict beyond the max or minimum x values as you can't assume the linear relationship will continue forever.
+
+### Part D
+
+Below are three ways to get the residuals.
+
+```{r}
+reg$residuals[1:2]
+```
+
+```{r}
+df$y[1:2] - predict(reg, data.frame(x=c(99,101.1)))
+```
+
+```{r}
+df$y[1:2] - (118.91 - (.90473*df$x[1:2]))
+```
+
+### Part E
+
+```{r, echo=FALSE}
+anova(reg)
+```
+
+$$
+\sigma = \sqrt{\frac{11.44}{13}} \approx 0.938
+$$
+
+### Part F
+
+What proportion of observed variation in porosity can be attributed linear relationship between unit weight and porosity?
+
+0.9739
+
+## Problem 20
+
+```{r, echo=FALSE}
+df <- 
+    tibble(
+        pressure = rep(c(0,.1,.2,.3,.4,.5,.6), each=3),
+        ratio = c(
+            0.123, 0.1, 0.101, 0.172, 0.133, 0.107, 0.217, 0.172, 0.151, 0.263, 
+            0.227, 0.252, 0.310, 0.365, 0.239, 0.365, 0.319, 0.312, 0.394, 0.386, 0.320
+        )
+)
+```
+
+### Part A
+
+```{r, echo=FALSE}
+df %>%
+    ggplot(aes(x=pressure, y=ratio))+
+    geom_point()
+```
+
+A scatter plot does support the use of a simple linear regression model.
+
+### Part B
+
+Slope 0.461, intercept = 0.101
+
+### Part C
+
+```{r}
+intercept <- 0.101
+slope <- 0.461
+x <- 0.45
+y <- intercept + (slope * x)
+y
+```
+
+### Part D
+ 
+```{r}
+MSE <- 0.00110
+sd <- sqrt(MSE)
+
+sd
+```
+ 
+ On average, the difference between the predicted value and the real value of this data is approximately 0.03.
+
+### Part E
+
+The total variation is 0.19929 and $0.895$ of it is explained by the linear model.
+
+# Section 12.3
+
+## Problem 32
+ 
+### Part A
+
+Based on the minitab output there is a useful relationship between rainfall and runoff. I determined this using the p-value of the slope (rainfall) being less than $0.05$ and the $r^2$ value of $0.975$ which indicates the model describes the vast majority of the variance in the data. 
+
+To create a confidence interval we use:
+
+$$
+\begin{aligned}
+CI &= \hat{\beta}_1 \pm (t_{\alpha/2, n-2} \cdot s_{\hat{\beta}_1}) \\
+&= 0.82647 \pm (t_{0.05, 13} \cdot 0.03652 ) \\
+&= 0.82647 \pm (1.77 \cdot 0.03652) \\ 
+CI &= [0.762, 0.892]
+\end{aligned}
+$$
+
+```{r}
+beta_hat_1 <- 0.82697
+t <- qt(0.95, 13, lower.tail = T)
+s_beta <- 0.03652
+
+(beta_hat_1 + (c(-t,t) * s_beta)) %>% round(3)
+```
+
+## Problem 33
+
+Calculate a 95% CI for the slope of the population regression line.
+
+$$
+\begin{aligned}
+n &= 26+1 = 27 \\
+\hat{\beta_1} &\approx 0.10748 \\
+t_{0.025,25} &= \pm 2.06 \\
+s_{\hat{\beta_1}} &= 0.01280 \\
+CI &= 0.10748 \pm (2.06 \cdot 0.01280) \\
+CI &= [0.081, 0.134]
+\end{aligned}
+$$
+
+For every GPa the MOE increases, the flexural strength experiences an increase between 0.081 and 0.134 MPa on average.
+
+### Part B
+
+$$
+\begin{aligned}
+&H_0: \beta_1 = 0.1 \\
+&H_a: \beta_1 > 0.1 \\
+&\alpha = 0.05 \\
+&t = \frac{0.10748 - 0.1}{0.0128} \\
+&t =  0.584 \\
+&p = t_{cdf}(-2.4867, 18-2) \\
+&p \approx 0.2882 \\
+&p > \alpha
+\end{aligned}
+$$
+
+As $p > \alpha$ we fail to reject the null hypothesis that the slope is equal to 0.1. 
+
+## Problem 34
+### Part A
+
+$$
+y = 4.859 + (-0.075 \cdot x)
+$$
+
+### Part B
+
+$$
+r^2 = 0.766
+$$
+
+### Part C
+
+```{r, echo=FALSE}
+df <- tibble(
+    y = c(4.55, 4.49, 4.50, 4.47, 4.47, 4.45, 4.40, 4.34, 4.43, 4.43, 4.42, 4.40, 4.33, 4.44, 4.40, 4.26, 4.32, 4.34),
+    x = c(4.35, 4.79, 5.57, 5.20, 5.07, 5.79, 5.36, 6.40, 5.66, 5.90, 6.49, 5.70, 6.49, 5.37, 6.51, 7.88, 6.74, 7.08)
+)
+
+df %>%
+    ggplot(aes(x=y, y=x)) +
+    geom_point()
+```
+
+Based on the $r^2$ and the scatterplot there appears to be a useful linear relationship. 
+
+$$
+\begin{aligned}
+H_0: \beta_1 = 0 \\
+H_a: \beta_1 \neq 0
+\end{aligned}
+$$
+
+We can utilize the p-value of the anova table for this problem. We have $F = 56.635$ and $p = 1.213e^{-06}$ so $p < 0.05$ so we can reject the null hypothesis that there is not a linear relationship between dielectric constant and air void.
+
+### Part D
+
+$$
+\begin{aligned}
+&H_0: \beta_1 = -0.05 \\
+&H_a: \beta_1 \neq -0.05 \\
+&\alpha = 0.01 \\
+&t = \frac{-0.074676 - (-0.05)}{0.009923} \\
+&t =  -2.4867 \\
+&p = t_{cdf}(-2.4867, 18-2) \\
+&p \approx 0 \\
+&p < \alpha
+\end{aligned}
+$$
+
+As $p < \alpha$ we can reject the null hypothesis that the slope is $-0.05$. 

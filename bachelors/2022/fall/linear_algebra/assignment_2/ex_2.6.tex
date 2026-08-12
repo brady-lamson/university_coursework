@@ -1,0 +1,27 @@
+\section*{Exercise 2.6}
+
+\textbf{Problem:} Is it possible that vectors $v_{1}, v_{2}, v_{3}$ are linearly dependent, but the vectors $w_{1} = v_{1} + v_{2}$, $w_{2} = v_{2} + v_{3}$, $w_{3} = v_{1} + v_{3}$ are linearly \emph{independent}?
+
+It is not possible for that to be the case. To justify this answer we can explore the defintion of linear dependence. For a set of vectors to be linearly dependent, one of the vectors must be able to be represented as a linear combination of the others.
+
+Using this definition, let's let $v_3 = \alpha v_1 + \beta v_2$ where $\alpha, \beta \in \bb{R}$.
+
+In this case we can now rewrite the second set of vectors as:
+
+\[
+	\begin{aligned}
+		w_1 &= v_1 + v_2 \\
+		w_2 &= v_2 + v_3 = \alpha v_1 + (1 + \beta) v_2 \\
+		w_3 &= v_1 + v_3 = (\alpha + 1) v_1 + \beta v_2
+	\end{aligned}
+\]
+
+From this, let us add $w_2$ and $w_3$ to create a linear combination of them.
+
+\[
+	\begin{aligned}
+		w_2 + w_3 &= (2\alpha + 1)v_1 + (2\beta + 1)v_2
+	\end{aligned}
+\]
+
+Because $2\alpha + 1 \in \bb{R}$ and $2\beta + 1 \in \bb{R}$, $w_1$ can be expressed as a linear combination of $w_2$ and $w_3$. As such, it has been shown that the proposed statement can not possibly be true. 

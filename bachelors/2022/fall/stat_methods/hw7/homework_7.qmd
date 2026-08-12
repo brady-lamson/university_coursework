@@ -1,0 +1,644 @@
+---
+title: "Homework 7"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r, echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+# Section 11.2
+
+## Problem 16
+
+Factor A - Curing time ($I = 3$)
+
+Factor B - Type of Mix ($J = 4$)
+
+3 Observations for each, 36 total sample size.
+
+$$
+\begin{aligned}
+SSA &= 30763.0 \\
+SSB &= 34185.6 \\
+SSE &= 97436.8 \\
+SST &= 205966.6
+\end{aligned}
+$$
+
+```{r}
+# Sums of Squares ---
+ssa <- 30763
+ssb <- 34185.6
+sse <- 97436.8
+sst <- 205966.6
+ssab <- sst - (ssa + ssb + sse)
+sums <- c(ssa,ssb,sse,ssab,sst)
+
+# Categories and samples ---
+i <- 3
+j <- 4
+k <- 3
+
+# Degrees of freedom ---
+dfa <- i-1
+dfb <- j-1
+dfe <- i*j*(k-1)
+dfab <- (i-1)*(j-1)
+dft <- (i*j*k)-1
+dfs <- c(dfa, dfb, dfe, dfab, dft)
+
+# Mean Square Ratios ---
+mean_square_names <- c("MSA", "MSB", "MSE", "MSAB")
+mean_squares <- round(sums[1:4] / dfs[1:4], 3)
+
+# Test Statistics ---
+test_stats <- (mean_squares[c(1,2,4)] / mean_squares[3]) |> round(3)
+test_names <- c("fa", "fb", "fab")
+
+# p-values ---
+p_val <- pf(q = test_stats[1:3], df1 = dfs[c(1,2,4)], df2 = dfs[3], lower.tail = F)
+
+p_val_names <- c("a", "b", "ab")
+```
+
+```{r, echo=FALSE}
+glue::glue("{mean_square_names} = {mean_squares}")
+
+glue::glue("{test_names} = {test_stats}")
+
+glue::glue("P-Value {p_val_names}: {round(p_val, 3)}")
+```
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("pr16_anova.png")
+```
+
+Utilizing all of the information collected above to generate the ANOVA table, we can draw the following conclusions:
+
+$$
+H_{0AB}: \text{no interaction of factors}\\
+H_{aAB}: \text{interaction of factors}\\
+F=1.789\\
+p = 0.144
+$$
+
+There is not statistically significant evidence to reject the null hypothesis, $H_{0AB}$, that there is no interaction effect between curing time and type of mix at the $0.05$ significance level.
+
+$$
+H_{0A}: \text{Factor A main effects are absent}\\
+H_{aA}: \text{Factor A has a main effect}\\
+F = 3.789\\
+p = 0.037
+$$
+
+There is statistically significant evidence at the $0.05$ level to reject the null hypothesis that factor A, curing time, has no effect on the compression strength of hardened cement cubes. It is reasonable to suggest that curing time has a positive impact on compression strength.
+
+$$
+H_{0B}: \text{Factor B main effects are absent}\\
+H_{aB}: \text{Factor B has a main effect}\\
+F = 2.807\\
+p = 0.061
+$$
+
+There is not statistically significant evidence at the $0.05$ level to reject the null hypothesis that type of mix has no effect on the compression strength of hardened cement cubes. 
+
+## Problem 17
+### Part A
+
+$$
+SS_{sand} = 705 \\
+SS_{fiber} = 1278 \\
+SSE = 843 \\
+SST = 3105 \\
+SS_{AB} = 279 \\
+\alpha = 0.05 \\
+$$
+
+$$
+\begin{aligned}
+MSA &= \frac{SSA}{df_a} = \frac{705}{2} = 352.5 \\
+MSB &= \frac{1278}{2} = 639 \\
+MSAB &= \frac{279}{4} = 69.75 \\
+MSE &= \frac{843}{9} = 93.67 \\
+F_b &= \frac{MSB}{MSE} = 6.82 \\
+p_b &= 0.016
+\end{aligned}
+$$
+
+At the significance level $0.05$ there does appear to be a statistically significant impact on wet-mold strength based on the carbon fiber addition. 
+
+### Part B
+
+```{r}
+df <- readr::read_table("ex_11_17.txt")
+```
+
+```{r, echo=FALSE}
+my_anova <-
+    aov(CastingHardness ~ Sand + CarbonFiber + Sand:CarbonFiber, data = df)
+
+my_anova |> summary()
+```
+
+At the significance level $0.05$, there is not a statistically significant interaction effect for sand and carbon fiber on the casting hardness. Though, at the same significance level there are main effects for both sand and carbon fiber on casting hardness. Though we fail to reject the null hypothesis for the interaction effect, the null is rejected for both main effects.
+
+```{r}
+df %>%
+    group_by(Sand, CarbonFiber) %>%
+    mutate(avg = mean(CastingHardness)) %>%
+    ggplot(aes(x=Sand, y=avg)) +
+    geom_line(size=1.2, aes(group=CarbonFiber, color=CarbonFiber)) +
+    geom_point(size=2, aes(color=CarbonFiber)) +
+    theme_bw() +
+    ylab("Mean of Casting Hardness") 
+```
+
+We can see that the interaction effect isn't statistically significant as they all follow roughly the same trajectory. They aren't exactly parallel but they're close. 
+
+What we can see though is that Sand has an impact because the lines aren't horizontal and carbon fiber has an impact as the lines aren't completely overlapping. it is of note here that carbon fiber likely wouldn't be statistically significant if 0Pct wasn't there. 0.25 and 0.50 are very close to overlapping.
+
+## Problem 18
+```{r}
+df <- read.table("ex_11_18.txt", header = T) %>% tibble()
+df %>% head(5)
+```
+
+```{r}
+my_aov_18 <- 
+    aov(Yield ~ Formulation + Speed + Formulation:Speed, data = df)
+
+my_aov_18 %>% summary()
+```
+
+### Part A
+
+There does not appear to be interaction between the factors.
+
+### Part C
+
+```{r}
+df %>%
+    group_by(Formulation) %>%
+    summarise(avg = mean(Yield)) %>%
+    mutate(effect = avg - mean(df$Yield))
+```
+
+The effect of Formulation One appears to be $11.19$ and the effect of Formulation Two appears to be $-11.19$
+
+```{r}
+df %>%
+    group_by(Speed) %>%
+    summarise(avg = mean(Yield)) %>%
+    mutate(effect = avg - mean(df$Yield))
+```
+
+The effects of Eighty, Seventy and Sixty speed are $3.04$, $-5.03$ and $1.99$ respectively.
+
+### Part D
+
+```{r}
+resids_to_check <- c(.23, -.87, .63, 4.5, -1.2, -3.3, -2.03, 1.97, 0.07, -1.1, -.3, 1.4, .67, -1.23, .57, -3.43, -.13, 3.57)
+
+all.equal.default(
+    target = resids_to_check, 
+    # Round the ANOVAs residuals to the same digits as the book and convert to vector
+    current = as.vector(my_aov_18$residuals %>% round(2), mode = "numeric")
+)
+```
+
+The residuals in the book match the residuals from the ANOVA.
+
+### Part E
+
+```{r, echo=FALSE, include=FALSE}
+qqnorm(my_aov_18$residuals)
+qqline(my_aov_18$residuals)
+```
+
+```{r, echo=FALSE, include=FALSE}
+model <- lm(Yield ~ Formulation + Speed + Formulation:Speed, data = df)
+
+model %>%
+    ggplot(aes(sample=rstandard(model)))+
+    stat_qq() + 
+    stat_qq_line() +
+    theme_bw()
+```
+
+
+The residuals do not appear to be normally distributed. They don't stay on the line well enough and follow a snaking S shape.
+
+## Problem 20
+```{r}
+df <- readr::read_table("ex_11_20.txt")
+df %>% head(5)
+```
+
+### Part A
+
+```{r}
+boxplot(MPa ~ Adhesive + Condition + Adhesive:Condition, data = df)
+```
+
+### Part B
+
+```{r}
+my_aov <- 
+    aov(MPa ~ Adhesive + Condition + Adhesive:Condition, data = df) 
+
+my_aov %>%
+    summary()
+```
+
+```{r, echo=FALSE}
+df %>%
+    group_by(Adhesive, Condition) %>%
+    mutate(avg = mean(MPa)) %>%
+    ggplot(aes(x=Adhesive, y=avg)) +
+    geom_line(size=1.2, aes(group=Condition, color=Condition)) +
+    geom_point(size=2, aes(color=Condition)) +
+    theme_bw() +
+    ylab("Mean of MPa") 
+```
+
+At the 0.05 significance level there isn't substantial evidence to reject the null hypothesis that there is no interaction effect between adhesive and condition on MPa. 
+
+### Part C
+
+```{r}
+df <-
+    df %>%
+    mutate(
+        Treatment = paste(Adhesive, Condition)
+    )
+```
+
+```{r, include=FALSE}
+TukeyHSD(
+    aov(MPa ~ Treatment, data = df)
+)
+```
+
+Significant differences are found between:
+
+- SBP Dry - OBP Dry
+
+- SBP Moist - OBP Dry
+
+# Section 11.3
+
+## Problem 1
+```{r}
+df <- readr::read_table("rice.txt")
+df %>% head(5)
+```
+
+$$
+X_{ijkl} = \mu + \alpha_i + \beta_k + \delta_k + \gamma_{ij}^{AB} + \gamma_{ik}^{AC} + \gamma_{jk}^{BC} + \gamma^{ABC}_{ijk} + \epsilon_{ijkl}
+$$
+
+Where Factor A, B and C represent sunshine, variety and fertilizer respectively. It is assumed that the $\epsilon_{ijkl}$'s are iid $N(0, \sigma)$. 
+
+$$
+\begin{aligned}
+&H_{0A}: \alpha_i = 0 \; \forall i \\
+&H_{aA}: \text{Not all} \; \alpha_i = 0
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0B}: \beta_j = 0 \; \forall j \\
+&H_{aB}: \text{Not all} \; \beta_j = 0 \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0C}: \delta_k = 0 \; \forall k \\
+&H_{aC}: \text{Not all} \; \delta_k = 0 \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0AB}: \gamma_{ij}^{AB} = 0 \; \forall i,j \\
+&H_{aAB}: \text{Not all} \; \gamma_{ij}^{AB} = 0 \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0AC}: \gamma_{ik}^{AC} = 0 \; \forall i,k \\
+&H_{aAC}: \text{Not all} \; \gamma_{ik}^{AC} = 0 \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0BC}: \gamma_{jk}^{BC} = 0 \; \forall j,k \\
+&H_{aBC}: \text{Not all} \; \gamma_{jk}^{BC} = 0 \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&H_{0ABC}: \gamma_{ijk}^{ABC} = 0 \; \forall i,j \\
+&H_{aABC}: \text{Not all} \; \gamma_{ijk}^{ABC} = 0 \\
+\end{aligned}
+$$
+
+```{r}
+my_aov_1 <- aov(Yield ~ Sunshine*Variety*Fertilizer, data = df)
+
+my_aov_1 %>%
+    summary()
+```
+
+### Part Vi
+
+The three factor interaction is not statistically significant at any reasonable significance level. $p = 0.240$, $F = 1.486$.
+
+As the three factor interaction is not significant we may proceed to the two factor interactions. 
+
+Fertilizer is not involved in any significant interaction effects. $p = \{0.984, 0.777\}$, $F = \{0.016, 0.081\}$. Notation: first element in the set corresponds to fertilizers relationship with variety of rice, the second with sunshine.
+
+Sunshine does have a significant interaction effect with the variety of rice. $p = 0.001128$, $F = 8.244$.
+
+Based on the above results, it is only appropriate to examine the main effect of Fertilizer as it was not involved in any interaction effects. 
+
+Fertilizer does have a significant impact on the yield as a main effect. $p = 0.000364$, $F = 15.484$.
+
+Variety and sunshine have an effect on the yield as they were involved in an interaction effect together. We need not examine their main effects. 
+
+### Part Vii
+
+Based on the plots, mostly the the normal probability plot, the residuals do not appear to follow a normal distribution. It's really close though and I'm unsure if I'm being too picky. 
+
+```{r, echo=FALSE}
+plot(my_aov_1$fitted.values, y=my_aov_1$residuals, pch=19)
+```
+
+The residuals do not appear to follow a constant standard deviation. They appear to get smaller as we proceed along the fitted value axis. 
+
+## Problem 27
+
+### Part A
+
+- Factor A: Temperature profile ($I = 3$)
+
+- Factor B: Type of Plastic ($J = 3$)
+
+- Factor C: Speed ($K = 3$)
+
+- Two observations per ($L = 2$)
+
+$$
+\begin{aligned}
+SSA &= 14144.44 \\
+SSB &= 5511.27 \\
+SSC &= 224696.39 \\
+SSAB &= 1069.62 \\
+SSAC &= 62.67 \\
+SSBC &= 331.67 \\
+SSE &= 3127.50 \\
+SST &= 270024.33
+\end{aligned}
+$$
+
+I will be using code to construct this table as I do not have any desire to do this manually. 
+
+```{r}
+# Sums of Squares ---
+SSA = 14144.44 
+SSB = 5511.27 
+SSC = 244696.39
+SSAB = 1069.62
+SSAC = 62.67 
+SSBC = 331.67 
+SSE = 3127.50 
+SST = 270024.33
+SSABC <- SST - sum(SSA,SSB,SSC,SSAB,SSAC,SSBC,SSE)
+sums <- c(SSA,SSB,SSC,SSAB,SSAC,SSBC,SSABC,SSE,SST)
+
+# Categories and samples ---
+i <- 3
+j <- 3
+k <- 3
+l <- 2
+
+# Degrees of freedom ---
+dfa <- i-1
+dfb <- j-1
+dfc <- k-1
+dfab <- dfa * dfb 
+dfac <- dfa * dfc
+dfbc <- dfb * dfc
+dfabc <- dfa * dfb * dfc
+dfe <- i*j*k*(l-1)
+dft <- prod(i,j,k,l) - 1
+dfs <- c(dfa, dfb, dfc, dfab, dfac, dfbc, dfabc, dfe, dft)
+
+# Mean Square Ratios ---
+mean_square_names <- c("msa", "msb", "msc", "msab", "msac", "msbc", "msabc", "mse")
+mean_squares <- round(sums[1:8] / dfs[1:8], 3)
+
+# Test Statistics ---
+test_stats <- (mean_squares[1:7] / mean_squares[8]) |> round(3)
+test_names <- c("fa", "fb", "fc", "fab", "fac", "fbc", "fabc")
+
+# p-values ---
+p_val <- pf(q = test_stats, df1 = dfs[1:7], df2 = dfs[8], lower.tail = F)
+
+p_val_names <- c("a", "b", "c", "ab", "ac", "bc", "abc")
+```
+
+```{r, echo=FALSE}
+glue::glue("---[Mean Squares]---")
+glue::glue("{toupper(mean_square_names)} = {mean_squares}")
+glue::glue("---[Test Statistics]---")
+glue::glue("{test_names} = {test_stats}")
+glue::glue("---[P-Values]---")
+glue::glue("P-Value {p_val_names}: {round(p_val, 3)}")
+```
+
+For the sake of my own sanity I will not be writing this out into an entire table. The values themselves should suffice. If they don't, oh well I did my best.
+
+### Part B
+
+Examing the F statistics and p-values for the two and three factor interactions show us that, at the $0.05$ significance level, none of them are significant. The f statistics are $F = \{2.31, 0.135, 0.716, 1.166\}$ and the p-values are $p = \{0.084, 0.968, 0.588, 0.355\}$. As we can see, none of those are below $0.05$. 
+
+### Part C
+
+Factors A, B and C all have p-values that are essentially 0 (they show zero because they're rounded). As such, they are all lower than $0.05$ and have a significant effect. 
+
+## Problem 29
+
+For this problem I utilized the same code at Problem 27, if there was any confusion as to how the values were acquired. 
+
+### Part A
+
+- Factor A: Treatment ($I = 3$)
+
+- Factor B: Fabric Type ($J = 2$)
+
+- Factor C: Number of Cycles ($K = 3$)
+
+- Five observations per ($L = 5$)
+
+$$
+\begin{aligned}
+SSA &= 1043.27 \\
+SSB &= 112148.10 \\
+SSC &= 3020.97 \\
+SSAB &= 373.52 \\
+SSAC &= 392.71 \\
+SSBC &= 145.95 \\
+SSABC &= 54.13 \\
+SSE &= 339.30
+\end{aligned}
+$$
+
+```{r, echo=FALSE}
+# Sums of Squares ---
+SSA = 1043.27
+SSB = 112148.10 
+SSC = 3020.97
+SSAB = 373.52
+SSAC = 392.71 
+SSBC = 145.95 
+SSABC = 54.13 
+SSE = 339.30
+SST = sum(SSA,SSB,SSC,SSAB,SSAC,SSBC,SSABC,SSE)
+sums <- c(SSA,SSB,SSC,SSAB,SSAC,SSBC,SSABC,SSE,SST)
+
+# Categories and samples ---
+i <- 3
+j <- 2
+k <- 3
+l <- 5
+
+# Degrees of freedom ---
+dfa <- i-1
+dfb <- j-1
+dfc <- k-1
+dfab <- dfa * dfb 
+dfac <- dfa * dfc
+dfbc <- dfb * dfc
+dfabc <- dfa * dfb * dfc
+dfe <- i*j*k*(l-1)
+dft <- prod(i,j,k,l) - 1
+dfs <- c(dfa, dfb, dfc, dfab, dfac, dfbc, dfabc, dfe, dft)
+
+# Mean Square Ratios ---
+mean_square_names <- c("msa", "msb", "msc", "msab", "msac", "msbc", "msabc", "mse")
+mean_squares <- round(sums[1:8] / dfs[1:8], 3)
+
+# Test Statistics ---
+test_stats <- (mean_squares[1:7] / mean_squares[8]) |> round(3)
+test_names <- c("fa", "fb", "fc", "fab", "fac", "fbc", "fabc")
+
+# p-values ---
+p_val <- pf(q = test_stats, df1 = dfs[1:7], df2 = dfs[8], lower.tail = F)
+
+p_val_names <- c("a", "b", "c", "ab", "ac", "bc", "abc")
+```
+
+```{r, echo=FALSE}
+glue::glue("---[Mean Squares]---")
+glue::glue("{toupper(mean_square_names)} = {mean_squares}")
+glue::glue("---[Test Statistics]---")
+glue::glue("{test_names} = {test_stats}")
+glue::glue("---[P-Values]---")
+glue::glue("P-Value {p_val_names}: {round(p_val, 3)}")
+```
+
+Yet again, I will not be converting this into an ANOVA table. If that docks me points I totally understand.
+
+As for the tests, only the triple interaction is not significant ($F = 2.871, p=0.029$) at the $0.01$ level. All of the double interactions were highly significant (rounded to 0 at 3 digits). 
+
+### Part B
+
+```{r, echo=FALSE}
+df <- 
+    tibble(
+        interaction = c(
+            paste("a1", c("b1", "b2", "c1", "c2", "c3")),
+            paste("a2", c("b1", "b2", "c1", "c2", "c3")),
+            paste("a3", c("b1", "b2", "c1", "c2", "c3"))
+        ),
+        means = c(
+            67.1, 138, 110.25, 101.80, 95.60,
+            56.50, 131.93, 105.55, 90.45, 86.65,
+            65.93, 131.40, 103.30, 97.10, 95.60
+        )
+    ) %>%
+    tidyr::separate(interaction, c("A", "B"), remove = F) %>%
+    mutate(
+        C = case_when(
+            grepl("c", B) ~ B,
+            grepl("b", B) ~ ""
+        ),
+        B = case_when(
+            grepl("b", B) ~ B,
+            grepl("c", B) ~ ""
+        )
+    )
+
+df %>% head(5)
+```
+
+```{r, echo=FALSE}
+df %>%
+    filter(B != "") %>%
+    ggplot(aes(x=A, y=means)) +
+    geom_line(size=1.2, aes(group=B, color=B)) +
+    geom_point(size=2, aes(color=B)) +
+    theme_bw() +
+    ylab("Mean") 
+```
+
+```{r, echo=FALSE}
+df %>%
+    filter(C != "") %>%
+    ggplot(aes(x=A, y=means)) +
+    geom_line(size=1.2, aes(group=C, color=C)) +
+    geom_point(size=2, aes(color=C)) +
+    theme_bw() +
+    ylab("Mean") 
+```
+
+Honestly a lot of these lines appear fairly close to parallel. I'm surprised to see such high significance levels for pretty similar looking plots. With AB it does make sense though, as they're very far apart on the mean axis. AC also probably skates by on the vertical difference. 
+
+## Problem 31
+
+```{r}
+df <- read.table("ex_11_31.txt", header = T) %>% tibble()
+df %>% head(5)
+```
+
+```{r}
+my_aov_31 <- aov(NickelWt ~ Power*Speed*PasteThickness - Power:Speed:PasteThickness, data=df)
+
+my_aov_31 %>% summary()
+```
+
+### Part B
+
+The p-values for all of the double interactions are well above $0.05$, $\{0.9, 0.38, 0.4\}$. As such, none of them are significant. 
+
+### Part C
+
+Paste Thickness and Power are both significant at the $0.05$ level $\{0.0025, 0.0417\}$.
+
+### Part D
+
+```{r, echo=FALSE, include=FALSE}
+TukeyHSD(my_aov_31)
+```
+
+ThreeTenths and FourTenths have a significant difference with a p-value of 0.025. TwoTenths and FourTenths have a significant difference with a p-value of 0.002.

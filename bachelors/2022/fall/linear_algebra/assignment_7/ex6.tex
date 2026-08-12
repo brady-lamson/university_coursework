@@ -1,0 +1,61 @@
+\section*{Exercise 6}
+
+Determine if the following sets of vectors are linearly independent. 
+
+\subsection*{Part A}
+
+\[
+	\genpmat{4\\6\\2}, \genpmat{7\\0\\-7}, \genpmat{-3\\-5\\-2}
+\]
+
+\[
+	M = \genpmat{
+		4&7&-3\\
+		6&0&-5\\
+		2&0&-2
+	}
+\]
+
+\[
+	det(M) = 0 + (-70) + 126 - (-14) - 140 - 0 = 0
+\]
+
+As $M$ has a determinant of 0, the matrix made up of these vectors is not invertible. As such, the set of vectors is linearly dependent. 
+
+\subsection*{Part B}
+
+\[
+	\genpmat{3\\5\\-6\\4}, \genpmat{2\\-6\\0\\7},
+	\genpmat{-2\\-1\\3\\0}, \genpmat{0\\0\\0\\-2}
+\]
+
+\[
+M = \genpmat{
+	3&2&-2&0\\
+	5&-6&-1&0\\
+	-6&0&3&0\\
+	4&7&0&-2
+}
+\]
+
+\[
+	det(M) = 
+	-6 \cdot \genericmat{v}{
+		2&-2&0\\
+		-6&-1&0\\
+		7&0&-2
+	} +
+	3 \cdot \genericmat{v}{
+		3&2&0\\
+		5&-6&0\\
+		4&7&-2
+	}
+\]
+
+\[
+det(M) = -6(28) + 3(56) = 0
+\]
+
+As $M$ has a determinant of 0, the matrix made up of these vectors is not invertible. As such, the set of vectors is linearly dependent. 
+
+

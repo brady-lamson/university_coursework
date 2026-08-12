@@ -1,0 +1,46 @@
+\section*{Exercise 2.1} 
+\textbf{Problem:} Find a basis in the space of $3 \times 2$ matrices $M_{3 \times 2}$.
+
+We can tackle this problem utilizing the standard basis vectors $S = \{e_{1}, e_{2}, e_{3}, \dots, e_{n}\}$. 
+
+Let $\alpha_1, \alpha_2, \dots, \alpha_6 \in \bb{R}$.
+
+Let $e_{1} = 
+\begin{Bmatrix}
+	1 & 0 \\
+	0 & 0 \\
+	0 & 0
+\end{Bmatrix}
+$, 
+$e_{2} = 
+\begin{Bmatrix}
+	0 & 1 \\
+	0 & 0 \\
+	0 & 0
+\end{Bmatrix}$
+,
+$e_{3} = 
+\begin{Bmatrix}
+	0 & 0 \\
+	1 & 0 \\
+	0 & 0
+\end{Bmatrix}$,
+$\dots$,
+$e_{6} = 
+\begin{Bmatrix}
+	0 & 0 \\
+	0 & 0 \\
+	0 & 1 
+\end{Bmatrix}$
+
+Every matrix in $M_{3 \times 2}$ can be represented as:
+\[\begin{aligned}
+	\begin{Bmatrix}
+	\alpha_1 & \alpha_2 \\
+	\alpha_3 & \alpha_4 \\
+	\alpha_5 & \alpha_6
+\end{Bmatrix}
+&= \alpha_{1} e_{1} + \alpha_{2} e_{2} + \alpha_{3} e_{3} + \alpha_{4} e_{4} + \alpha_{5} e_{5} + \alpha_{6} e_{6} 
+\end{aligned}\]
+
+We can skip the more robust checks and say that $S$ is linearly independent because each coordinate in the matrix is determined by only one coefficient. That means every vector will have a unique combination of coefficients making it up.  

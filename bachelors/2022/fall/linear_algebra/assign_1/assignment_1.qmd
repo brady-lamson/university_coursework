@@ -1,0 +1,9 @@
+---
+title: "testing"
+format: 
+  pdf:
+    include-in-header: preamble.tex
+editor: visual
+---
+
+$\bb{R}$

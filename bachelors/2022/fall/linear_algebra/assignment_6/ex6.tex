@@ -1,0 +1,21 @@
+\section*{Exercise 6}
+
+Let $V_0 \subset V$ and $V_1 \subset V$ be two subspaces in $V$. Prove that $V_0 \cap V_1$ is also a subspace in $V$.
+
+\subsection*{Proof}
+
+Let $V_0 \subset V$ and $V_1 \subset V$ be two subspaces in $V$. Also let $S = V_0 \cap V_1$.
+
+From this it follows that:
+
+$\vec{0}$ is in both $V_0$ and $V_1$. By extension $\vec{0} \in S$.
+
+Also, $V_0$ and $V_1$ are both closed under vector addition and scalar multiplication.
+
+Consider two vectors $\vec{v}, \vec{u} \in S$ and some scalar $\alpha \in \R$. 
+
+As both $\vec{v}$ and $\vec{u}$ are in $V_0$, $\vec{v} + \vec{u} \in V_0$. The same also applies to $V_1$. So, $\vec{v} + \vec{u} \in S$ and so $S$ is closed under vector addition.
+
+As $\vec{v} \in V_0$ which is closed under scalar multiplication, $\alpha \vec{v} \in V_0$. This also applies to $V_1$. As $\alpha \vec{v}$ is in both $V_0$ and $V_1$, $\alpha \vec{v} \in S$. Therefore, $S$ is closed under scalar multiplication.
+
+As $S$ contains the zero vector, is closed under vector addition and is closed under scalar multiplication it is, by definition, a subspace in $V$. $\blacksquare$.

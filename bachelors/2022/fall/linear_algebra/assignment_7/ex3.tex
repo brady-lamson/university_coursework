@@ -1,0 +1,48 @@
+\section*{Exercise 3}
+
+Find the determinants for the following transformation matrices.
+
+\subsection*{Part A}
+
+\[M = \genpmat{
+		\sqrt{2}/2 & -\sqrt{2}/2\\
+		\sqrt{2}/2 & \sqrt{2}/2
+}\],
+
+The transformation that rotates the plane by $\pi / 4$ degrees.
+
+\[
+\begin{aligned}
+det(M) &= 
+\left( \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{2}}{2}\right)
+- \left( -\frac{\sqrt{2}}{2} \cdot \frac{\sqrt{2}}{2}\right)
+\\ &= \frac{1}{2} + \frac{1}{2} = 1
+\end{aligned}
+\]
+
+\subsection*{Part B}
+
+\[
+M = \genpmat{
+	\cos(\theta) & -\sin(\theta)\\
+	\sin(\theta) & \cos(\theta)
+},
+\]
+The transformation that rotates the plane by $\theta$ degrees.
+
+
+\[
+	\begin{aligned}
+		det(M) &= cos^2(\theta) - (-sin(\theta) \cdot sin(\theta)) \\
+		&= cos^(\theta) + sin^2(\theta) \\
+		&= 1
+	\end{aligned}
+\]
+
+\subsection*{Part C}
+
+Using your answers above, what can you say about rotation transformations?
+
+As the determinants are not 0, these transformations have an inverse. 
+
+Another interesting point is that the determinant of these matrices are both 1, which is the same as the determinant of the identity matrix. What that means is that these transformations do not change the area of the polygon created by the basis vectors. It truly just is a rotation. Obviously rotation transformations can be scaled to change this, but it is an interesting note. 

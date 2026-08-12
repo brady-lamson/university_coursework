@@ -1,0 +1,38 @@
+\section*{Exercise 3.2}
+
+Let a linear transformation in $\R^2$ be the reflection in the line $x1=x2$. Find its matrix.
+
+\begin{tikzpicture}[scale=0.5]
+        % Draw x1=x2
+        \filldraw[-stealth, black, thick] (0,0) coordinate (a)
+            -- (4,4) node[above=3pt] {$x_1=x_2$} coordinate (b);
+        % Draw x1
+        \filldraw[-stealth, black, thick] (0,0) coordinate (a)
+            -- (4,0) node[above=3pt] {$e_1$} coordinate (b);
+        % Draw x2
+        \filldraw[-stealth, black, thick] (0,0) coordinate (a)
+            -- (0,4) node[left=3pt] {$e_2$} coordinate (b);
+        % Draw x and y axis
+            \draw[dashed, thin, <->] 
+                (0,-3) coordinate (s)
+                -- (0,6) coordinate (x2)
+                node[above] {$x_2$};
+            \draw[dashed, thin, <->]
+                (-3,0) coordinate (w)
+                -- (6,0) coordinate (x1)
+                node[right] {$x_1$};
+\end{tikzpicture}
+
+It's important not to overcomplicate this one. All we need to do is see how this transformation affects our basis vectors and combine those two results into what will be the matrix of this transformation.
+
+\[
+	\begin{aligned}
+		T(\vec{e_1}) &= \vec{e_2} = \genericmat{p}{0\\1} \\
+		T(\vec{e_2}) &= \vec{e_1} = \genericmat{p}{1\\0} 
+	\end{aligned}
+\]
+
+From this, we can say the matrix of this transformation is:
+
+\[A = \genericmat{p}{0&1\\1&0}\]
+

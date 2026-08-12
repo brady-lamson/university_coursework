@@ -1,0 +1,15 @@
+\section*{Exercise 1}
+
+Consider the set of vectors of length at most 1, namely $\left\{ \vec{v} = \genpmat{a\\b}, a^2 + b^2 \leq 1 \right\}$. Prove that this set is NOT a vector space.
+
+\subsection*{Proof}
+
+Consider the counter example with $\vec{v} = \genpmat{0\\1}$ and $\vec{u} = \genpmat{1\\0}$ so $\vec{v}, \vec{u} \in S$.
+
+\[
+	\begin{aligned}
+		\vec{v} + \vec{u} &= \genpmat{1\\1} \\
+	\end{aligned}
+\]
+
+As $1^2 + 1^2 \cancel{\leq} 1$, $\vec{v} + \vec{u} \notin S$. Therefore this set of vectors is not closed under vector addition and as such is not a subspace. $\blacksquare$ 

@@ -1,0 +1,53 @@
+\section*{Exercise 2.2}
+\textbf{Problem:} Answer true or alse for the following:
+
+\subsection*{2.2a} \textbf{Statement:} Any set containing a zero vector is linearly dependent.
+
+This is \textbf{true}. Because $1 \cdot 0 = 2 \cdot 0 = n \cdot 0 \; \forall n \in \bb{R}$, any system of equations involving the zero vector can have any number of non-trivial solutions.  
+
+\subsection*{2.2b} \textbf{Statement:} A basis must contain $\vec{0}$.
+
+This is \textbf{false} for the same reason as part a. A basis must \textbf{not} contain the zero vector as a basis requires a unique combination of coefficients which cannot be achieved with $\vec{0}$. 
+\subsection*{2.2c} \textbf{Statement:} Subsets of linearly dependent sets are linearly dependent;
+
+This is \textbf{false}. To show this a simple counterexample in $\bb{R}^{2}$ is proposed. 
+
+Let $S = \vec{v_{1}}, \vec{v_{2}}, \vec{v_{3}}$. 
+
+And let 
+
+\[
+	\begin{aligned}
+		\vec{v_{1}} &= \psmall{1 \\ 0} \\
+		\vec{v_{2}} &= \psmall{0 \\ 1} \\
+		\vec{v_{3}} &= \psmall{0 \\ 2}
+	\end{aligned}
+\]
+
+Because $\vec{v_{3}} = 2 \cdot \vec{v_{2}}$, this set is linearly dependent. It is of note though, that the subset $s = \vec{v_{1}}, \vec{v_{2}}$ is linearly independent. 
+
+\subsection*{2.2d} \textbf{Statement:} Subsets of linearly independent sets are linearly independent;
+
+This is \textbf{true}. 
+
+Due to the restrictions already in place to be linearly independent, these will hold with different subsets as well. An equation with all 0 coefficients will not suddenly acquire a non-trivial solution when you remove one of the variables.
+
+\subsection*{2.2e} \textbf{Statement:} If $\alpha_1\vec{v_1}, \alpha_2\vec{v_2}, + \dots, + \alpha_n\vec{v_n} = \vec{0}$ then all scalars $\alpha_k$ are zero;
+
+This is \textbf{FALSE} and can be shown as such with a simple counter example. 
+
+Let $S = \{\vec{v_{1}}, \vec{v_{2}, \vec{v_{3}}}\}$
+
+and let
+
+\[
+	\begin{aligned}
+		\vec{v_{1}} &= \psmall{1 \\ 0} \\
+		\vec{v_{2}} &= \psmall{0 \\ 1} \\
+		\vec{v_{3}} &= \psmall{0 \\ 0} \\
+	\end{aligned}
+\]
+
+Then
+
+\[0 \cdot \vec{v_{1}} + 0 \cdot \vec{v_{2}} + 573000 \cdot \vec{v_{3}} = 0\]

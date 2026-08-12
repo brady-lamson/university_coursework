@@ -1,0 +1,27 @@
+\section*{Exercise 3.1}
+
+If $A$ is an $n \times n$ matrix, how are the determinants det $A$ and det$(5A)$ related?
+
+\textbf{Note:} $det(5A) = 5 det A$ only in the trivial case of $1 \times 1$ matrices.
+
+I'm fairly certain the determinant increases here by $5^n$. This is a drastic inflation in volume as every element is increased by 5. Let us use a standard $3 \times 3$ matrix here. 
+
+\[\genericmat{p}{1&0&0\\0&1&0\\0&0&1}\]
+
+The determinant of this is equal to 1 which makes intuitive sense. If we instead took the determinant of:
+
+\[\genericmat{p}{5&0&0\\0&5&0\\0&0&5}\]
+
+The determinant of this (calculated using the programming language R) is $125 = 5^3$.
+
+As such, we can say that 
+
+\[\det(5A) = \det A \cdot 5^n\]
+
+in any $n \times n$ matrix.
+
+\textbf{Note:} This also follows from property 12 in the textbook.
+
+\subsubsection{Property 12}
+
+If A is an $n \times n$ matrix, the $det(\alpha A) = \alpha^n \cdot det(A)$

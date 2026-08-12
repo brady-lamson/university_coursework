@@ -1,0 +1,17 @@
+\section*{Exercise 9}
+
+A square matrix is called nilpotent if $\exists k \in \Z \; \text{s.t.}\; A^k = \vec{0}$. Show that for a nilpotent matrix A, $det(A) = 0$.
+
+Let $M$ be a nilpotent matrix. Therefore, there exists a $k \in \Z$ such that $M^k = \vec{0}$. 
+
+One of the properties of the determinant is that, for some matrices $A$ and $B$, $Det(AB) = Det(A) \cdot Det(B)$. It follows from this that:
+
+\[
+	\begin{aligned}
+		Det(M^k) &= Det(M \cdot M \cdot M \cdots) &= 0\\
+		&= Det(M) \cdot Det(M) \cdot Det(M) \cdots &= 0 \\
+		&= Det(M)^k &= 0 \\
+		&= Det(M)^{k/k} &= 0^{k/k} \\
+		Det(M^k) &= Det(M) &= 0
+	\end{aligned}
+\]

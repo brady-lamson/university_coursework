@@ -1,0 +1,22 @@
+\section*{Exercise 7}
+
+Give an example of two subspaces $V_0 \subset \R^3$ and $V_1 \subset \R^3$ such that $V_0 \cup V_1$ is NOT a subspace in $\R^3$.
+
+\subsection*{Answer}
+
+Consider the situation where $V_0$ and $V_1$ are two separate planes. 
+
+\[
+	\begin{aligned}
+		V_0 &= \left\{ (x,0,z)^T \in \R^3 | x,z \in \R \right\} \\
+		V_1 &= \left\{ (x,y,0)^T \in \R^3 | x,y \in \R \right\} 
+	\end{aligned}
+\]
+
+So, anything in $V_0 \cup V_1$ is trapped to either plane. So, x, y and z cannot all be non-zero simultaneously. If there is a means to leave these planes using either vector addition or scalar multiplication, this union is not a subspace. 
+
+Consider $\vec{x_1} = (1,0,1)^T$ which is in $V_0$ and $\vec{x_2} = (1,1,0)^T$ which is in $V_1$. 
+
+\[\vec{x_1} + \vec{x_2} = (2,1,1)^T \notin V_0 \cup V_1\]
+
+Therefore, this union is not closed under vector addition and is not a subspace in $\R^3$.

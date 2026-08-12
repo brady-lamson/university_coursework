@@ -1,0 +1,122 @@
+\section*{Problem 4}
+
+Decide if the following sets are linearly independent or not. 
+
+\subsection*{Part A.}
+
+\[V = \left\{ 
+		\genpmat{1\\-2\\4},
+		\genpmat{-2\\4\\-8}
+\right\}\]
+
+This is not linearly independent. The second vector can be rewritten as: 
+
+\[\vec{v_2} = -2 \cdot \vec{v_1}\]
+
+\subsection*{Part B.}
+
+\[
+	V = 
+\left\{ 
+	\genpmat{1\\2\\3\\4},
+	\genpmat{1\\0\\1\\0},
+	\genpmat{2\\2\\4\\0}
+\right\}
+\]
+
+To show linear independence, or a lack thereof, we will find the number of solutions to: 
+
+\[\alpha \vec{v_1} + \beta \vec{v_2} + \gamma \vec{v_3} = \vec{0}\]
+
+Row reduction here is tempting but entirely unnecessary and unhelpful. 
+
+Turning this directly into a system equations gives us:
+
+\[
+	\begin{aligned}
+	x_1 + x_2 + 2x_3 &= 0 \\
+	2x_1 + 2x_3 &= 0 \\
+	3x_1 + x_2 + 4x_3 &= 0 \\
+	4x_1 &= 0
+	\end{aligned}
+\]
+
+From here we directly get $x_1 = 0$. Plugging that into our other equations gives us:
+
+\[
+	\begin{aligned}
+	x_2 + 2x_3 &= 0 \\
+	2x_3 &= 0 \\
+	x_2 + 4x_3 &= 0
+	\end{aligned}
+\]
+
+Here we get $x_3 = 0$, and it follows from the basic substitution afterwards that $x_2 = 0$ as well. 
+
+So, the only unique solution to this problem is:
+
+\[x_1 = x_2 = x_3 = 0\]
+
+Thus, this set of vectors is linearly independent. 
+
+\pagebreak
+\subsection*{Part C.}
+
+\[
+V = 
+\left\{	
+	\genpmat{1\\2\\3},
+	\genpmat{1\\0\\1},
+	\genpmat{2\\2\\4},
+	\genpmat{-1\\0\\3}
+\right\}
+\]
+
+We can do some work on this matrix to make it easier to work with. 
+
+I will convert this to an augmented matrix and do the following matrix operation:
+
+\[
+r_3 \to r_3 - 2r_2
+\]
+
+This results in:
+
+\[
+	\genpmat{
+		1&1&2&-1 &\bigm| & 0 \\
+		2&0&2&0 &\bigm| & 0\\
+		-1&0&0&3 &\bigm| & 0
+	}
+\]
+
+From here we set $r_1 \to r_1 + r_3$
+\[
+	\genpmat{
+		0&1&2&2 &\bigm| & 0\\
+		2&0&2&0 &\bigm| & 0\\
+		-1&0&0&3&\bigm| & 0
+	}
+\]
+
+Converting back to a system gives us:
+
+\[
+	\begin{aligned}
+		x_2 + 2x_3 + 2x^4 &= 0 \\
+		2x_1 + 2x_3 &= 0 \\
+		-x_1 + 3x_4 &= 0
+	\end{aligned}
+\]
+
+Solving this system gives us the following solutions:
+
+\[
+	\begin{aligned}
+		x_1 &= 3x_4 \\
+		x_3 &= -3x_4 \\
+		x_2 &= 4x_4
+	\end{aligned}
+\]
+
+A solution to this is all variables being equal to zero, though that certainly is not the only solution to this system of equations. As such, this is not linearly independent. 
