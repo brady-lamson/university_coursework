@@ -1,0 +1,145 @@
+---
+title: "Lab 4"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r, include=FALSE}
+data <- read.table("../../datasets/satisfaction.txt", header = T)
+```
+
+# Part A
+
+```{r}
+pairs(data)
+```
+
+## 3
+
+```{r, include=FALSE, echo=FALSE}
+cor(data)
+```
+
+Satisfaction is most highly correlated with age with a correlation of -.787
+
+Highest negative correlation is satisfaction and age, highest positive correlation is severity and anxiety with a correlation of .670.
+
+## 4
+
+```{r, include=FALSE, echo=FALSE}
+model <- lm(satisfaction ~ age + severity + anxiety, data= data)
+
+model |> summary()
+```
+
+### A
+
+$$
+\hat{Y} = 158.49 -1.14X_1 -0.44X_2 - 13.47X_3
+$$
+
+The value of $b_1$ indicates that satisfaction drops as age increases.
+
+The value of $b_2$ indicates that satisfaction slightly drops as severity increases. Though this result is not statistically significant.
+
+The value of $b_3$ indicates that satisfaction drastically drops as severity increases. Though this result is not statistically significant.
+
+
+### B
+
+$$R^2 = 0.68$$
+
+68% of the variation in satisfaction is explained by the model with age, severity and anxiety.
+
+### C
+
+$$
+F = 30.05\\
+p = 1.542 \cdot 10^{-10}
+$$
+
+As the p-value is far lower than any reasonable alpha, we have evidence to reject the null hypothesis that all of the slopes are equal to 0. There is a significant relationship between at least one of the predictors.
+
+### D
+
+$$\sigma^2 = 10.06^2 = 101.2036\\
+\sigma=10.06$$
+
+### E
+
+$$
+s\{b_1\} = .2148\\
+s\{b_2\} = .4920\\
+s\{b_3\} = 7.10\\
+$$
+
+### F
+
+B1 test:
+
+$$
+t = -5.315 \\
+p = 3.81 \cdot 10^{-6} \\
+yes
+$$
+
+B2 test:
+
+$$
+t = -.898 \\
+p = .3741 \\
+no
+$$
+
+B3 test:
+
+$$
+t = -1.897 \\
+p = .0647 \\
+no
+$$
+
+## 5
+
+I would say the assumption of normality of the error term appears to be reasonable. 
+
+## 6.
+
+Yup, constant standard deviation seems to be okay here.
+
+# Part B
+
+```{r, include=FALSE, echo=FALSE}
+lengthCm <- c(60, 69, 66, 64, 54, 67, 59, 65, 63)
+weightG <- c(136, 198, 194, 140, 93, 172, 116, 174, 145)
+lengthIn <- c(24.0, 27.6, 26.4, 25.6, 21.6, 26.8, 23.6, 26.0, 25.2)
+diameterCm <- c(2.1, 2.2, 2.2, 2.2, 1.6, 2.2, 2.0, 2.1, 2.2)
+snaaaaaaaaaaaaaaakes <- data.frame(LengthCm = lengthCm,
+LengthIn = lengthIn,
+DiameterCm = diameterCm,
+WeightG = weightG)
+```
+
+```{r, include=FALSE, echo=FALSE}
+my.reg <- lm(WeightG ~ LengthCm + LengthIn + DiameterCm, data = snaaaaaaaaaaaaaaakes)
+
+my.reg |> summary(0)
+```
+
+LengthCm and LengthIn are totally dependent on each other, they're the exact same measurement. 
+
+# Part C
+
+```{r, echo=FALSE, include=FALSE}
+Site <- c(1, 2, 3, 4)
+CO2_Flux <- c(1.242, 0.590, 1.677, 1.090)
+SoilTemp <- c(11.35, 13.55, 7.85, 11.50)
+AirTemp <- c(23.0, 16.8, 24.3, 16.2)
+PctSand <- c(69.6, 73.6, 60.2, 73.1)
+PctSilt <- c(19.0, 16.3, 29.9, 19.7)
+PctClay <- c(11.4, 10.1, 9.9, 7.2)
+rm_soil <- data.frame(CO2_Flux, SoilTemp, AirTemp, PctSand, PctSilt, PctClay)
+```
+
+There isnt enough rows of data to compute these values. Too many predictors, not enough data. 

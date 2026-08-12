@@ -1,0 +1,23 @@
+---
+title: "Lab 2"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r}
+my.data = read.table("chemistry.txt", header = T)
+my.data
+```
+
+```{r}
+plot(x = my.data$Hours, y = my.data$Conc, pch = 19,
+     main = "Concentration vs Time", xlab = "Time", ylab = "Concentration")
+```
+
+```{r}
+my.full.reg <- lm(Conc ~ Hours, data = my.data)
+my.reduced.reg <- lm(Conc ~ 1, data = my.data)
+anova(my.reduced.reg, my.full.reg)
+```
+
