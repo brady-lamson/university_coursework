@@ -1,0 +1,126 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# August 31st Notes
+
+Check NAs and "?'s" for full variables Look into the almost entirely incomplete variables.
+
+-   Are these variables actually levels of a factor?
+-   If so we can combine them, or keep them as dummy variables How can we reduce the number of levels of factors?
+-   This is important for the yes/no with extra notes.
+-   Should this info be truncated or converted into extra levels? Are the empty variables ACTUALLY empty?
+-   It's possible a missing value is actually just a "no" for example. Depends on context
+
+------------------------------------------------------------------------
+
+Next steps: - Start with the MOST and LEAST complete variables.
+- Do a bit more digging into those.
+
+Later on: - Are there variables where missing values tend to be grouped for a row?
+- In other words, are missing values correlated at all between sparse factors.
+- It's possible a row missing a variable may be indicitive of missing values in other variables.
+
+## Notes on Including Variables
+
+### Ready
+
+-   Pillar Size
+
+### Maybe
+
+-   Pluteus
+-   Tablinum
+
+### Redundant
+
+-   Property Size
+-   Percentage of Property
+
+# September 14
+
+Clean up and dig through the various binary variables we've looked at.
+If possible, make a correlation matrix of these.
+
+Turn 'atria' into a binary variable called "corinthian or not".
+What it says on the tin.
+If corinthian is in the value, 1.
+If not, 0.
+
+Also, create a new dataframe specifically for new transformed variables.
+Just to help deal with the cruft.
+
+AND, make a new excel sheet specifically for using on the home pc.
+Delete all the garbage im uninterested in visually.
+
+# September 20
+
+Made the ID column actually unique (there was a 1 "duplicate")
+
+Got a new dataframe using new columns.
+
+Converted peristyle type, tablinum, and atria into binary columns
+
+Created a correlation matrix but it is imperfect due to missing values
+
+# October 5th notes
+
+## Complete with respect
+
+How complete are other rows with respect to the columns contained in width?
+- Also in general here, this will be useful analysis to have - Set up a helper function for this type of analysis
+
+## Heatmap
+
+Setup a heatmap for walkway and portico.
+Walkway 1 2 3 4 1 2 P 3 4
+
+## Meeting notes
+
+Column material: Stone is a good thing to look for.
+They're more expensive and typically older.
+- Nuanced because some older homes can be damaged by an earthquake and repairs would be done using a mix of materials - Rubble and masonry are probably not super useful.
+
+We can ignore PPM column.
+Its just for Summers reference.
+
+## Peristyle Type
+
+Peristyle Type Peristyle with 4 sides with columns is True 3 or less is Truncated
+
+## Walkway/Portico sides
+
+```         
+Check how many of these have Peristyle Type
+```
+
+Is the widest walkway across the entrance or aligned with the entrance?
+- parallel or perpendicular.
+
+## Atrium/Tablinum are within the same unit of the building
+
+```         
+An NA here means there totally wasnt a tablinum as its a big feature thats hard to miss.
+```
+
+## Pluteus
+
+```         
+The directional information is sparse and useless
+Pluteus can be complete or incomplete but data is too inconsistent to extract info from
+If we were to use it'd be more of a "did it exist or not" yes/no boolean.
+```
+
+## Next steps
+
+```         
+- We're gonna focus on walkway widths, alignment and material. 
+- How does the largest width walkway direction correlate with direction of the entrance
+- Widest walkway direction is probably what we want to use. Smallest one isnt helpful.
+    - Rethink widest walkway as "Dominant walkway". What direction does the dominant walkway face?
+- For the 26% of data w/ walkways, how many of those are true/truncated?
+- Interesting goal could be to use the columns provided in phone gallery to "predict"" the entrance direction
+- Could this information also predict visibility of the peristyle???
+```
