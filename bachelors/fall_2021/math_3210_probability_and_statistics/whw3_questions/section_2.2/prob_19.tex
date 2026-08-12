@@ -1,0 +1,15 @@
+\textbf{Question 19.} \\
+\hrule 
+
+Human visual inspection of solder joints on printed circuit boards can be very subjective. Part of the problem stems from the numerous types of solder defects (e.g., pad non-wetting, knee visibility, voids) and even the degree to which a joint possesses one or more of these defects. Consequently, even highly trained inspectors can disagree on the disposition of a particular joint. In one batch of 10,000 joints, inspector A found 724 that were judged defective, inspector B found 751 such joints, and 1159 of the joints were judged defective by at least one of the inspectors. Suppose that one of the 10,000 joints is randomly selected.
+
+\textbf{a. What is the probability that the selected joint was judged to be defective by neither of the two inspectors?}
+Our given information here is as follows. $P(A) = .0724$, $P(B) = .0751$ and $P(A \cup B) = .1159$. Since all joints that were not found defective by the two inspectors encompasses everything outside of our given union, we can simply subtract from 1. $1 - .1159 = .8841$.
+
+\textbf{b. What is the probability that the selected joint was judged to be defective by inspector B but not by inspector A?}
+For this we can just use the probability of our given union but with the probability of A removed.
+\begin{align*}
+    P(B \cap A') &= P(A \cup B) - P(A) \\
+    P(B \cap A') &= .1159 - .0724 \\
+    P(B \cap A') &= .0435
+\end{align*}

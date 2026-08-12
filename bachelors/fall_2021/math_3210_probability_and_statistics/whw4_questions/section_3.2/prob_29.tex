@@ -1,0 +1,40 @@
+\textbf{Prob 29.} \\
+\hrule 
+
+The pmf of the amount of memory X (GB) in a purchased flash drive was given in Example 3.13 as:
+
+\begin{table}[h]
+\begin{tabular}{ll}
+\hline
+x & P{[}X = x{]} \\ \hline
+1 & .3 \\
+3 & .1 \\
+4 & .05 \\
+6 & .15 \\
+12 & .4
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{llll}
+x & P[X = x] & $x \cdot P[X = x]$ & $(x - \mu_X)^2 \cdot P[X = x]$ \\[1mm] \cline{1-4}
+1 & .05 & .05 & $(1-6.45)^2 \cdot .05 \approx 1.485$ \\[1mm]
+2 & .10 & .20 & $(2-6.45)^2 \cdot .1 \approx 1.98$ \\[1mm]
+4 & .35 & 1.4 & $(4-6.45)^2 \cdot .35 \approx 2.1$ \\[1mm]
+8 & .40 & 3.2 & $(8-6.45)^2 \cdot .4 \approx 0.961$ \\[1mm]
+16 & .10 & 1.6 & $(16-6.45)^2 \cdot .1 \approx 9.12$ \\[1mm] \cline{3-4}
+ &  & $\mu_X = 6.45$ & V(X) = 15.646
+\end{tabular}
+\end{table}
+
+Compute the following: \newline 
+\textbf{a.} $E(X) = \mu_X = \boxed{6.45}$
+
+\textbf{b. V(X) directly from the definition} \newline 
+$V(X) = \sum_{x}(x-\mu_X)^2 \cdot P[X = x] = \boxed{15.646}$
+
+\textbf{c. The standard deviation of X} \newline 
+$\sigma = \sqrt{V(X)} = \sqrt{15.646} \approx \boxed{3.96}$
+
+\textbf{d. V(X) using the shortcut formula} \newline 
+$V(X) = E(X^2) - [E(X)]^2 = 57.25 - 6.45^2 = \boxed{15.648}$

@@ -1,0 +1,24 @@
+\textbf{Question 22.} \\
+\hrule 
+
+The route used by a certain motorist in commuting to work contains two intersections with traffic signals. The probability that he must stop at the first signal is .4, the analogous probability for the second signal is .5, and the probability that he must stop at at  least one of the two signals is .7. What is the probability that he must stop:
+
+\textbf{a. At both signals?} \newline 
+If we let stopping at the first signal be $A$ and the second signal be $B$, then we can calculate this using the general addition rule using the same strategy as in problem 14.
+\begin{align*}
+    P(A \cup B) &= P(A) + P(B) - P(A \cap B) \\
+    P(A \cap B) &= P(A) + P(B) - P(A \cup B) \\ 
+    P(A \cap B) &= .4 + .5 - .7 \\
+    P(A \cap B) &= .2
+\end{align*}
+
+\textbf{b. At the first signal but not at the second one?} \newline 
+This one is just the union of the two events minus the probability of $B$. 
+\begin{align*}
+P(A \cap B') &= P(A \cup B) - P(B) \\
+P(A \cap B') &= .7 - .5 \\
+P(A \cap B') &= .2
+\end{align*}
+
+\textbf{c. At exactly one signal?} \newline 
+Here we simply add $P(A \cap B')$ and $P(B \cap A')$ together. We can assume the same strategy was used to calculate the latter probability. $.2 + .3 = \boxed{.5}$.

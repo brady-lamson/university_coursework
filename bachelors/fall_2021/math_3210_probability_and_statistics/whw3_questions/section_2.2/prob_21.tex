@@ -1,0 +1,38 @@
+\textbf{Question 21.} \\
+\hrule 
+
+An insurance company offers four different deductible levels—none, low, medium, and high—for its homeowner’s policyholders and three different levels—low, medium, and high—for its automobile policyholders. The accompanying table gives proportions for the various categories of policyholders who have both types of insurance. For example, the proportion of individuals with both low homeowner’s deductible and low auto deductible is .06 (6\% of all such individuals). \newline 
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[h]
+\begin{tabular}{@{}lllll@{}}
+\toprule
+ & \multicolumn{4}{l}{\textbf{Homeowner's}} \\ \midrule
+\textbf{Auto} & \textbf{N} & \textbf{L} & \textbf{M} & \textbf{H} \\
+\textbf{L} & .04 & .06 & .05 & .03 \\
+\textbf{M} & .07 & .10 & .20 & .10 \\
+\textbf{H} & .02 & .03 & .15 & .15 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Suppose an individual having both of policies is randomly selected.
+
+\textbf{a. What is the probability that the individual has a medium auto deductible and a high homeowner's deductible?} \newline
+For this we can simply look at the table to find our value. The section that meets our criteria gives us $\boxed{.10}$ for our probability.
+
+\textbf{b. What is the probability that the individual has a low auto deductible? A low homeowner's deductible?} \newline 
+For these two answers we can simply add up the proportions in the low auto section and then do the same for the low homeowner's section. For the low auto deductible probability we get $\boxed{.18}$. For the low homeowner's deductible probability we get $\boxed{.19}$. 
+
+\textbf{c. What is the probability that the individual is in the same category for both auto and homeowner's deductibles?}
+For this we do more addition. We simply add up all the cells that have matching categories (ie: low and low, medium and medium). From that we get a $\boxed{.41}$ probability that an individual has the same category for both auto and homeowner's deductible.
+
+\textbf{d. Based on your answer to part (c), what is the probability that the two categories are different?} \newline 
+This one is straightforward. It's just all of the cells that aren't what we used in part c. Since everything in the table adds up to 1 we find that $1 - .42 = \boxed{.58}$.
+
+\textbf{e. What is the probability that the individual has at least one low deductible level?} \newline 
+To answer this we simply add up the low homeowner row and the low auto column while being careful to avoid duplicates. Doing so gives us $\boxed{.31}$.
+
+\textbf{f. Using the answer in part (e), what is the probability that neither deductible level is low?} \newline 
+Just like part (d) we simply do 1 minus our answer to (e). This gives us $\boxed{.69}$.
+

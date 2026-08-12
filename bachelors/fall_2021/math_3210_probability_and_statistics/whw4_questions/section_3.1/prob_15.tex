@@ -1,0 +1,24 @@
+\textbf{Problem 15.} \\
+\hrule 
+
+Many manufacturers have quality control programs that include inspection of incoming materials for defects. Suppose a computer manufacturer receives circuit boards in batches of five. Two boards are selected from each batch for inspection. We can represent possible outcomes of the selection process by pairs. For example, the pair (1, 2) represents the selection of boards 1 and 2 for inspection.
+
+\textbf{a. List the ten different possible outcomes.}
+\begin{align*}
+    S = \left\{ \begin{array}{ccccc}
+    (1,2), & (1,3), & (1,4), & (1,5), & (4,5), \\
+    (2,3), & (2,4), & (2,5), & (3,4), & (3,5) \\
+    \end{array} \right\}
+\end{align*}
+
+\textbf{b. Suppose that boards 1 and 2 are the only defective boards in a batch. Two boards are to be chosen at random. Define X to be the number of defective boards observed among those inspected. Find the probability distribution of X.}
+
+\[P(X = 0) = \{(3,4), (3,5), (4,5)\} = \frac{3}{10} \]
+\[P(X = 1) = \{(1,3), (1,4), (1,5), (2,3), (2,4), (2,5)\} = \frac{6}{10}\]
+\[P(X = 2) = \{(1,2)\} = \frac{1}{10}\]
+
+\textbf{c. Let $F(x)$ denote the cdf of $X$. First determine $F(0) = P(X \leq 0)$, $F(1)$, and $F(2)$; then obtain $F(x)$ for all other $x$.}
+
+\[F(0) = P(X \leq 0) = \boxed{.3}\]
+\[F(1) = P(X \leq 1) = .3 + .6 = \boxed{.9}\]
+\[F(2) = P(X \leq 2) = \boxed{1}\]

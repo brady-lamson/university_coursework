@@ -1,0 +1,50 @@
+\textbf{Question 50.} \\
+\hrule 
+
+A department store sells sport shirts in three sizes (small, medium and large), three patterns (plaid, print, and stripe), and two sleeve lengths (long and short). The accompanying tables give the proportions of shirts sold in the varying category combinations.
+
+\begin{table}[h]
+\begin{tabular}{llll}
+\hline
+\multicolumn{2}{l}{\textbf{Short-sleeved}} & \textbf{} & \textbf{} \\ \hline
+\textbf{} & \multicolumn{3}{c}{\textbf{Pattern}} \\ \hline 
+\textit{Size} & \textbf{Pl} & \textbf{Pr} & \textbf{St} \\ \hline 
+\textbf{S} & .04 & .02 & .05 \\
+\textbf{M} & .08 & .07 & .12 \\
+\textbf{L} & .03 & .07 & .08 \\ \hline 
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{llll}
+\hline
+\multicolumn{2}{l}{\textbf{Long-sleeved}} & \textbf{} & \textbf{} \\ \hline
+\textbf{} & \multicolumn{3}{c}{\textbf{Pattern}} \\ \hline 
+\textit{Size} & \textbf{Pl} & \textbf{Pr} & \textbf{St} \\ \hline
+\textbf{S} & .03 & .02 & .03 \\
+\textbf{M} & .10 & .05 & .07 \\
+\textbf{L} & .04 & .02 & .08 \\ \hline 
+\end{tabular}
+\end{table}
+
+\textbf{a. What is the probability that the next shirt sold is a medium, long-sleeved, print shirt?} \newline 
+For these problems I will simply be pulling my answers from the tables provided. $\boxed{.05}$
+
+\textbf{b. What is the probability that the next shirt sold is a medium print shirt?}
+\[.07 + .05 = \boxed{.12}\]
+
+\textbf{c. What is the probability that the next shirt sold is a short-sleeved shirt? A long-sleeved shirt?} \newline 
+For this part I simply added up all the values in each respective table. \newline 
+Short sleeve? $\boxed{.56}$ \newline 
+Long sleeve? $\boxed{.44}$
+
+\textbf{d. What is the probability that the size of the next shirt sold is medium? That the pattern of the next shirt sold is a print?} \newline
+I added up all medium values for this one. It gave me $\boxed{.49}$. \newline 
+As for the prints, $.16 + .09 = \boxed{.25}$.
+
+\textbf{e. Given that the shirt just sold was a short-sleeved plaid, what is the probability that its size was medium? } 
+\[P( \text{Med} \; | \; \text{SS} \cap \text{Pl} ) = \frac{\text{Med} \; \cap \; \text{SS} \cap \text{Pl}}{P( \text{SS} \cap \text{Pl})} = \frac{.08}{.15} \approx \boxed{.533}\]
+
+\textbf{f. Given that the shirt just sold was a medium plaid, what is the probability that it was short-sleeved? Long-sleeved?} 
+\[P( \text{SS} \; | \; \text{Med} \cap \text{Pl} ) = \frac{\text{Med} \; \cap \; \text{SS} \cap \text{Pl}}{P( \text{Med} \cap \text{Pl})} = \frac{.08}{.12} \approx \boxed{.667}\]
+\[P( \text{LS} \; | \; \text{Med} \cap \text{Pl} ) = \frac{\text{Med} \; \cap \; \text{LS} \cap \text{Pl}}{P( \text{Med} \cap \text{Pl})} = \frac{.08}{.17} \approx \boxed{.471}\]

@@ -1,0 +1,38 @@
+\textbf{Problem 13.} \\
+\hrule 
+
+A mail-order computer business has six telephone lines. Let X denote the number of lines in use at a specified time. Suppose the pmf of X is as given in the accompanying table.
+
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule
+x & P[X = x] \\ \midrule
+0 & .10 \\
+1 & .15 \\
+2 & .20 \\
+3 & .25 \\
+4 & .20 \\
+5 & .06 \\
+6 & .04 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+Calculate the following probabilities:
+
+\textbf{a. \{At most three lines are in use.\}} \newline 
+Add up $P[X = 0:3]$ inclusive. The result is $\boxed{.7}$
+
+\textbf{b. \{Fewer than three lines are in use.\}} \newline 
+For this add up the probabilities of 0, 1 and 2. This gives $\boxed{.45}$.
+
+\textbf{c. \{At least three lines are in use.\}} \newline 
+Subtract the above probability from 1. The result is $\boxed{.55}$.
+
+\textbf{d. \{Between two and five lines, inclusive, are in use.\}} \newline 
+Add up 2, 3, 4 and 5. The result is $\boxed{.71}$.
+
+\textbf{e. \{Between two and four lines, inclusive, are NOT in use.\}} \newline 
+We can reword this as 4, 3 and 2 lines being in use. To explain, if four lines are not in use that means two lines are still in use. Follow the logic for the rest. Calculating this probability gives us $\boxed{.65}$
+
+\textbf{f. \{At least four lines are not in use.\}} \newline 
+Using the same logic as in part (e) we can add up the probabilities for 0, 1 and 2 lines being in use. We get $\boxed{.45}$.

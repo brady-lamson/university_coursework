@@ -1,0 +1,15 @@
+\textbf{Question 34.} \\
+\hrule 
+
+Computer keyboard failures can be attributed to electrical defects or mechanical defects. A repair facility currently has 25 failed keyboards, 6 of which have electrical defects and 19 of which have mechanical defects.
+
+\textbf{a. How many ways are there to randomly select 5 of these keyboards for a thorough inspection (without regard to order)?} \newline
+This one is simple. It's 25 nCr 5 which is $\boxed{53130}$.
+
+\textbf{b. In how many ways can a sample of 5 keyboards be selected so that exactly two have an electrical defect?} \newline
+Here we multiply the combinations of our electrical keyboards in pairs by the other 19 keyboards in combinations of 3. 
+\[\binom{6}{2} \cdot \binom{19}{3} = \boxed{14525}\]
+
+\textbf{c. If a sample of 5 keyboards is randomly selected, what is the probability that at least 4 of these will have a mechanical defect?} 
+
+\[\frac{n(E)}{n(S)} = \frac{\binom{6}{4} \cdot \binom{21}{1}}{\binom{25}{5}} \approx \boxed{0.00593}\]

@@ -1,0 +1,20 @@
+\textbf{Problem 82.} \\
+\hrule 
+
+Consider writing onto a computer disk and then sending it through a certifier that counts the number of missing pulses. Suppose this number X has a Poisson distribution with parameter $\mu = .2$. (Suggested in “Average Sample Number for Semi-Curtailed Sampling Using the Poisson Distribution,” J. Quality Technology, 1983: 126–129.)
+
+\textbf{a.} What is the probability that a disk has exactly one
+missing pulse?
+
+X = Number of missing pulses.
+
+\[P(X = 1) = \text{poissonpdf}(.2,1) \approx \boxed{.164}\]
+
+\textbf{b.} What is the probability that a disk has at least two
+missing pulses?
+
+\[P(X \leq 2) = 1 - P(X \leq 1) \approx \boxed{.018}\]
+
+\textbf{c.} If two disks are independently selected, what is the probability that neither contains a missing pulse?
+
+\[P(X = 0)^2 = (\text{poissonpdf}(.2,0))^2 \approx \boxed{.67}\]

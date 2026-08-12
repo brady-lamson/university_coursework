@@ -1,0 +1,32 @@
+\textbf{Question 30.} \\
+\hrule 
+
+A friend of mine is giving a dinner party. His current wine supply includes 8 bottles of zinfandel, 10 of merlot and 12 of cabernet (he only drinks red wine), all from different wineries. 
+
+\textbf{a. If he wants to serve 3 bottles of zinfandel and serving order is important, how many ways are there to do this?}
+
+The answer would be the result of $P_{3,8}$, or 8 nPr 3, which is 336 permutations.
+
+\textbf{b. If 6 bottles of wine are to be randomly selected from the 30 for serving, how many ways are there to do this?}
+
+For this we can assume order isn't important, so we'll calculate 30 nCr 6, which is 593,775.
+
+\textbf{c. If 6 bottles are randomly selected, how many ways are there to obtain two bottles of each variety?}
+
+We'll make use of the multiplication rule here. We'll first see how many combinations of two of each specific type of alcohol we have and then multiply those together.
+
+\[\binom{8}{2} \cdot \binom{10}{2} \cdot \binom{12}{2} = 83160\]
+
+\textbf{d. If 6 bottles are randomly selected, what is the probability that this results in two bottles of each variety being chosen?}
+
+Here we simply take our result from part (c) and divide it by our result from part (b).
+\[\frac{83160}{593775} \approx .140\]
+
+\textbf{e. If 6 bottles are randomly selected, what is the probability that all of them are the same variety?}
+
+So all these events are mutually exclusive so we can add them together. We'll use P(A), B and C and let P(A) = probability of 6 bottles of zinfandel. So each letter will correspond to its respective type of alcohol.
+
+\begin{align*}
+    P(A) + P(B) + P(C) \\
+    \frac{\binom{8}{6}}{\binom{30}{6}} + \frac{\binom{10}{6}}{\binom{30}{6}} + \frac{\binom{12}{6}}{\binom{30}{6}} \approx 0.00196    
+\end{align*}

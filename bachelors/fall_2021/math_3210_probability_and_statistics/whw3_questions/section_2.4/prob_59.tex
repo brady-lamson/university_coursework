@@ -1,0 +1,28 @@
+\textbf{Question 59.} \\
+\hrule 
+
+At a certain gas station, 40\% of the customers use regular gas ($A_1$), 35\% use plus gas ($A_2$), and 25\% use premium ($A_3$). Of those customers using regular gas, only 30\% fill their tanks (event B). Of those customers using plus, 60\% fill their tanks, whereas of those using premium, 50\% fill their tanks.
+
+\begin{align*}
+    P(A_1) = .40 && P(A_2) = .35 && P(A_3) = .25 \\
+    P(B \; | \; A_1) = .3 && P(B \; | \; A_2) = .6 && P(B \; | \; A_3) = .5 \\
+    P(A_1 \cap B) = .12 && P(A_2 \cap B) = .21 && P(A_3 \cap B) = .125
+\end{align*}
+Note: Intersections calculated using Baye's theorem. I will spare you the calculations. 
+
+\textbf{a. What is the probability that the next customer will request gas and fill the tank $(A_2 \cap B)$}?
+\begin{align*}
+    P(B \; | \; A_2) &= \frac{P(B \cap A_2)}{P(A_2)} \\[3mm]
+    P(B \cap A_2) &= P(B \; | \; A_2) \cdot P(A_2) \\[3mm]
+    P(B \cap A_2) &= .6 \cdot .35 = \boxed{.21}
+\end{align*}
+\textbf{b. What is the probability that the next customer fills the tank?} \newline 
+This part will utilize the law of total probability. I will spare you the plugging in of every individual part of this. 
+\[P(B) = \sum_i P(B \; | \; A_i)\cdot P(A_i) = \boxed{.455}\]
+
+\textbf{c. If the next customer fills the tank, what is the probability that regular gas is requested? Plus? Premium?} 
+\begin{align*}
+    P(A_1) = \frac{.12}{.455} \approx \boxed{.264} \\[3mm]
+    P(A_2) = \frac{.21}{.455} \approx \boxed{.462} \\[3mm]
+    P(A_3) = \frac{.125}{.455} \approx \boxed{.264}
+\end{align*}

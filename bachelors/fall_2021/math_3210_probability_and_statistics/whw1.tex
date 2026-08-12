@@ -1,0 +1,99 @@
+\documentclass{homework}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{braket}
+
+% CHANGE THE FOLLOW THREE LINES!
+\newcommand{\hwname}{Brady Lamson}
+\newcommand{\hwemail}{blamson@msudenver.edu}
+\newcommand{\hwnum}{1}
+
+% CHANGE THESE ONLY ONCE PER CLASS
+\newcommand{\hwtype}{Written Homework}
+\newcommand{\hwclass}{MTH 3210}
+
+\begin{document}
+
+\maketitle
+
+\question*{Constitution of Italy}
+% Use \verb|\question*{TITLE}| to add a title for the question.
+
+Constitution taken from Wikipedia in 2008. This constitution is in \textbf{English}. \\
+Source acquired from: \url{http://www.partylaw.leidenuniv.nl/party-law} 
+
+\question*{Simple random sample}
+% A bare \verb|\question| will just be numbered. 
+
+To generate a fair random sample I utilized pythons random.randint() function. After manually removing the article titles from the constitution I used the total word count and used that as the upper range for the function. Looping that function 35 times allowed me to generate a simple list of word numbers to use. This system allows every word within the constitution to have an equal chance of being selected. 
+
+\begin{table}[h]
+\begin{tabular}{ll | ll | ll}
+Word   & Length & Word        & Length & Word         & Length \\
+\hline \hline
+law    & 3      & proceedings & 11     & compensation & 12     \\
+and    & 3      & it          & 2      & rights       & 6      \\
+of     & 2      & place       & 5      & is           & 2      \\
+and    & 3      & of          & 2      & law          & 3      \\
+void   & 4      & founded     & 7      & laid         & 4      \\
+weekly & 6      & defence     & 7      & in           & 2      \\
+to     & 2      & the         & 3      & may          & 3      \\
+all    & 3      & and         & 3      & their        & 5      \\
+ends   & 4      & and         & 3      & establish    & 9      \\
+to     & 2      & it          & 2      & subjected    & 9      \\
+in     & 2      & the         & 3      & individual   & 10     \\
+the    & 3      & his         & 3      &              &       
+\end{tabular}
+\end{table}
+
+\question*{Sample bias}
+Though I mentioned that I took the word total after removing the article titles that was not entirely true. I missed a couple article titles that slightly inflated the total word count used for random number generation. It is important to note here that I took out the titles before collecting the words themselves. I do not know if this would influence the data at all. Briefly thinking on the topic, it is possible this would slightly increase the probability of words found later in the constitution being chosen. Whether this would change the distribution of word lengths or not is unknown.   
+
+\newpage 
+
+\question*{Percentage of observations falling within 1, 2 and 3 stand deviations from the mean.}
+\textbf{The mean is:} 4.37 letters. \\
+\textbf{The standard deviation is:} 2.82 letters. \\
+
+\textbf{Range of numbers within the 1st standard deviation:} $[1.55, 7.19]$ \\
+\textbf{Number of observations within the 1st standard deviation:} $30$ \\
+\textbf{Percentage of observations within the 1st standard deviation:} $85.7\%$ \\
+
+\textbf{Range of numbers within the 2nd standard deviation:} $[-1.27, 10.01]$ \\
+\textbf{Number of observations within the 2nd standard deviation:} $33$ \\
+\textbf{Percentage of observations within the 2nd standard deviation:} $94.3\%$ \\
+
+\textbf{Range of numbers within the 3rd standard deviation:} $[-4.09, 12.8]$ \\
+\textbf{Number of observations within the 3rd standard deviation:} $35$ \\
+\textbf{Percentage of observations within the 3rd standard deviation:} $100\%$ \\
+
+\question*{Five-number summary and boxplot}
+
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule 
+\multicolumn{2}{l}{Five-Number Summary} \\ \midrule 
+Minimum              & 2                \\
+Q1                   & 2.5              \\
+Median               & 3                \\
+Q3                   & 5.5              \\
+Maximum              & 12               \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\includegraphics[scale = 0.15]{images/boxplot.jpg}
+
+\newpage
+
+\question*{Frequency table, relative frequency histogram}
+
+\includegraphics[scale=0.25]{images/freq_table.jpg}
+
+\newpage
+
+\includegraphics[scale=0.25]{images/freq_histo.jpg}
+
+\question*{Distribution Shape}
+The best way to describe the distribution found here is that it is \textbf{unimodal} and heavily skewed to the \textbf{left}. We know this as there is only a singular peak early on with shorter words before a steep decline in frequency occurs once the word length increases. 
+\end{document}

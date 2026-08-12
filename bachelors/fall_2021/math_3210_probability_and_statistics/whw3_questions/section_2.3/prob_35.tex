@@ -1,0 +1,14 @@
+\textbf{Question 35.} \\
+\hrule 
+
+A production facility employs 10 workers on the day shift, 8 workers on the swing shift, and 6 workers on the graveyard shift. A quality control consultant is to select 5 of these workers for in-depth interviews. Suppose the selection is made in such a way that any particular group of 5 workers has the same chance of being selected as does any other group (drawing 5 flips without replacement from among 24).
+
+\textbf{a. How many selections result in all 5 workers coming from the day shift? What is the probability that all 5 selected workers will be from the day shift?} \newline
+\[\frac{\binom{10}{5}}{\binom{24}{5}} \approx \boxed{0.0059}\]
+
+\textbf{b. What is the probability that all 5 selected workers will be from the same shift?} \newline
+Let A = all 5 day, B = all 5 swing and C = all 5 grave. These are mutually exclusive so we add them together.
+\begin{align*}
+    P(A) + P(B) + P(C) = \text{Answer} \\
+    \frac{\binom{10}{5}}{\binom{24}{5}} + \frac{\binom{8}{5}}{\binom{24}{5}} + \frac{\binom{6}{5}}{\binom{24}{5}} \approx \boxed{0.0074}
+\end{align*}

@@ -1,0 +1,16 @@
+\textbf{Problem 49.} \\
+\hrule 
+
+A company that produces fine crystal knows from experience that 10\% of its goblets have cosmetic flaws and must be classified as “seconds.”
+
+\textbf{a.} Among six randomly selected goblets, how likely is it that only one is a second?
+
+\textbf{b.} Among six randomly selected goblets, what is the probability that at least two are seconds?
+
+\textbf{c.} If goblets are examined one by one, what is the probability that at most five must be selected to find four that are not seconds?
+
+\includegraphics[scale=.2]{images/whw4/3.4.49.jpg}
+
+(c) P(4 are all good) + P(first of the four is 'second') $\cdot$ .9
+
+$\text{binompdf}(4,.9,4) + \text{binompdf(4,.9,3)} \cdot .9 \approx \boxed{.918}$

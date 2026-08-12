@@ -1,0 +1,31 @@
+\begin{definition}
+    For a given sample space $S$ of some experiment, a \textbf{random variable (rv)} is any rule that associates a number with each outcome in $S$. In mathematical language, a random variable is a function whose domain is the sample space and whose range is the set of real numbers. 
+\end{definition}
+
+\begin{notation}
+    Random variables are customarily denoted by uppercase letters, such as $X$ and $Y$, near the end of the alphabet. Example: $X(\omega) = x$ means that $x$ is the value associated with the outcome $\omega$ by the rv $X$.
+\end{notation}
+
+\begin{definition}
+    Any random variable whose only possible values are 0 and 1 is called a \textbf{Bernoulli random variable.}
+\end{definition}
+
+\begin{definition}
+    A \textbf{discrete} random variable is an rv whose possible values either constitute a finite set or else can be listed in an infinite sequence in which there is a first element, a second element, and so on (“countably” infinite). A random variable is \textbf{continuous} if \underline{both} of the following apply:
+    \begin{itemize}
+        \item Its set of possible values consist either of all numbers in a single interval on the number line (possibly infinite in extent, eg., from $-\infty$ to $\infty$) or all numbers in a disjoint union of such intervals (e.g., $[0, 10] \cup [20, 30]$).
+        \item No possible value of the variable has positive probability, that is, $P(X = c) = 0$ for any possible value $c$.
+    \end{itemize}
+\end{definition}
+
+\begin{notation}
+    The \textbf{probability distribution} of $X$ says how the total probability of 1 is distributed among the various possible $X$ values. The notation for this will be: \newline
+    P(0) = the probability of the $X$ value 0 = P(X = 0) \newline 
+    P(1) = the probability of the $X$ value 1 = P(X = 1)
+\end{notation}
+
+\begin{definition}
+    The \textbf{probability distribution} or \textbf{probability mass function (pmf)} of a discrete rv is defined for every number $x$ by $p(x) = p(X = x) = P(\text{all} \; \omega \in S: X(\omega) = x)$.
+    
+    In terms of words: For every possible value x of the random variable, the pmf specifies the probability of observing that value when the experiment is performed. The conditions, $p(x) \geq 0$ and $\sum_{\text{all possible x}}p(x) = 1$ are required of any pmf.
+\end{definition}

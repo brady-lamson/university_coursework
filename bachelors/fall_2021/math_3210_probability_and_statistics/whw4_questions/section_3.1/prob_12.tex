@@ -1,0 +1,36 @@
+\textbf{Problem 12.} \\
+\hrule 
+
+Airlines sometimes overbook flights. Suppose that for a plane with 50 seats, 55 passengers have tickets. Define the random variable $Y$ as the number of ticketed passengers who actually show up for the flight. The probability mass function of $Y$ appears in the accompanying table. 
+
+\begin{table}[h]
+\begin{tabular}{@{}ll@{}}
+\toprule
+y & P[Y = y] \\ \midrule
+45 & .05 \\
+46 & .10 \\
+47 & .12 \\
+48 & .14 \\
+49 & .25 \\
+50 & .17 \\
+51 & .06 \\
+52 & .05 \\
+53 & .03 \\
+54 & .02 \\
+55 & .01 \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{a. What is the probability that the flight will accommodate all ticketed passengers who show up?}
+
+For this problem simply add up the first 6 probabilities. This gives us $\boxed{.83}$.
+
+\textbf{b. What is the probability that not all ticketed passengers who show up can be accommodated?}
+
+For this we add up all probabilities associated with amounts greater than the planes cap. So we have $P[Y > 50] = \boxed{.17}$.
+
+\textbf{c. If you are the first person on the standby list (which means you will be the first one to get on the plane if there are any seats available after all ticketed passengers have been accommodated), what is the probability that you will be able to take the flight? What is this probability if you are the third person on the standby list?}
+
+(i) We can think of this situation as us being any passenger between 1 and 50. So our answer is the probability of at max 49 passengers showing up, which is $\boxed{.58}$
+
+(ii) This one is much the same, instead we have a max of 47 passengers. Our result is $\boxed{.32}$.

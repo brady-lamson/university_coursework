@@ -1,0 +1,21 @@
+\textbf{Question 14.} \\
+\hrule 
+
+Suppose that $55\%$ of all adults regularly consume coffee, $45\%$ regularly consume carbonated soda, and $70\%$ consume at least one of these two products. \newline 
+
+\textbf{a. What is the probability that a randomly selected adult regularly consumes both coffee and soda?}
+
+Let C represent coffee drinkers and S represent soda drinkers. We can use the general addition rule here and rearrange it to solve for the intersection we need. We know that $P(C) = .55$, $P(S) = .45$ and that $P(C \cup S) = .70$.
+\begin{align*}
+    P(C \cup S) &= P(C) + P(S) - P(C \cap S) \\
+    P(C \cap S) &= P(C) + P(S) - P(C \cup S) \\ 
+    P(C \cap S) &= .45 + .55 - .70 \\
+    P(C \cap S) &= .3
+\end{align*}
+
+\textbf{b. What is the probability that a randomly selected adult doesn't regularly consume at least one of these two products?} \newline 
+This sets of outcomes involves the outside area of a theoretical Venn diagram we might make here. We can solve for that by using a variation of the complement rule.
+\begin{align*}
+    P(C' \cap S') &= 1 - P(C \cup S) \\
+    P(C' \cap S') &= .3
+\end{align*}

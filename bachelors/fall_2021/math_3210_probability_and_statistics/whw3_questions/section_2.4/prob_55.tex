@@ -1,0 +1,23 @@
+\textbf{Question 55.} \\
+\hrule 
+
+Deer ticks can be carriers of either Lyme disease or human granulocytic ehrlichiosis (HGE). Based on a recent study, suppose that 16\% of all ticks in a certain location carry Lyme disease, 10\% carry HGE, and 10\% of the ticks that carry at least one of these diseases in fact carry both of them. If a randomly selected tick is found to have carried HGE, what is the probability that the selected tick is also a carrier of Lyme disease?
+
+Let P(A) = the percent that carry lyme disease and P(B) be the ones with HGE. My entire solution will just be algebra here, so I'll let it speak for itself. 
+
+\begin{align*}
+    P((A \cap B) \; | \; A \cup B) &= .1 \\[3mm]
+    P((A \cap B) \; | \; A \cup B) &= \frac{P((A \cap B) \cap (A \cup B))}{P(A \cup B)} = .1 \\[3mm]
+    P((A \cap B) \cap (A \cup B)) &= P(A \cap B) \; \text{(by inspection)} \\[3mm]
+    \frac{P(A \cap B)}{P(A \cup B)} &= 0.1 \\[3mm]
+    P(A \cap B) &= 0.1 \cdot P(A \cup B) \\[3mm]
+    P(A \cap B | B) &= \frac{A \cap B}{P(B)} \\[3mm]
+    &= \frac{0.1 \cdot P(A \cup B)}{0.1} \\[3mm]
+    P(A \cap B | B) &= P(A \cup B) \\[3mm]
+    P(A \cup B) &= P(A) + P(B) - P(A \cap B) \\[3mm]
+    P(A \cup B) &= P(A) + P(B) - \frac{P(A \cup B)}{10} \\[3mm]
+    P(A \cup B) + \frac{P(A \cup B)}{10} &= P(A) + P(B) \\[3mm]
+    P(A \cup B) \left( 1 + \frac{1}{10} \right) &= .16 + .10 \\[3mm]
+    P(A \cup B) &= \frac{.26}{1.1} \approx 0.236 \\[3mm]
+    P(A \cap B \; | \; B) &= \boxed{0.236}
+\end{align*}

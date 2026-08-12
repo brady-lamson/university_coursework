@@ -1,0 +1,27 @@
+\textbf{Question 49.} \\
+\hrule 
+
+The accompanying table gives information on the type of coffee selected by someone purchasing a single cup at a particular airport kiosk.
+
+\begin{table}[h]
+\begin{tabular}{llll}
+\hline
+ & \textbf{Small} & \textbf{Medium} & \textbf{Large} \\ \hline
+\textbf{Regular} & 14\% & 20\% & 26\% \\
+\textbf{Decaf} & 20\% & 10\% & 10\%
+\end{tabular}
+\end{table}
+
+Consider randomly selecting such a coffee purchaser.
+
+\textbf{a. What is the probability that the individual purchased a small cup? A cup of decaf coffee?} \newline 
+\textbf{$a_i$:} $.14+.20 = \boxed{.34}$. \textbf{$a_{ii}$:} $.20+.10+.10 = \boxed{.40}$.
+
+\textbf{b. If we learn that the selected individual purchased a small cup, what now is the probability that they chose decaf coffee, and how would you interpret this probability?} \newline 
+For ease of writing, let us refer to cup sizes as $A_i$ with $A_1$ referring to small and so on. Let us refer to regular coffee as $B_1$ and decaf as $B_2$ in the same way.
+\[P(B_2 | A_1) = \frac{P(B_2 \cap A_1)}{P(A_1)} = \frac{.20}{.34} \approx \boxed{.588}\]
+
+\textbf{c. If we learn that the selected individual purchased decaf, what now is the probability that a small size was selected, and how does it compare to the corresponding unconditional probability of (a)?}
+\[P(A_1 | B_2) = \frac{P(B_2 \cap A_1)}{P(B_2)} = \frac{.20}{.4} \approx \boxed{.5}\]
+
+What we see here is that the probability is lower than that in part(b). 
