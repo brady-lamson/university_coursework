@@ -1,0 +1,141 @@
+---
+title: "MTH 2520 - R Programming"
+author: "Brady Lamson"
+subtitle: Homework 1 - Introduction to R, RStudio and RMarkdown
+output:
+  pdf_document: default
+  word_document:
+    reference_docx: ../../WordStyleRef-01.docx
+---
+
+<!-- This is a comment in the body of the R Markdown notebook -->
+
+<!-- **(Double stars will boldface the text in between) ** -->
+
+**Spring 2021**
+
+***
+<!-- The command *** will draw a horizontal line on the knitted document. Use this to separate sections of your document, or to separate each homework problem -->
+
+Homework 1 Instructions:
+
+1. Install the packages: rmarkdown, tinytex
+
+   In the lower right panel, click on Packages - Install. 
+   Type in the name of the package and check the box to install
+   dependencies.
+   
+2. Run the following R code chunks by clicking on the little green arrow in the upper right of the code chunk.
+
+3. To insert an R code chunk, click on the 'insert' button above and choose 'R'.
+
+4. When you have completed the homework, hit the drag down arrow on Knit on the above toolbar and select "Knit to Word". Then open the Word document and print to PDF. Upload the PDF document into the folder in Canvas.
+
+Note: You can knit directly to PDF but you must have some version of Tex installed to knit to PDF. The tinytex package will take care of this. The formatting is nicer if you knit to Word first, then print to PDF. Try it for yourself to see the difference.
+
+5. Be sure to save the notebook regularly!
+
+***
+   
+```{r setup, include = FALSE}
+# Use the hashtag symbol to add a comment in an R code chunk. 
+# The hashtag symbol needs to be at the beginning of ever comment line.
+
+# include = False means this code chunk is not printed in the knitted document
+
+knitr::opts_chunk$set(echo = TRUE,comment="")
+
+# R will print ## at the beginning of every output line. 
+# This command will suppress the ##'s from being printed.
+
+library(rmarkdown, tinytex)
+
+# You only need to install the packages once on your computer system. 
+# You do need to call the packages using the library command at the 
+# beginning of your notebook every time you open the notebook or start
+# a new one.
+
+```
+
+***
+Classic beginning programming problem:
+
+```{r}
+print("Hello world!")
+
+# Quotes can be suppressed in the output
+print("Hello World!", quote = FALSE)
+
+# If there are more than 1 items, we can concatenate using paste()
+print(paste("How","are","you?"))
+```
+***
+
+The following code will simulate 1 million throws if two six-sided dice and
+tabulate the results.
+
+```{r}
+# This piece of code will simulate 1 million throws of two six-sided dice
+# and tabulate the results.
+# You can play with changing the seed value and re-running the code chunk
+
+seed = 45
+set.seed(seed)
+throws <- 1e6
+dice <- replicate(2,sample(1:6, throws, replace = TRUE))
+table(rowSums(dice))
+
+```
+***
+
+**Basic Statistics**
+
+```{r}
+Grades <- c(75.6, 82.4, 99.2, 46.1, 88.4, 81.3, 92.4, 68.8, 54.5)
+summary(Grades)
+```
+
+Compute the standard deviation
+
+```{r}
+sd(Grades)
+```
+
+***
+
+**Compute and Print Values with in-line R code**
+
+We can also compute and print in-line. The values will be computed and 
+printed when the document is knitted. (Be sure to use the back quote which is above the tilde on the top left of the keyboard)
+
+The mean is `r mean(Grades)`.
+
+The mean is `r round(mean(Grades),2)`.
+
+The standard deviation is `r sd(Grades)`.
+
+The standard deviation is `r round(sd(Grades),2)`.
+
+***
+
+**Latex Examples**
+
+In the .rmd notebook, Latex formulas are enclosed between $ signs. 
+
+We will be learning some Latex in this course.
+
+Some examples of Latex in-line code to write mathematical expressions and formulas:  
+
+The Pythagorean Theorem is $a^2+b^2=c^2$.
+
+The roots of the quadratic equation $ax^2+bx+c=0$ are
+$$ x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+
+Integrals:
+
+$$\int_0^2 x^2~dx = \frac{8}{3}$$
+
+Summations:
+
+$$\sum_{i=1}^{n} i =\frac{n(n+1)}{2}$$
+

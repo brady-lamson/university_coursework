@@ -1,0 +1,387 @@
+---
+title: "MTH 2520 - R Programming"
+author: "Brady Lamson"
+subtitle: Exam 1
+output:
+  word_document: null
+  reference_docx: ../../WordStyleRef-01.docx
+  pdf_document: default
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment="")
+library(rmarkdown, tinytex, pracma, markdown)
+```
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+## Problem 1. 
+Use R to compute each part separately. 
+
+### Problem 1a. 
+For the sequence 1:100, multiply every 4th element by 3.
+
+```{r}
+seq_1a <- 1:100 
+seq_1a[seq(from = 4, to = length(seq_1a), by = 4)] <- seq_1a[seq(from = 4, to = length(seq_1a), by = 4)] * 3
+
+# Essentially what I did here is filter out every fourth element and then took that filtered vector and multiplied it by 3. Thankfully that doesn't affect the unfiltered values so they get placed right back in. It's a long line but really not too much is going on there.
+
+cat("The vector 1:100 with every fourth value multiplied by 3 is [", seq_1a, "] \n")
+```
+
+
+### Problem 1b.
+Use rep() and recycling to create the sequence:
+{1, -2, -2, 3, 3, 3, -4, -4, -4, -4, 5, 5, 5, 5, -6, -6, -6, -6, -6, -6}
+**Hint:** Create the vector 1:6, use recycling to make every other term negative, and then use rep(). 
+
+```{r}
+seq_1b <- 1:6 * c(1, -1) 
+# I combined the first two parts of the hint into the first step here. This creates a vector 1:6 and alternates multiplying by 1 and negative 1 as it iterates down said vector. The resulting vector is set to seq_1b! 
+
+ret_val_1b <- rep(seq_1b, times = 1:6)
+# This takes vector seq_1b and repeats the values in it more and more as we work down the vector. 
+
+cat("The answer to 1b is", ret_val_1b, "\n")
+```
+
+
+### Problem 1c.
+Use vectorization in R to create the following vector, rounded to three decimal places. 
+
+\[\frac{1500}{1 \cdot 100}, \frac{1500}{2 \cdot 99}, \frac{1500}{3 \cdot 98}, ... , \frac{1500}{100 \cdot 1},\]
+
+```{r}
+# I'll be making a function to solve this fella. It's probably a case of me overcomplicating this but I'm sticking to it. 
+
+func_1c <- function() {
+  
+  # My gameplan is to set the two numbers in the denominator to x and y, and have x increase by one and y decrease by 1 with each loop.
+  
+  x <- 1
+  y <- 100
+  ret_val_1c <- c() #This empty vector will soon be populated with the results of the function. 
+  
+  while (x < 101){ # This keeps the function from looping forever and the math from breaking.
+    z <- (1500 / (x * y))
+    x <- x + 1
+    y <- y - 1
+    ret_val_1c <- append(z, ret_val_1c)
+  } 
+ret_val_1c    
+}
+
+cat("The answer to 1c is", round(func_1c(), digits = 3), "\n") 
+#Here we just call the function and round the results to 3 decimal places. Easy.
+```
+
+
+***
+## Problem 2.
+
+### Problem 2a.
+How many times does 3579 divide into 579135248
+
+```{r}
+prob_2a <- 579135248 / 3579 
+cat("3579 divides into 579135248", trunc(prob_2a, digits = 0), "times", "\n")
+```
+
+
+### Problem 2b. 
+Compute 579135248 mod 3579
+
+```{r}
+cat("The answer to 2b is", 579135248 %% 3579, "\n")
+```
+
+
+### Problem 2c.
+Express 579135248 in the form $3579 * q + r$
+
+```{r}
+579135248 %/% 3579
+```
+
+\[\boxed{ 579135248 = 3579 * 161814 + 2942 }\]
+
+
+***
+## Problem 3
+Read in the exam1.data.csv data file. 
+
+```{r}
+exam_1_data <- read.csv("exam1_data.csv", header = TRUE, sep="")
+exam_1_data <- na.omit(exam_1_data)
+```
+
+
+### Problem 3a.
+Compute the mean, median, sample standard deviation and IQR. Round all numbers to 3 decimal places. 
+
+```{r}
+cat("The median of exam_1_data is", median(exam_1_data$x), "\n")
+cat("The mean of exam_1_data is", round(mean(exam_1_data$x), digits = 3), "\n")
+cat("The standard deviation of exam_1_data is", round(sd(exam_1_data$x), digits = 3), "\n")
+cat("The interquartile range of exam_1_data is", round(IQR(exam_1_data$x), digits = 3), "\n")
+
+# Note: I originally intended to use summary() here yet ran into some bizarre rounding issues. I opted for the more tedious yet equally valid method instead. 
+```
+
+
+### Problem 3b.
+Draw a histogram of the data.
+
+```{r}
+hist(exam_1_data$x, main="Frequency of Numbers per Numbers",xlab="Numbers", ylab="Numbers", col="blue")
+```
+
+
+***
+## Problem 4.
+Use R to compute each part separately.
+
+### Problem 4a.
+Construct a vector of integers from 1 to 100 that are not divisible by 7 or 11.
+
+```{r}
+# First let's construct a vector
+vec_4 <- 1:100
+# We'll use the subset command to filter out the integers with a remainder after being divided by 11 and 7. The "&" is critical to this.
+ans_vec_4a <- subset(vec_4, vec_4 %% 11 != 0 & vec_4 %% 7 != 0)
+ans_vec_4a
+```
+
+
+### Problem 4b.
+For the sequence 1:100, write a command that will print "fizz" if the number is divisible by 7 and "buzz" otherwise. Use ifelse
+```{r}
+# This function is precision engineered to ruin document presentation. Rest in peace 2 pages of white space. 2021-2021
+
+fizz_buzz_func <- function(n){
+  
+  if (n %% 7 == 0){print("fizz")} # This checks if n is divisible by 7. It prints "fizz" if that's the case.
+  else {print("buzz")} # This function prints buzz otherwise. 
+}
+
+sapply(vec_4, fizz_buzz_func)
+```
+
+
+### Problem 4c. 
+For the sequence 1:100, use the switch() command and write a for() loop (or use sapply) that will:
+$i)$. Print "fizz" if the number is divisible by 7 and not by 11,
+$ii)$. Print "buzz" if the number is divisible by 11 and not by 7,
+$iii)$. Print "fizzbuzz" if the number is divisible by both,
+$iv)$. Print the number if none of the above is true.
+
+```{r}
+# I felt bad enough murdering 2 pages of white space in cold blood. As such I will be making this answer a list as I feel a moral obligation to do so.
+
+fizzier_func <- function(n){
+  
+  ret_val <- c() #ret_val set to an empty vector
+  for (i in n) {
+    if (i %% 7 == 0 & i %% 11 == 0){ # checks if i is divisible by 7 AND 11.
+      ret_val <- append(ret_val, "fizzbuzz") # This appends fizzbuzz to a list if so.
+      }
+      else if (i %% 7 == 0 & i %% 11 != 0){ # checks if i is only divisible be 7.
+        ret_val <- append(ret_val, "fizz")
+      }
+      else if (i %% 11 == 0 & i %% 7 != 0){ # checks if i is only divisible by 11.
+        ret_val <- append(ret_val, "buzz")
+      }
+     else {
+       ret_val <- append(ret_val, toString(i)) # adds i as a string to the list
+     }
+  }
+  return(ret_val) #returns the vector with all appended values
+}
+
+fizzier_func(vec_4)
+```
+
+
+
+```{r}
+# This code block was my first attempt at this problem. It ended up not working and I'm not entirely sure how. Do switch statements HAVE to be based on index? Am I not allowed to manipulate data within a switch? What am I doing wrong here? I kept in it here because I like showing my work.
+
+my_var <- 7
+failed_func <- switch(my_var, 
+                         my_var %% 7 == 0 & my_var %% 11 != 0 <- "fizz",
+                         my_var %% 7 != 0 & my_var %% 11 == 0 <- "buzz",
+                         my_var %% 7 == 0 & my_var %% 11 == 0 <- "fizzbuzz",
+                         print(my_var) )
+failed_func
+```
+
+
+*** 
+## Problem 5. 
+
+### Problem 5a. 
+Find the bug, state what the bug is and fix it in R. 
+
+```{r}
+ex_5 <- 0:9
+if (ex_5[2] == 1) {print(ex_5)}
+
+# The bug here was a missing = sign. A single = sign is assigning a value to something just like <- does. == is what we need here, because that's checking if the two values are equal. 
+```
+
+
+### Problem 5b.
+Find the bug, state what the bug is and fix it in R.
+
+```{r}
+ex_5 <- 0:9
+if (ex_5[1] == 1) {print(ex_5)}
+
+# The bug here is the index in the brackets being 0. R indices start at 1, not 0. If this was python that would probably be okay as lists/vectors are 0-indexed, meaning that they start at 0 and not 1.
+```
+
+
+***
+## Problem 6.
+The _Pell Numbers_ are generated from the recursion relation:
+\[ P_{n + 2} = 2P_{n + 1} + P_n \hspace{1cm} P_1 = 1, P_2 = 2\]
+
+a) Write a function that prints out the first $n$ Pell numbers for a given $n$. 
+b) Test your function for $n=10$ and $n=25$. 
+c) Compute the sum of the 1st 25 Pell numbers.
+
+```{r}
+# This problem is nearly identical to one found in the week 5 homework assignment. As such, I will be shamelessly reusing my code from that assignment and slightly adjusting it. 
+
+pell_numbers_func <- function(n){
+  
+  #First I need to make sure no negative values are plugged in here. 
+  if (n < 1){
+    return(NaN)
+  }
+  
+  # Then we just need to setup the first two known values of this sequence. That is, 1 and 2.
+  if (n == 1){
+    return(1)
+  }
+  
+  if (n == 2){
+    return(2)
+  }
+  
+  a <- 1
+  b <- 2
+  counter <- 2
+  results_list <- c(1, 2) # We create a small vector here with our two given values.
+  
+  while (counter < n) {
+    c <- (2*b) + a
+    a <- b
+    b <- c
+    counter <- counter + 1
+    results_list <- append(results_list, c) #This makes that small little vector useful! 
+  }
+return(results_list)
+}
+```
+
+```{r}
+#Pr. 6b
+sapply(c(10,25), pell_numbers_func)
+```
+
+```{r}
+# Pr. 6c
+pr_6c <- pell_numbers_func(25)
+sum(pr_6c)
+```
+
+
+***
+## Problem 7.
+An arithmetic sequence has the form: $a_1, a_1 + d, a_1 + 2d, a_1 + 3d,...$ where $d is called the common difference. 
+
+For example: 1,4,7,10... is an arithmetic sequence with $a_1 = 1$ and $d=3$. 
+
+The $n$th term in the sequence is given by $a_n = a-1 + (n - 1)d$
+
+The sum of the 1st $n$ terms is given by $S_n = \frac{n(a_1 + a_n)}{2}$.
+
+### Problem 7a
+Write a function that will compute the term $a_n$ and the sum $S_n$ given $a_1$, $n$ and $d$. 
+
+```{r}
+arith_func <- function(a, n, d){
+  
+  a_sub_n <- a + (n - 1)*d
+  sum_sub_n <- (n * (a + a_sub_n)) / 2
+  
+  cat("a_n is", print(a_sub_n), "\n")
+  cat("S_n is", print(sum_sub_n), "\n")
+}
+```
+
+### Problem. 7b
+```{r}
+arith_func(1, 100, 3)
+```
+
+### Problem. 7c
+```{r}
+arith_func(2, 40, 2)
+```
+
+We can verify our answers for 7b manually just to make sure our function works: 
+
+  \[ a_1 = 1, n = 100, d = 3  \]
+
+  \[a_n = a-1 + (n - 1)d\]
+  \[a_n = 1 + (100-1)3]\]
+  \[a_n = 298\]
+  
+  \[S_n = \frac{n(a_1 + a_n)}{2}\]
+  \[S_n = \frac{100(1 + 298)}{2}\]
+  \[S_n = 14950\]
+
+
+***
+## Problem 8.
+A symmetric cubic equation has the form $x^3 + ax^2 + ax + 1 = 0$.
+It factors into $(x + 1)(x^2 + (a - 1) x + 1) = 0$.
+This equation will either have 3 real roots (counting multiplicity), or 1 real root $x = -1$ and $2$ complex roots. 
+### Problem 8a.
+Write a function that will compute all the roots, including any complex roots, rounded to 3 decimal places. Be sure to include comments in your function. 
+
+Before we get started we can rewrite the quadratic formula as follows:
+\[ \frac{ (a-1) \pm \sqrt{(a-1)^2 - 4} }{ 2 }\]
+```{r}
+root_finder_func <- function(a){
+  # So I intend to use the quadratic formula here and split each part of it into separate variables.
+  
+  part_1 <- -1 * (a - 1)
+  part_2 <- (a - 1)^2 - 4 #Normally the 4 would be multiplied by 2 other variables, but for given test values both are 1 so I leave it as 4. 
+  
+  # Here I setup two if statements, this is to catch values that would be negative under the square root. The first if statement runs like normal.
+  if (part_2 > 0) { 
+    ret_val_plus <- (part_1 + sqrt(part_2)) / 2
+    ret_val_minus <- (part_1 - sqrt(part_2)) / 2
+  }
+  
+  # This one meanwhile runs largely the same, except part_2 here is coerced into a complex value so we can work with it.
+  if (part_2 <= 0) {
+    ret_val_plus <- part_1/2 + sqrt(as.complex(part_2) / 2)
+    ret_val_minus <-part_1/2 - sqrt(as.complex(part_2) / 2)
+  }
+
+  return(c("-1", round(ret_val_plus, digits = 3), round(ret_val_minus, digits = 3)))
+}
+```
+
+```{r}
+cat("The roots of x^3 + 6x^2 + 6x + 1 = 0 are [", root_finder_func(6), "] \n")
+cat("The roots of x^3 - 3x^2 - 3x + 1 = 0 are [", root_finder_func(-3), "] \n")
+cat("The roots of x^3 + x^2 + x + 1 = 0 are [", root_finder_func(1), "] \n")
+cat("The roots of x^3 + 3x^2 + 3x + 1 = 0 are [", root_finder_func(3), "] \n")
+```
+

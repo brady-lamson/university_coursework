@@ -1,0 +1,18 @@
+---
+title: "MTH 2520 - R Programming"
+subtitle: "subtitle"
+author: "TYPE YOUR NAME HERE"
+output:
+  word_document: 
+      reference_docx: "../../WordStyleRef-01.docx"
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment="")
+library(rmarkdown, tinytex)
+
+```
+
+***
+
+
