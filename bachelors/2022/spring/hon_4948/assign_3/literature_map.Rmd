@@ -1,0 +1,50 @@
+---
+title: "Annotated Bibliography"
+author: "Brady Lamson"
+date: "2/3/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Research Question: How can we use machine learning to further optimize our use of renewable energy?
+
+***
+## Theme: Solar Energy 
+
+### Journal #1: 
+**Title:** Review of solar irradiance forecasting methods and a proposition for small-scale insular grids
+
+**Authors:** Maimouna Diagne, Mathieu David, Philippe Lauret, John Boland, Nicolas Schmutz
+
+**Year:** 2013
+
+**Summary Statement:** This paper is an in depth review of the methodology used to forecast solar irradiance. 
+
+**Significance:** This paper is a one-stop-shop for all of the information I need to begin research into this topic. It covers various statistical models, neural networks, cloud imaging, numerical weather prediction (NWP) models and more. It also hosts 50 references which will, without a doubt, be a significant aid in my studies. 
+
+### Journal #2: 
+**Title:** Machine learning techniques for daily solar energy prediction and interpolation using numerical weather models
+
+**Authors:** R. Martin, R. Aler, J. M. Vallsand I. M. Galvan
+
+**Year:** 2015
+
+**Summary Statement:** This paper covers two issues with the NWP models used in solar energy forecasting. The first is how to determine what information is relevant to a specific forecasting task. The second is how to predict solar energy for locations with no previous data. 
+
+**Significance:** This paper builds on the information presented in journal #1. More importantly, the information here will prove incredibly useful as the data they used is publicly available through Kaggle *and* the work they did was done using the programming language I am most familiar with, R. It may be a realistic expectation to try and replicate their work to develop more familiarity with the topic. 
+
+\pagebreak
+### Journal #3: 
+
+**Title:** Quantifying rooftop photovoltaic solar energy potential: A machine learning approach
+
+**Authors:** Dan Assouline, Nahid Mohajeri, Jean-Louis Scartezzini
+
+**Year:** 2016
+
+**Summary Statement:** This paper seeks to predict solar energy output from currently existing rooftop solar units. This was accomplished using a varity of machine learning techniques.
+
+**Significance:** Rooftop solar energy generation is a topic I see as being *very* important. As cities, towns and neighborhoods expand we are presented with more and more opportunities for solar energy to be used. Being able to predict that output for easier integration into the power grid is essential. 

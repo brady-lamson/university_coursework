@@ -1,0 +1,164 @@
+---
+title: "Set Theory"
+author: "Brady Lamson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+- **Set:** A collection of objects, with no particular object listed more than once. The objects are also unordered.
+
+    - Examples: 
+    
+        - $\mathbb{R}, \mathbb{Z}, \mathbb{Q}, \mathbb{R - Q}$
+        
+        - $(1,5], \{1,2,3,4,5\}, \{a\}$ 
+        
+        - $\{\} = \emptyset = \text{the empty set}$
+        
+        - $\{\emptyset\} =$ A set containing the empty set.
+        
+    - Symbols:
+    
+        - $\in$ "Is an element in"
+        
+        - $\subseteq$ subset. $A \subseteq B$ "A is a subset of B."
+        
+            - Definition: $(A \subseteq B) \iff (\text{if}\; x \in A\; \text{then}\; x \in B)$
+            
+        - $\subset$ Proper subset. 
+            
+            - Definition: $(A \subset B) \iff (\text{if}\; x \in A\; \text{then}\; x \in B) \;\&\; (|A| < |B|)$
+            
+        - $|A|$ Cardinality of set A
+            
+            - Definition: Number of elements inside of A. Note, set A only including a set of 10 elements still only has a cardinality of 1. 
+            
+        - $A \supseteq B$ Superset
+        
+            - Definition: A has the same elements as B, or more.
+            
+        - $A \supset B$ Proper Superset
+    
+            - Definition: A has the same elements as B, and more.
+            
+        - $A - B$ Difference
+        
+            - Definition: In A but not in B
+            
+        - $A^c = \overline{A} = A'$ Complement
+        
+            - Definition: Elements not in A
+            
+# Exercises
+
+## Exercise 1: 
+A = {1, 2, 3, 4, 5} 
+
+**a:** Three elements of P(A). $\emptyset, A, \{1,2\}$
+
+**b:** $|P(A)| = \;?$ 
+
+$2^5 = 32$
+
+**c:** Three elements of $A \times P(A)$
+
+The cross here means we need ordered pairs of the two sets. Our only real restriction here is that the first item in the pair will come from set A, and the second item in the pair will come from the power set. Order matters here. 
+
+$(1, \emptyset), (5, \{1,2\}), (4, A)$
+
+**d:** $A \times |P(A)| = |A| \cdot |P(A)| = 5 \cdot 2^5$
+
+**e:** $|P(A \times P(A)) \cap A| = 0$
+
+Think of this as $|x \cap y|$
+
+The first item, x, here is tricky. Remember, the power set has $2^n$ items in it, the n representing the items in the original set. Since x has $5 \cdot 2^5 = 160$ items, the power set has $2^{160}$ items in it. What's funny is none of that matters! Remember, the power set ONLY has subsets in it. y, meanwhile, doesn't have any sets in it. Therefore, neither have anything in common. The answer is 0.
+
+***
+## Exercise 2:
+
+Prove or disprove: If $A \subseteq \overline{B}$ then $B \subseteq \overline{A}$
+
+A note is required here for us to start. $(X \subseteq Y)\; iff \;(if\; a \in X \; then \; a \in Y)$
+
+So we can rewrite our original problem
+
+If $(A \subseteq \overline{B})$ then ($B \subseteq \overline{A}$)
+
+If $P \rightarrow Q$
+
+**Proof:** Assume $A \subseteq \overline{B}$
+
+Then, by the definition of subset, if $x \in A$ then $x \in \overline{B}$.
+
+Instead, we write the contrapositive. 
+
+If $x \notin \overline{B}$ then $x \notin A$.
+
+$x \notin \overline{B}$ means that $x \in B$.
+
+$x \notin A$ means that $x \in \overline{A}$.
+
+$\therefore B \subseteq A. \;\blacksquare$ 
+
+***
+\pagebreak
+## Exercise 3:
+
+Suppose $C \subseteq A$ and $D \subseteq B$.
+
+Prove or Disprove: $D - A \subseteq B - C$
+
+**Structure:** To do the proof we need: If $(x \in D - A)$ then $(x \in B - C)$
+
+This structure is referred to as an element-chasing proof. 
+
+Assume $x \in D - A$
+
+Hopefully show $x \in B - C$
+
+**Proof:** Assume $C \subseteq A$ and $D \subseteq B$. 
+
+Also assume $x \in D - A$
+
+$\therefore x \in D \cap \overline{A}$.
+
+So, $x \in D$ **and** $x \notin A$.
+
+Since $x \in D$ and $D \subseteq B$, we know that $x \in B$.
+
+**Break in proof:**
+
+We're partway there. We have $x \in B$. To show that $x \in B - C$ we just need to show that $x \in \overline{C}$. 
+
+**Return to proof:**
+
+Since $x \notin A$ and $C \subseteq A$, we know that $x \notin C$. (Modus Tollens)
+
+$x \in B$ and $x \notin C \therefore x \in (B \cap \overline{C})$, i.e. $x \in B - C$ by definition. $\blacksquare$
+
+***
+## Exercise 4:
+
+Prove or Disprove:
+
+If $(A \cap C) \subseteq (B \cap C)$ then $A \subseteq B$.
+
+Let $A = \{1,2,3\}$
+
+Let $B = \{2,3,5,7\}$
+
+Let $C = \{3,5\}$
+
+$A \cap C = \{3\}$
+
+$B \cap C = \{3,5\}$
+
+$A \cap C \subseteq B \cap C = TRUE$
+
+However, $A \nsubseteq B$ because $1 \in A$ but $1 \notin B$.
+

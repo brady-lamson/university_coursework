@@ -1,0 +1,88 @@
+---
+title: "Assignment 1 - Get to Know Your Discipline"
+author: "Brady Lamson"
+date: "2/13/2022"
+output: 
+    pdf_document:
+        include:
+            in_header: "preamble.tex"
+---
+
+# Academic Interview: Dr. Ben Dyhr
+
+$\indent$ Broadly speaking, Dr. Dyhr studies probability theory and stochastic processes. According to [britannica.com](https://www.britannica.com/science/stochastic-process), stochastic processes are processes that involve some operation of chance. This may be like the radioactive decay of an atom over time for instance. The history of this is pretty deep and mired in jargon. The important thing to note is that studies of this nature go back to people like Einstein that were interested in all sorts of stuff that is outside the scope of this write-up. In the 1960s and 1970s interest in these kind of processes in 2 dimensional systems was gaining interest and has continued to grow since. 
+
+There is a mountain of research released every year for Dr. Dyhr's specific area of interest, which prompted me to ask how he kept up with it all. The short answer is that he doesn't, or at least not with all of it. This should be of no surprise, consuming mathematical research is very different from reading a psychology journal. One page in a mathematical journal may take an entire day to parse and break down! This ties into how Dr. Dyhr really keeps up, and that's by contributing article reviews to the mathematical society. He takes journals that may be hundreds of pages long and breaks them down to make them easier to understand. 
+
+When it comes to specific discussions and debates in the field, I'm unfortunately going to have dive head first into the jargon. Much of this is outside the scope of my knowledge by at least multiple decades, so this will be messy. I apologize in advance. One of the discussions is about proving random interfaces converge to a mathematically describable fractal. To break this down, or even attempt to, you can use a table as an example. What makes a table a table? Well, that answer changes depending on how close you look. If you want to be extremely pedantic, a table is just a random distribution of molecular particles. Despite the randomness though, these particles miraculously average out to making up a table! In other words, the molecules *converge* towards the makeup of a table.
+
+This kind of research is deeply exciting to Dr. Dyhr because it is truly on the cutting edge of human knowledge. There's not much else to say there, helping push forward human knowledge is almost inherently exciting. That's not to say there aren't any frustrations though. Dr. Dyhr is so deep in the theory that is currently no direct application of his work and a big part of his interests nowadays falls closer to applied mathematics. That can be frustrating, despite how exciting it may be to work on the cutting edge. Dr. Dyhr also laments the pay, noting how he would be able to make far more money working in industry.
+
+What we see here is a trade off that will also be discussed in the industry interview below. The trade-off between academic and industry work. One may be able to study the cutting edge, to be able to push forward human knowledge, but may experience frustration at a lack of application or pay. Industry pays handsomely, but as we'll see, is more about maintenance and tackling relatively more mundane problems as they come up. A strong base of fundamental skills is essential for industry, and intense hyper-focused specialization is less of a priority in that environment. That has its own pros and cons. It's all a trade-off, and you need to be honest with yourself on what you truly want out of your education.
+
+# Industry Interview: Zoë Farmer
+**Note:** Zoë Farmer is a Data Scientist for Square and a CU Boulder alum who has been working in the industry for 6 years. Having over a decade of programming experience, she has proven her expertise time and time again in a field otherwise dominated by those with graduate level degrees. 
+
+- **Question:** *Data Science is a relatively young discipline. Many know it for just how much hype it garnered in the 2010s. How would you describe the history of data science? Is there anything people tend to overlook?*
+
+Zoë begins by noting that data science isn't a young industry whatsoever, citing the history of actuaries and its' former place as a "secretarial woman's kind of work". What we commonly think of now as data analysis or data science didn't really kick off until the 90s when data was starting to become more ubiquitous. The boom we saw for data science in the 2010s was largely due to the momentum gained by fields such as business intelligence, data analytics and business analytics. 
+
+Zoë also mentions that, to her, Data Science is simply a re-branding of older fields but with a sexier marketing spin. The big differences here are the visual display of information made popular by more complex techniques in data science alongside huge strides in machine learning. She even believes people over-hype and oversell machine learning, though admits it is still a critical part of the field. 
+
+- **Question:** *What are the main ways people in the industry have continued to advance the field?*
+
+Zoë mentions how, with advancement, that people tend to focus on the academics. They're always putting out awesome new machine models and computer vision projects. They're all incredibly impressive, but she doesn't think those are the only thing advancing the field. To her, they "represent the 0.01% of data science". The important stuff is the mundane and essential parts of data science work. Cleaning the data, prepping the variables, training and building the correct model, stuff like that. Advancements in making those steps of the work more efficient are huge because most people will never touch the state-of-the-art models everyone hypes up. The advancements in making that 99.9% of the work more efficient get overlooked very often but have been completely game changing. 
+
+> "These days with scikit-learn (a popular machine learning tool for the programming language Python), if your data set is already good to go, you can have a fully trained model in three lines of code. It might not have as good of accuracy as other models, obviously, but three lines of code isn't bad. You can set up an image recognition neural network in under twenty lines of code. It's so quick nowadays and that's where the big advancements have been. Most people don't touch the fancier models unless they're working at a cutting edge R&D lab" (Farmer, 2022).
+
+> "A lot of things here get overlooked because people in DS focus on these amazing interactive visuals and machine learning and predictive analytics. I think a lot of people overlook what you find when you boil down data science to its first principles. One of the biggest things the industry is about is requirements gathering and making sure everyone is on the same page. When we talk about definitions, what is a return for example? When we say the word return what does that word mean? When we say LTV what does LTV really mean? It's getting down to requirements gathering and problem solving, these are fundamental aspects of data science" (Farmer, 2022).
+
+- **Question:** *Are there any hot-button debates within Data Science?*
+
+There are, but Zoë typically tries to ignore them, she doesn't think they're about anything particularly important. The big *"debate"* is about programming language preference, whether Python or R are better, but she notes that it's really about the work environment and team you find yourself in that determine which is better at the moment. No one in the industry has any plans to die on either hill and it is typically beneficial to be somewhat bi-lingual and ready to use both tools. No one in the industry has the time or the energy to argue about stuff like that, they have too much stuff they need to get done to care. 
+
+At this point another debate comes to her mind, one of a gradual cheapening of the title *"Data Scientist"*. You have tons of people who are grossly under qualified and have no interest in those qualifications trying to break into the field because of how lucrative it is. Many companies are participating in this as well, changing titles of what would be data analysis roles into data science ones for the sake of marketing. She cites the hype as the culprit here, saying that many companies simply don't know what they're really hiring for or asking themselves if they even *need* a data scientist. 
+
+To Zoë, what most companies need are someone with a strong set of fundamentals. I recalled how many statistical consultants complain how companies that hire them expect these insane grandiose statistical techniques when all they need is something very down to earth and basic. A lot of cutting edge techniques are made to handle extreme edge cases and very unique situations. The vast majority of companies will never run into a situation where the cutting edge is necessary for them. Most of them, in fact, have a problem that fancy techniques can't fix, and it's that their data is horrible. They assume a data scientist can come in and work their arcane magic but if the data scientist has nothing they can work with than there's nothing they can really do. At the end of the day, it all comes back to the hype, and part of a data scientists job is being able to manage an employers expectations. 
+
+- **Question:** *How did you end up working in Data Science? When did you decide that this was what you were going to do?*
+
+She decided this back in high school, for her it was always seen as an end goal. Her father worked as a data architect at IBM so he taught her how to code when she was around 15. A lot of those early projects she did sparked an interest in programming and math. She figured early on that data science would be a good industry to use a math degree for, which is, funnily enough, the exact same logical conclusion I came to when deciding on data science. The early 2010s really solidified for her that it was the career she should stick to.
+
+- **Question:** *What did you wish you knew before getting into data science?*
+
+She wishes she knew how little she would be using math or any sort of advanced techniques. She notes how she likely does more than most data scientists, but that most of her work really boils down to maintaining good data quality for Square. This, given the rest of the conversation, should be unsurprising to read. Solid fundamentals will cover the vast majority of situations one will run into, which sadly means you won't often run into problems that truly challenge your advanced skill set. Zoë noted how this is largely the trade-off for working in industry over academia. 
+
+- **Question:** *Data Science has recently seen a bit of a split. This split resulted in the birth of two more specialized jobs, those beings data engineers and machine learning engineers. What sets a Data Scientist apart from these?*
+
+A data scientist is more of a generalist. Zoë describes it as "[sitting] at the nexus point between the stakeholders, the data engineers and the machine learning engineers". Machine learning engineers will spend their day fine tuning a specific model and trying to squeeze every ounce of efficiency out of it, whereas data engineers will be handling the architecture and working on data pipelines. 
+
+She also points out something that surprises many data scientists, and that is an emphasis on soft skills. A data scientist needs to explain surprisingly technical concepts to people with no background. A stakeholder doesn't care if you used linear regression or some fancy tensor flow model, they care that what you're doing is worth the money. It's your job to get them to trust you and you need people skills to accomplish that. 
+
+- **Question:** *Could you see any further fragmentation happening within Data Science? Is that something to be concerned about for someone trying to get into the field?* 
+
+The name of the role may change, the way it is marketed may change, but the skill set required is what is important. Zoë advises staying up to date on what people are hiring for and what people want to be called. That kind of market knowledge is valuable to make sure you're getting what you're worth. Be flexible and willing to pick up new skills and new titles. The fragmentation should not be a concern here, data work isn't going anywhere and that's actually a benefit to someone working a more generalist role. Further specializations may continue to develop over time, but a generalist will always have a seat at the table whereas a specialist may not. Every data team will need a general data scientist, but not every data team needs a machine learning expert. She notes to ask yourself two questions:
+
+- What is the sexy role that everyone is hiring for?
+
+- Is this role doing things that I want to be doing?
+
+Zoë warns against too much specialization when it comes to job security saying that it can be very easy to pigeon hole yourself into one role. "I like having a broader set of skills. It means that I can go into most start ups that don't have a good data ecosystem and help and be a valuable member of that company. Whereas if I was more focused on machine learning surely I would be doing cooler things but if that didn't work out not every company would need me."
+
+- **Question:** *What, if anything, excites you about data science? What frustrates you about it?*
+
+This answer was really fun for me because we both shared the same response. Zoë has a passion for the story telling in data. Going from a data set that is vague and messy and moving from that to something useful and powerful. This data set can teach you things or help you predict future events. Showing that to someone else is exciting to Zoë and is part of the reason she is a huge fan of data visualization. You get to tackle the problem of what is the best way to present a particular batch of information? 
+
+She then goes back to how critical soft skills are. You can't tell these stories if you can't talk to someone, to find where they're getting confused and clarifying different aspects. She mentions how this is a huge problem in STEM culture in general where they think they can get by with only their technical knowledge and totally abandon their people skills. You will **always** need to talk to someone. 
+
+As for the frustrations she doesn't have much to say here that hasn't already been covered. Anything remotely frustrating here isn't much of an issue to her which I see as a huge positive. 
+
+- **Question:** Many people, myself included, are worried about the concentration of personal data by large corporations. It's no exaggeration to say that these companies know more about us than our own friends do. How do you feel on the ethics of large scale personal data collection? 
+	
+Zoë feels very strongly about this topic stating how she refuses to work for companies who participate in this. This shows in her past actions as well as she recently turned down a data science position for Meta, the company formerly known as Facebook. To the idea of working for companies like Meta, Amazon, Google, or TikTok her verbatim response is "no way in hell". She enjoys her job at Square because they don't do large scale personal data collection and, to her knowledge, the data they do collect isn't sold.
+
+She notes how many of these giant corporations will even pay extra just to get people to work there, sometimes even double the competitive rate. To this Zoë mentions how "working there for just a few years could easily pay off all of your student loans but you have to ask yourself about the price of your soul. Is that worth it and for me the answer is that it will never be worth it."
+
+**Question:** *What do you most want to do with your skillset?*
+
+Zoë talks about how she really wants to do more non-profit work. Specifically she brings up the idea of data journalism, working for a big publication doing data science work and studying all sorts of bizarre topics. This would be the dream job for her as she gets to dive deep into her passion for the story telling in data science and I find myself enraptured in that dream too. I think working as a data scientist for, say, the ACLU or FiveThirtyEight would be an incredible experience. That's something I'll have to keep in the back of my mind. 

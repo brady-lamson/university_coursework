@@ -1,0 +1,25 @@
+Questions:
+
+	- Data Science is a relatively young discipline. Many know it for just how much hype it garnered in the 2010s. How would you describe the history of data science? Is there anything people tend to overlook?
+
+	- What are the methods of inquiry associated with this discipline? What are the main ways people in the industry have continued to advance the field? 
+
+	- Are there any hot-button debates within Data Science?
+
+	- Have these debates had any impact on how you view your work?
+
+	- How did you end up working in Data Science? When did you decide that this was what you were going to do?
+
+		- Is there anything you wish you knew before getting into data science? 
+
+	- Data Science has recently seen a bit of a split. This split resulted in the birth of two more specialized jobs, those beings data engineers and machine learning engineers. What sets a Data Scientist apart from these?
+
+		- Could you see any further fragmentation happening within Data Science? Is that something to be concerned about for someone trying to get into the field? 
+
+	- What, if anything, excites you about data science? What frustrates you about it? 
+
+	- Many people, myself included, are worried about the concentration of personal data by large coorporations. It's no exaggeration to say that these companies know more about us than our own friends do. 
+		
+		- How do you feel on the ethics of large scale personal data collection? 
+		
+		- How do you think this type of data collection will change as we move forward into the future? 

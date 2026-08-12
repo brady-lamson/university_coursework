@@ -1,0 +1,83 @@
+---
+title: "Induction"
+author: "Brady Lamson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exercise 1
+
+\[S_n = 1 + 2 + 3 + ... + \]
+
+\[P(n):S_n = \frac{n(n+1)(2n+1)}{6}\]
+
+**Claim:** P(n) is true $\forall n \in \mathbb{Z}^+$
+
+**Proof:** (By induction)
+
+**Base Case:** P(1) is true because:
+
+\[1^2 = \frac{1(1+1)(2\cdot1+1)}{6} = \frac{1 \cdot 2 \cdot 3}{6} = 1\].
+
+**Induction Hypothesis:** Assume P(k) is true for some $k \in \mathbb{Z^+}$. i.e. $s_k = 1^2 + 2^2 + ... + k = \frac{k(k+1)(2k+1)}{6}$.
+
+We know that: 
+
+\begin{align}
+    1^2 + 2^2 + ... + k^2 + (k+1)^2 &= \frac{k(k+1)(2k+1)}{6} + (k+1)^2 \\[2mm]
+    &= \frac{k(k+1)(2k+1)+6(k+1)^2}{6}\\[2mm]
+    &=\frac{(k+1)[k(2k+1)+6(k+1)]}{6}\\[2mm]
+    &= \frac{(k+1)[2k^2 + 7k + 6]}{6}\\[2mm]
+    &= \frac{(k+1)(k+2)(2k+3)}{6}
+\end{align}
+
+Thus P(k+1) is true. By PMI, P(n) is true $\forall n \in \mathbb{Z}^+$. $\blacksquare$
+
+
+***
+\pagebreak
+# Exercise 2
+
+\[t_n = 1 + 2 + ... + n = t_{n-1} + n\]
+These are just two separate ways to write out $t_n$. Below is what will be part of our statement:
+
+\[P(n):t_n = \frac{n(n+1)}{2}\]
+
+What are we doing?
+
+\begin{align}
+    n &= 1: \frac{1(1+1)}{2}=1\\
+    n &= 2: \frac{2(2+1)}{2}=3\\
+    n &= 3: \frac{3(3+1)}{2}=6\\
+\end{align}
+
+We want to show that this equals $t_n$. 
+
+**Claim:** P(n) is true $\forall n \in \mathbb{Z}^+$.
+
+**Proof:** (By Induction)
+
+P(1) is true, since $1 = \frac{1(1+1)}{2}=1$. 
+
+**Induction Hypothesis:** Assume P(k) is true for **some** $k \in \mathbb{Z}^+$.
+
+Thus, $t_k = \frac{k(k+1)}{2}$.
+
+**Aside:** We need to show that $t_{k+1}= \frac{(k+1)(k+2)}{2}$.
+
+**Return to proof:**
+
+We know
+
+\begin{align}
+    t_{k+1} &= t_k + (k+1)\\
+    &= \frac{k(k+1)}{2} + (k+1)\\
+    &= \frac{k(k+1) + 2(k+1)}{2}\\
+    &= \frac{(k+1)[k+2]}{2}
+\end{align}
+
+Thus, $P(k+1)$ is true. So by PMI, $P(n)$ is true $\forall n \in \mathbb{Z}^+$. $\blacksquare$

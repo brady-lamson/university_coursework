@@ -1,0 +1,42 @@
+	- 1) What level of granulation do I want?
+		- Broad: Probability Theory and Stochastic Processes
+
+	- 2) More specificity
+		- Applications of statistical physics
+			- In the 1960s and 1970s scientists were interested in 2D systems 
+				- Like the percolation model. (Critical 2d percolation)
+					- Interfaces that are self-avoiding were gaining interest. 
+						- Think the falling pin pachinko machine.
+
+			- Going back to the early 1900s.
+				- People like Einstein were interested in the random walk and a 2d grid and heat diffusion along a surface. 
+					- Brownian motion. Describes heat diffusion in terms of random walks.
+
+			- 1998/1999. Oded Shramm *Israelian mathematician
+				- Studied stochastic processes and random walks.
+					- Discovered Shramm Loevner Evolution
+					- Conformal field theory (related)
+
+	Aside: How does Dr. Dyhr keep up?
+		- contributes article reviews in the mathematical society
+		- Describes articles that may be 100s of pages long. 
+		- Checks to see if you're able to understand the citations.
+			- If not, that journal is probably too intense of an investment to get involved in. 
+
+	- 4) Universiality
+		- We can prove these random interfaces converge to a fractal we can describe mathematically 
+			- If the grid is irregular, what if the triangles are slightly off, do those limits converge to the same thing regardless of the precise local geometry. Oftentimes they do! The mesh doesn't have to be perfect for these large scale patterns to exist. 
+		- This might mean different things for different models.
+		- Ising Magnetic Model: 
+			- Converges to SLE for all isometric interfaces
+			- Triangles cant have infinitely sharp corners. Internal angles have to be a certain size. 
+		- This is what it's all about really. Every simple thing like a table is, at its core, just a random distribution of molecular particles. It becomes a table because it all averages out to become a table! 
+
+	- 5) Everything in part 4 really 
+		- Its on the front of human knowledge
+
+		a) The lack of direct applications. It's too theoretical. Applications are not fulfilling. Thats why I do stats on the side. Currently trying to publish a statistics journal at the moment. 
+
+	- 6) Lets talk statstics, broadly. Not really. The research is builds on so much foundational skills I already had, so it was playing to my strengths. 
+
+	- 7) Applied statistics or applied stochastic processes. 

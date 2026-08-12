@@ -1,0 +1,435 @@
+---
+title: "Logic"
+author: "Brady Lamson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+| P TRUE | Q TRUE | NOT P | P AND Q | P OR Q | (NOT P) OR Q | IF P THEN Q | converse of prev. col. |
+|---|---|---|---|---|---|---|---|
+| p | q | ~p | p^q | pvq | ~pvq | p -> q | q -> p |
+|---|---|---|---|---|---|---|---|
+| T | T | F | T | T | T | T | T |
+| T | F | F | F | T | F | F | T |
+| F | T | T | F | T | T | T | F |
+| F | F | T | F | F | T | T | T |
+
+***
+
+# Logical Quantifiers and Definitions
+- $\forall:$ The **universal** quantifier.
+    "For every..." or "for all ..."
+    
+- $\exists:$ The **existential** quantifier. 
+    "There exists..." or "at least one"
+    
+- $\exists!:$ "There exists a unique ..." "There exists one and only one"
+
+- $\in:$ "in", "is an element of"
+
+- $\mathbb{R}:$ The real numbers, or *"the reals"*
+
+- $\mathbb{Z}:$ The integers
+
+- $mathbb{Q}:$ Rational numbers
+
+- $a|b:$ a divides b.
+
+- **Division:** $a|b$ if and only if $\exists k \in \mathbb{Z}$ such that $ak = b$
+
+- **Even:** $z$ is even if and only if $\exists q in \mathbb{Z}$ such that $2q = z$
+
+- **Odd:** $z$ is off if and only if $\exists q in \mathbb{Z}$ such that $2q +1 = z$
+
+- **Prime:** We say that a positive integer $p>1$ is prime if and only if $p$ has no positive factors other than 1 and itself. 
+*
+- **Rational:** We say that a real number $z$ is *rational* if and only if there exists integers $a$ and $b$ such that $z = \frac{a}{b}$. If no such pair of integers exists, then we say that z is *irrational*. 
+
+    - We denote the set of rational numbers as $\mathbb{Q}$, and so we can write $\mathbb{Q} = \{z \; \text{such that} \; z = \frac{a}{b}, \; \text{for some integers a and b} \}$. 
+
+***
+
+## Three methods of proof for $P \rightarrow Q$:
+
+- 1: Direct Proof
+
+    - Assume P is true... show Q is true
+
+- 2: Prove the contrapositive directly    
+
+    - Asume ~Q is true... show ~P is true.
+    
+- 3: Proof by contradiction
+
+    - Assume ~$(P \rightarrow Q)$... Arrive at mathematical nonsense/contradiction... Conclude $P \rightarrow Q$
+
+## Examples
+### Example 1
+TRUE or FALSE
+
+$\forall x \in \mathbb{R} \; \exists y \in \mathbb{R} \; \text{such that} \; y^2 = x$
+
+**False** Justification: Counterexample, let $x = -5$
+
+***
+### Example 2
+TRUE or FALSE
+
+$\forall x \in \mathbb{R} \; \exists y \in \mathbb{R} \; \text{such that} \; x + y = 0$
+
+**TRUE** Justification: For every value of x you can find a specific value of y that is its negative. $x = 5, y = -5$ or $x = -12, y = 12$. So, $x = -y$. This is also interesting in that the value of y is unique. The $\exists$ could be replaced with a $\exists!$ here because there is only a single solution. 
+
+
+***
+### Example 3
+$\exists y \in \mathbb{R} \; \forall x \in \mathbb{R} \; \text{such that} \; x + y = 0$
+
+**FALSE** This can be thought of there being some special y value that works for every single x. There isn't one, this is a totally different statement from the previous one.
+
+***
+### Example 4
+
+$\forall x \in \mathbb{R} \; \exists y \in \mathbb{R} \; \text{such that} \; x \cdot y = 0$
+
+**TRUE**. For any x, we can let y = 0. If x = 0, then y can be any number.
+
+***
+### Example 5
+
+$\forall x \in \mathbb{R} \; \exists! y \in \mathbb{R} \; \text{such that} \; x \cdot y = 0$
+
+This is different. Remember how it was stated that when x= 0 that y can be any number? Well, what that means is that there isn't a single unique value of y that can satisfy this criteria BECAUSE we have to have one that works for every possible value of x. $x=0$ breaks this down, so this is **FALSE**. 
+
+***
+### Example 6
+
+$\exists y \in \mathbb{R} \; \forall x \in \mathbb{R} \; \text{such that} \; x \cdot y = 0$
+
+**TRUE** $y=0$ works for every single possible value of x in the real numbers. 
+
+***
+### Exercise 7
+
+**Claim:** The sum of an even and an odd is always odd. 
+**Proof:**
+
+Let a be even and b be odd.
+
+Since a is even, $\exists q \in \mathbb{Z}$ such that $a = 2q$.
+Since b is odd, $\exists w \in \mathbb{Z}$ such that $b = 2w + 1$
+
+Then $a + b = 2q + 2w + 1$
+
+So $2 (q + w) + 1$
+
+Since $q + w \in \mathbb{Z}$, $a + b$ is odd. $\blacksquare$ 
+
+***
+### Exercise 8
+
+**Claim:** Let a,b,c be integers. If $a|b$ and $a|c$ then $a|(b+c)$
+
+**Proof:** 
+
+Assume $a|b$ and $a|c$.
+
+- Then $\exists q \in \mathbb{Z}$ such that $aq=b$
+
+- Also $\exists w \in \mathbb{Z}$ such that $aw=c$
+
+$\therefore b+c = aq + aw = a(q + w)$
+
+Since $q+w \in \mathbb{Z}$, we know that $a|(b+c). \; \blacksquare$
+
+
+***
+### Exercise 9
+
+**Claim:** Let a,b,c be integers. If $a|b$ and $a|c$ then $a|(b-c)$
+
+**Proof:** 
+
+Assume $a|b$ and $a|c$.
+
+- Then $\exists q \in \mathbb{Z}$ such that $aq=b$
+
+- Also $\exists w \in \mathbb{Z}$ such that $aw=c$
+
+$\therefore b-c = aq - aw = a(q - w)$
+
+Since $q-w \in \mathbb{Z}$, we know that $a|(b-c). \; \blacksquare$
+
+***
+### Exercise 10
+
+**Claim:** Let a,b,c be integers. If $a|b$ and $a|c$ then $a|bc$
+
+**Proof:** 
+
+Assume $a|b$ and $a|c$.
+
+- Then $\exists q \in \mathbb{Z}$ such that $aq=b$
+
+- Also $\exists w \in \mathbb{Z}$ such that $aw=c$
+
+$\therefore bc = aq \cdot aw = a[qaw]$
+
+Since $qaw \in \mathbb{Z}$, we know that $a|bc. \; \blacksquare$
+
+***
+\pagebreak
+### Exercise 11
+
+**Claim:**
+
+If $n \in \mathbb{Z}^+$, then $n^2 + n + 3$ is odd.
+
+**Proof:**
+
+Assume $n \in \mathbb{Z}^+$
+
+Case i: n is even. Then $\exists q \in \mathbb{Z}$ such that $n = 2q$
+
+Then: 
+\begin{align}
+n^2 + n + 3 &= (2q)^2 + (2q) + 3 \\
+&= 4q^2 + 2q + 3 \\
+&= 2(2q^2+q) + 3 \\
+&= 2(2q^2 + q + 1) + 1
+\end{align}
+
+Since $2q^2 + q + 1 \in \mathbb{Z}$, we know that $n^2 + n + 3$ is odd.
+
+case ii. n is odd. Then $\exists w \in \mathbb{Z}$ such that $n = 2w + 1$.
+
+Then:
+\begin{align}
+n^2 + n + 3 &= (2w+1)^2 + (2w+1) + 3 \\
+&= 4w^2 + 4w + 1 + 2w + 1 + 3 \\
+&= 4w^2 + 6w + 4 + 1 \\
+&= 2(2w^2 + 3w + 2) + 1
+\end{align}
+
+Since $2w^2 + 3w + 2 \in \mathbb{Z}$, we know that $n^2 + n + 3$ is odd. $\blacksquare$.
+
+***
+### Exercise 12
+
+**Claim:** 
+
+If $m^2$ is odd, then m is odd.
+
+$m^2$ is odd $\rightarrow$ m is odd.
+
+**Strategy:**
+Contrapositive: If m is **not** odd, then $m^2$ is **not** odd.
+
+If m is even then $m^2$ is even. 
+
+**Proof:**
+
+We prove the contrapositive.
+
+Assume m is even.
+
+Then $\exists q \in \mathbb{Z}$ such that $m = 2q$.
+
+So, $m^2 = (2q)^2 = 2(2q^2)$.
+
+Since $2q^2 \in \mathbb{Z}$, $m^2$ is even. $\blacksquare$
+
+***
+### Exercise 13
+
+If $a|b$ and $a|c$ then $\forall x, y, \in \mathbb{Z}, a|(bc+cy)$
+
+Let's break up this sentence. We can think of the portion before "then" as P and the rest as Q. So we have $P \rightarrow Q$.
+
+From here we can break up Q. 
+
+Let $R$ be the section $x, y \in \mathbb{Z}$
+
+and $S$ be $a|(bx+cy)$. 
+
+So now we can say that $R \rightarrow S$. From there we can rewrite the ENTIRE claim.
+
+$P \rightarrow (R \rightarrow S)$
+
+Our general gameplan here is to assume P, see where that takes us. Then we'll assume R and hope with all of that information combined we can show S.
+
+**Proof**: Assume $a|b$ and $a|c$. Since $a|b$, $\exists n \in \mathbb{Z}$ such that $b=na$. Also, since $a|c$, $\exists m \in \mathbb{Z}$ such that $c=ma$.
+
+Assume $x, y \in \mathbb{Z}$. Then:
+
+\begin{align}
+    bx + cy &= nax + may \\
+    &= a(nx + ny)
+\end{align}
+
+Since $nx+my \in \mathbb{Z}$, $a|(bx+cy)$. $\blacksquare$ 
+
+\pagebreak
+***
+### Exercise 14
+
+A famous, long standing (but unproven) conjecture, called the Goldbach Conjecture, states that every even number greater than 2 can be written as the sum of two prime numbers.
+
+(i.e. that there exists prime numbers $p_1$ and $p_2$ such that $2 < 2k = p_1 + p_2$, for every $k > 1$)
+
+**Prove or disprove:** If the conjecture is true, then every odd number greater than 5 can be expressed as the sum of three prime numbers.
+
+If $2k > 2, k \in \mathbb{Z}$, then $2k = p_1 + p_2$.
+
+It is of note that $p_n$ notation represents prime numbers where n just helps differentiate. 
+
+**Claim:** If **Goldbach is true** (P), then every odd number greater than 5 can be expressed as the sum of three primes (Q).
+
+$P \rightarrow Q$
+
+Breaking up Q into an $R \rightarrow S$ gives us:
+
+R: x is an odd number greater than 5
+
+S: x can be expressed as the sum of three primes
+
+$P \rightarrow (R \rightarrow S)$
+
+**Structure:** Assume P, Assume R and hopefully show S. 
+
+We've gotta do something first though. We need a format we can actually work with. Let's use our definition of odd here and manipulate it. We know we're looking at **odd** numbers **greater than 5**.
+
+$x = 2j + 1 > 5$
+
+But this on its own isn't helpful. Goldbachs only works for even numbers greater than 2. We can manipulate our statement though by subtracting by 3. 
+
+$x-3 = 2j - 2 > 2$
+
+Now we have a format that does work with goldbachs. We can finish the rewrite here.
+
+$x - 3 = p_1 + p_2$
+
+**Proof:** Assume Goldbach is true. Also assume x is an odd number greater than 5. 
+
+Then: $\exists j \in \mathbb{Z}$ such that $x = 2j + 1$
+
+Since $x>5$, we have $x = 2j + 1 > 5$
+
+Subtracting 3 from each, we have $x - 3 = 2j-2 > 2$ or $x - 3 = 2(j-1) > 2$.
+
+In other words, $x-3$ is an even number greater than 2. Thus, by the Goldbach conjecture, $x-3$ can be expressed as the sum of two primes. Therefore, $\exists$ prime numbers $p_1, p_2$ such that: 
+
+\begin{align}
+    x-3 &= p_1 + p_2 \\
+    x &= p_1 + p_2 + 3
+\end{align}
+
+Since 3 is prime, x is the sum of three primes. $\blacksquare$
+
+***
+\pagebreak
+### Exercise 15
+
+**Claim:** The number $a$ is rational iff the number $-a$ is rational.
+
+$P \longleftrightarrow Q$
+
+**Proof:** 
+
+($\rightarrow$ only). Assume $a$ is rational. 
+
+Then, $\exists m,n \in \mathbb{Z}$ such that $a = \frac{m}{n}; (n \neq 0)$.
+
+Then $-a = -\frac{m}{n} = \frac{-m}{n}$.
+
+Since $-m$ and $n$ are both integers, $-a \in Q$
+
+($\leftarrow$ only). Assume $-a$ is rational. 
+
+$\exists p,q \in \mathbb{Z}$ such that $-a = \frac{p}{q}; (q \neq 0)$.
+
+Then (multiple both sides by -1) $a = -\frac{p}{q} = \frac{-p}{q}$.
+
+Since $-p$ and $q$ are both integers, $a \in \mathbb{Q}$. $\blacksquare$
+
+***
+### Exercise 16
+
+**Claim:** The sum of two rationals is rational. 
+
+Let $a$ & $b$ be rational numbers.
+
+Since $a \in \mathbb{Q} \exists c,d \in \mathbb{Z}$ such that $a = \frac{c}{d}; (d \neq 0)$
+
+Since $b \in \mathbb{Q} \exists e,f \in \mathbb{Z}$ such that $b = \frac{e}{f}; (f \neq 0)$
+
+Then $a+b = \frac{c}{d} + \frac{e}{f} = \frac{cf + de}{df}; (df \neq 0)$.
+
+Since $cf + de \in \mathbb{Z}$ and $df \in \mathbb{Z}, a + b \in \mathbb{Q}$ $\blacksquare$
+
+***
+### Exercise 17
+
+**Claim:** If x is rational and y is irrational, then x+y is irrational.
+
+$P \rightarrow Q$
+
+Note: Proof by contradiction will be used here, so change up the format.
+
+$\sim(P \rightarrow Q) = P \land \sim Q$
+
+**Proof:** We shall prove this by contradiction. 
+
+Assume x is rational, y is irrational **and** $x+y$ is rational. 
+
+Then $\exists a,b,c,d \in \mathbb{Z}$ such that $x = \frac{a}{b}$ and $x + y = \frac{c}{d}$.
+
+Using substitution, we have $x + y = \frac{a}{b} + y = \frac{c}{d}$.
+
+Solving for y, we have $y = \frac{c}{d} - \frac{a}{b} = \frac{cb-ad}{db}$.
+
+Because $cb-ad \in \mathbb{Z}$ and $db \in \mathbb{Z}$, we know $y \in \mathbb{Z}$. However, we assumed above that $y \in \mathbb{Q}$, $\therefore$ we have a contradiction. This allows us to conclude that the sum of a rational and an irrational number is irrational. $\blacksquare$
+
+***
+\pagebreak
+### Exercise 18
+
+**Claim:** $\forall z \in \mathbb{Q}, \exists x,y \notin \mathbb{Q}$ such that $x+y = z$
+
+**Proof:** 
+
+Let $z \in \mathbb{Q}$.
+
+Then $z + \sqrt{3}$ is irrational, by the previous exercise. 
+
+So let $x = z + \sqrt{3}$.
+
+Let $y = -\sqrt{3}$, which is irrational.
+
+Note that $x+y = z + \sqrt{3} - \sqrt{3} = z$. $\blacksquare$
+
+***
+### Exercise 19
+
+**Claim:** $\sqrt{2}$ is irrational.
+
+**Proof:** (By contradiction)
+
+Assume $\sqrt{2} \in \mathbb{Q}$. Then $\exists a, b \in \mathbb{Z}$ such that $\sqrt{2} = \frac{a}{b}$. We assume $\frac{a}{b}$ is in "lowest terms", that is, a and b have no common factors. 
+
+Since $\sqrt{2} = \frac{a}{b}$, we know $2 = \frac{a^2}{b^2}$.
+
+$\therefore 2b^2 = a^2$. Thus, $a^2$ is even. So, (by a Lemma that we could prove (will be on the final)), a is even. 
+
+Thus $\exists k \in \mathbb{Z}$ such that $a = 2k$.
+
+From here we can state $2b^2 = 2k \cdot 2k = (2k)^2 = 4k^2$.
+
+Since $2b^2 = 4k^2, b^2 = 2k^2$. So, $b^2$ is even, which means (by a Lemma we'll have on the final) b is even. Then, $\exists j \in \mathbb{Z}$ such that $b = 2j$.
+
+So, $\sqrt{2} = \frac{a}{b} = \frac{2k}{2j}$.
+
+Thus, $\frac{a}{b}$ is not in lowest terms as they share a factor of 2. We specified earlier that a and b have no common factors so this is a contradiction. $\therefore \sqrt{2}$ is irrational. $\blacksquare$

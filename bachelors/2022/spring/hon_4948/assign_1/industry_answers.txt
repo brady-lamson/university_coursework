@@ -1,0 +1,9 @@
+1)
+Zoe: "I think the thing people tend to overlook is that it isn't a young industry whatsoever. A lot of the origins being in astrology and charting numbers. Computers and actuarial stuff actually used to very much be a secretarial womans kind of work. The computers were just people doing calculations by hand. What we think of as data analysis or data science as didn't come around until the 90s when data started to become more ubiquitous. It wasn't until then that people started to realize everything you could actually do with data. While it did boom in the 2010s that came from the momentum garned by fields known as business intelligence, data analytics, business analytics. These are all basically just applied statistics. Data Science is really just a rebranding. The biggest difference I think between Data Science and these other fields is that they made it sexier. A lot of that stems from the visual display of that information combined with huge leaps and strides made in machine learning. I personally think people overhype and oversell machine learning, but it's a still a critical part of the field"
+
+Me: Bouncing off of what you said regarding data analytics and business intelligence as the roots; part of what I've seen just reading random sources online is that data science really answered the question of how to scale everything up as more data became available. Is that true?
+
+Zoe: Yup, yup. What you would have seen even just ten years ago is that most data teams simply had a single data scientist as the "steward" of all things data. Data science was more of an umbrella job whereas now, more often than not, there's five roles to replace what was once a single umbrella role. A data scientist now can really specialize in all sorts of tasks.
+
+2) 
+Me: You touched on this earlier with the specialization, but what are the main ways people in the industry have continued to advance the field?

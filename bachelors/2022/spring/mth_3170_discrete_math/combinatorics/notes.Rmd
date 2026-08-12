@@ -1,0 +1,101 @@
+---
+title: "Combinatorics Notes"
+author: "Brady Lamson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 6d
+Throughout this problem, suppose that the "alphabet" for building a given password is \{%, !, ?, A, B, 1, 2\}.
+
+How many passwords of length 4 can be made if a password must contain at least **one** of each category, and no specific character can be used more than once?
+
+Example: \{A, A, %, !\} wouldn't be allowed as A is duplicated.
+
+Break this down into three cases
+
+**Case i: Symbol Category Repeats**
+
+We can think of the forms of this case as **SSLN**. We can rearrange this form using factorial. $\frac{4!}{2!}$. We aren't done yet though, because within a specific form we have a number of options as well! 
+
+\[3\text{ S } \cdot 2 \text{ (L or N)} \cdot 2 \text{ (L or N) } \cdot 2 \text{ S } = 24\]
+
+From this we multiply our two results. 12 forms multipled by 24 arrangements of each of those forms. 
+
+\[12 \cdot 24 = 288\]
+
+**Case ii: Letter Category Repeats**
+
+Here we start the same way as the previous case. We have 12 different forms due to the same logic. As for the arrangements of each form we get:
+
+\[12 \cdot (2L \cdot 3S \cdot 2N \cdot 1L) = 144\]
+
+**Case iii: Number Category Repeats**
+
+This one is identical to case 2 thankfully, so we know the total passwords we have in this case is also 144. 
+
+Adding up all of these passwords together gives us a total of
+
+\[288 + 2(144) = 576\]
+
+***
+
+How many passwords of length 4 can you create when you have 3 symbols that must be used **at least** once. Say the symbols you have are \{!, @, #\}.
+
+Number of passwords ignoring restrictions: $3^4 = 81$.
+
+In this count are passwords missing an **!**, some missing a **\@** and some missing a **\#**. We have to be careful though because if we just remove passwords missing, say, !, we also risk removing passwords missing other symbols as well. ex: (@, @, @, @) is missing 2 out of the 3 symbols we need.
+
+We will **remove** all passwords that are missing !, @, **or** #. 
+
+- A = set of words w/o ! = $2^4$
+
+- B = set of words w/o @ = $2^4$
+
+- C = set of words w/o ? = $2^4$
+
+- E = number of passwords ignoring restrictions = 81
+
+\[|E| - \left| A \cup B \cup C \right| = |E| - (|A| + |B| + |C| - | A \cap B | - | A \cap C | - | B \cap C | + | A \cap B \cap C |) \]
+
+\[|E| - \left| A \cup B \cup C \right| = 81 - (2^4 + 2^4 + 2^4 - 1^4 - 1^4 - 1^4 + 0) = \boxed{36}\]
+
+***
+
+\{%, !, ?, A, B, 1, 2\}
+
+Length 4 password, at least one from each category.
+
+All possible passwords with no rules: $E = 7^4 = 2401$.
+
+- A = no non-alpha numeric symbol = $4^4$
+- B = missing a letter = $5^4$
+- C = missing a number = $5^4$
+
+\[|E| - \left| A \cup B \cup C \right| = |E| - \left( |A| + |B| + |C| - | A \cap B | - | A \cap C | - | B \cap C | + | A \cap B \cap C | \right) \]
+
+\[\left| A \cup B \cup C \right| = 7^4 - (4^4 + 5^4 + 5^4 - 2^4 - 3^4 - 2^4 + 0) \]
+
+***
+
+Exercise 6d but using set notation! 
+
+\{%, !, ?, A, B, 1, 2\}
+
+No symbol more than once, **and** at least one from each category.
+
+- E = All possible words without repeat: $7 \cdot 6 \cdot 5 \cdot 4 = 840$
+
+- A = no non-alpha numeric symbol = $4!$
+- B = missing a letter = $5 \cdot 4 \cdot 3 \cdot 2$
+- C = missing a number = $5 \cdot 4 \cdot 3 \cdot 2$
+- $A \cap B = 2 \cdot 1 \cdot 0 \cdot 0 = 0$
+- $A \cap C = 3 \cdot 2 \cdot 1 \cdot 0 = 0$
+- $B \cap C = 2 \cdot 1 \cdot 0 \cdot 0 = 0$
+- $A \cap B \cap C = 0^4$
+
+\[840 - (4! + (5 \cdot 4 \cdot 3 \cdot 2) + (5 \cdot 4 \cdot 3 \cdot 2) - 0 - 0 - 0 + 0) = \boxed{576}\]

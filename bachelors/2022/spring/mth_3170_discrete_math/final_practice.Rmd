@@ -1,0 +1,69 @@
+---
+title: "Final Exam Review"
+author: "Brady Lamson"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Exercise 11
+
+Let $A$ and $B$ be sets. Prove: If $A \cup B = A$, $B \subseteq A$.
+
+This is in the layout of $P \rightarrow Q$, with P being the equality and Q being the subset statement.
+
+The subset statement is also its own implication as well though, we can think of this as $R \rightarrow S$. So we have $P \rightarrow (R \rightarrow S)$.
+
+To start we'll need to assume a value, $x$ is an element of set $B$.
+
+**Proof:** 
+
+- Assume $A \cup B = A$.
+
+- Assume $x \in B$.
+
+If $x \in B$ and $A \cup B$ then $x \in (A \cup B)$. This is an example of disjunctive amplification. 
+
+Since $A \cup B = A$, we know that $x \in A$. $\blacksquare$
+
+***
+## Exercise 12
+
+Problem: For all sets $A, B,$ and $C$, if $A \subseteq B$ and $A \subseteq C$, then $A \subseteq (B \cap C)$. 
+
+**Claim:** If $A \subseteq B$ and $A \subseteq C$, then $A \subseteq (B \cap C)$. 
+
+**Proof:** 
+
+- Assume $A \subseteq B$ and $A \subseteq C$.
+
+DO THE REST AT HOME FOR PRACTICE. 
+
+***
+## Exercise 13
+
+**Claim:** If A and B are disjoint (i.e., if $A \cap B = \emptyset$), then $A \times B$ and $B \times A$ are disjoint (therefore, their intersection is empty).
+
+Rewrite claim: **If** $A \cap B = \emptyset$, **then** $(A \times B) \cap (B \times A) = \emptyset$.
+
+This is a weird one, so let's use proof by contradiction.
+
+**Proof:** (By contradiction, assume $P \land \sim Q$)
+
+Assume $A \cap B = \emptyset$ and $\exists$ at least one element in $(A \times B) \cap (B \times A)$, say the element is $(x,y)$. 
+
+Then, by definition of $\cap$, $(x,y) \in A \times B$ and $(x,y) \in B \times A$.
+
+Then, by definition of the Cartesian Product:
+
+$x \in A$ and $y \in B$ AND $x \in B$ and $y \in A$. 
+
+Thus, $x \in A \cap B$ and $y \in A \cap B$. However $A \cap B = \emptyset$.
+
+Contradiction! 
+
+Thus, $(A \times B) \cap (B \times A) = \emptyset$. $\blacksquare$
+
