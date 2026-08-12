@@ -1,0 +1,276 @@
+---
+title: "Homework 3"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r}
+# setup datasets
+
+ch1_27 <- read.table("CH01PR27.txt")
+colnames(ch1_27) <- c("muscle_mass", "age")
+ch1_28 <- read.table("CH01PR28.txt")
+colnames(ch1_28) <- c("crime", "diploma_percent")
+ch3_15 <- read.table("CH03PR15.txt")
+colnames(ch3_15) <- c("concentration", "time")
+```
+
+
+# 2.29
+
+## a
+
+```{r}
+muscle_reg <- lm(muscle_mass ~ age, data = ch1_27)
+muscle_resids <- muscle_reg$residuals
+muscle_deltas <- muscle_reg$fitted.values - mean(ch1_27$muscle_mass)
+```
+
+```{r}
+plot(x = ch1_27$age, y = muscle_resids, pch=20, ylim = c(-25,25))
+```
+
+```{r}
+plot(x = ch1_27$age, y = muscle_deltas, pch=20, ylim = c(-25,25))
+```
+
+SSR appears to be a larger part of SSTO, which means $r^2$ should be pretty high as a lot of the variance is explained by the regression.
+
+## b
+
+```{r}
+muscle_reg |> anova()
+```
+
+## c
+
+$$
+\begin{aligned}
+H_0: \beta_1 = 0\\
+H_a: \beta_1 \neq 0\\
+\alpha = 0.05\\
+F = 174\\
+p=2.2 \cdot 10^{-16}
+\end{aligned}
+$$
+
+As $p < \alpha$ we have sufficient evidence to reject the null hypothesis that the age and muscle mass have no relationship.
+
+## d
+
+.25
+
+## e
+
+$$
+\begin{aligned}
+r^2 = .75 \\
+r = -.87
+\end{aligned}
+$$
+
+# 2.30
+
+```{r}
+crime_reg <- lm(crime ~ diploma_percent, data = ch1_28)
+crime_reg |> summary()
+```
+
+$$
+\begin{aligned}
+H_0: \beta_1 = 0\\
+H_a: \beta_1 \neq 0\\
+\alpha = 0.01\\
+t = -4.103\\
+p=9.57 \cdot 10^{-5}
+\end{aligned}
+$$
+
+as $p < \alpha$ there is sufficient evidence to reject the null hypothesis that there is no relationship between crime rates and diploma percentages for an area.
+
+## b
+
+```{r}
+confint(crime_reg, level=.99)
+```
+
+The slope of the line indicating how crime rate changes as diploma percentage increases is anywhere between -280 and -61 with a 99% confidence.
+
+# 2.31
+
+## a
+
+```{r}
+crime_reg |> anova()
+```
+
+## b
+
+$$
+\begin{aligned}
+H_0: \beta_1 = 0\\
+H_a: \beta_1 \neq 0\\
+\alpha = 0.01\\
+F = 16.834\\
+p=9.57 \cdot 10^{-5}
+\end{aligned}
+$$
+
+the p-value is the same as the previous test and so is the conclusion. 
+
+## c
+
+17% of the variation in crime rate is explained by the relationship between it and diploma rates. This is actually pretty high when you think about how many things may influence crime!
+
+## d
+
+$$
+\begin{aligned}
+r^2 = .1703 \\
+r = -.41
+\end{aligned}
+$$
+
+
+# 2.32
+
+## a
+
+$$
+\begin{aligned}
+Y_i = 2015 - 170X_i + \epsilon_i \\
+Y_i = 7111 + \epsilon_i
+\end{aligned}
+$$
+
+## b
+
+```{r}
+crime_reg_r <- lm(crime ~ 1, data = ch1_28)
+anova(crime_reg_r, crime_reg)
+```
+
+
+$$
+\begin{aligned}
+SSE_r&= 548736108\\
+SSE_f&= 455273165\\
+df_r &= 82\\
+df_f&= 83\\
+F^* &=16.834\\
+decision &= reject\; H_0
+\end{aligned}
+$$
+
+## c
+
+The test statistic and decision rule are equivalent to the earlier results, yes.
+
+# 3.8 (skip part e)
+
+## a
+
+```{r}
+stem(ch1_28$diploma_percent)
+```
+
+This plot indicates that most counties have between 75% and 84% of their population having diplomas.
+
+## b
+
+```{r}
+boxplot(crime_reg$residuals)
+```
+
+The residuals appear to be symmetrical, yes.
+
+## c
+
+```{r}
+plot(crime_reg$residuals, crime_reg$fitted.values)
+```
+
+This tells us that regardless of the fitted values the residuals tend to vary about the same amount.
+
+## d
+
+```{r}
+my.pts <- qqnorm(crime_reg$residuals, pch=20)
+my.pts
+qqline(crime_reg$residuals, col = "blue", lwd=3)
+```
+
+```{r}
+cor(my.pts$x, my.pts$y)
+```
+
+Based on the plot and the result above this appears to pass the normality assumption.
+
+# 3.15**
+
+## a
+
+```{r}
+chem_reg <- lm(concentration ~ time, data = ch3_15)
+chem_reg |> summary()
+```
+
+## b
+
+```{r}
+chem_reg_f <- lm(concentration ~ factor(time), data = ch3_15)
+chem_reg_r <- lm(concentration ~ 1, data = ch3_15)
+
+anova(chem_reg_r, chem_reg_f)
+```
+
+As the p-value is far below the alpha we can reject the null hypothesis that this relationship is linear. 
+
+## c
+
+I don't think the rest really indicates what would work better.
+
+# 3.16 (skip part b)
+
+## a
+
+plot(y=ch3_15$concentration, x=ch3_15$time)
+
+I'll probably do a log transformation, mostly because part c hints at it being the right way to go.
+
+## c
+
+
+```{r}
+chem_trans_reg <- lm(log10(concentration) ~ time, data = ch3_15)
+chem_trans_reg |> summary()
+```
+
+$$
+Y'_i = .654 - .195X_i + \epsilon
+$$
+
+## d
+
+```{r}
+x <- c(1:9)
+y <- .654 - (.195*x)
+
+plot(x=ch3_15$time, y=log10(ch3_15$concentration), pch=20)
+lines(x,y, type = 'l', col = "blue", lwd=2)
+```
+
+## e
+
+```{r}
+plot(x=chem_trans_reg$fitted.values, y=chem_trans_reg$residuals, pch=20)
+
+```
+
+```{r}
+qqnorm(chem_trans_reg$residuals, pch=20)
+qqline(chem_trans_reg$residuals, col = "blue", lwd=2)
+```
+
+What we see is the variance appears constant and the residuals appear normal. So the transformation was effective!

@@ -1,0 +1,242 @@
+---
+title: "Homework 2"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+# Problem 2.1
+
+## Part A
+
+The student concluded that there is a linear association between Y and X. Is this conclusion warranted? What is the implied level of significance?
+
+**Answer:** This conclusion is warranted as the CI for the slope does not contain 0. The implied level of significance is 0.05.
+
+## Part B
+
+Someone questioned the negative lower confidence limit for the intercept, pointing out that dollar sales cannot be negative even if the population in a district is zero. Discuss.
+
+**Answer:** Intercepts and some extreme predicted values oftentimes don't make sense. But frequently there just isn't data for those regions and so not much stock should be put into them. The regression is important for the regions that you have data for and can reasonably predict with, not stuff outside of that range.
+
+# Problem 2.4
+
+## Part A
+
+```{r}
+gpa_data <- read.table("../datasets/CH01PR19.txt", header = T)
+gpa_reg <- lm(gpa ~ act.score, data = gpa_data)
+confint(gpa_reg, level=0.99)
+```
+
+The 99% CI for the $\beta_1$ is \[0.005, 0.072\]. It does not include 0 and so there is statistically significant evidence to conclude that there is a positive relationship between act scores and first year college gpa.
+
+The director may be interested in the CI containing 0 as that would indicate there is a reasonable probability that there is no relationship between act scores and gpa.
+
+## Part B
+
+```{r}
+summary(gpa_reg)
+```
+
+$$
+\begin{aligned}
+H_0 &= \beta_1 = 0 \\
+H_a &= \beta_1 \neq 0 \\
+\alpha &= .01 \\
+t &= 3.04 \\
+p &= .00292
+\end{aligned}
+$$
+
+As $p < 0.01$, there is statistically significant evidence to reject the null hypothesis that there is no relationship between act scores and end of year freshman gpa. The results indicate that there is a slight positive relationship between the two.
+
+## Part C
+
+The p-value is 0.00292 which is quite small. This indicates that if the null hypothesis was true it would be incredibly unlikely that we got the results we did.
+
+# Problem 2.6
+
+```{r}
+breakage_data <- read.table("../datasets/CH01PR21.txt", header = T)
+breakage_reg <- lm(ampules ~ transfers, data = breakage_data)
+confint(breakage_reg, level=0.95)
+```
+
+## Part A
+
+As the CI (2.92, 5.08) for the slope does not contain 0 there is significant evidence to conclude that there is a relationship, a positive one, between the number of transfers and the number of broken ampules. 
+
+## Part B
+
+```{r}
+summary(breakage_reg)
+```
+
+$$
+\begin{aligned}
+H_0 &: \beta_1 = 0 \\
+H_a &: \beta_1 \neq 0 \\
+\alpha &= .05 \\
+t &= 8.528 \\
+p &= 2.75 \cdot 10^{-5}
+\end{aligned}
+$$
+
+As $p < \alpha$, there is significant evidence to reject the null hypothesis that there is no relationship between the number of transfers and number of broken ampules. 
+
+## Part C
+
+Using the confint from part a, we see it is (8.67, 11.73). We are 95% certain that future incoming data with 0 transfers will have between 8.67 and 11.73 broken ampules. 
+
+## Part D
+
+For this problem I opted to carry out the t-test using only the rows that had 0 transfers. 
+
+```{r}
+zero_transfers = breakage_data |> dplyr::filter(transfers == 0)
+t.test(zero_transfers$ampules, alternative = "greater", mu = 9)
+```
+
+$$
+\begin{aligned}
+H_0 &: \beta_0 = 9 \\
+H_a &: \beta_0 > 9 \\
+\alpha &= .025 \\
+t &= 1.10 \\
+p &= .1767
+\end{aligned}
+$$
+
+As $p > \alpha$ there is not significant evidence to reject the null that the mean is 9 for 0 transfers. 
+
+# Problem 2.10
+
+## Part A
+
+This is perfect for prediction intervals. We're predicting a new data point essentially which is why it will work well.
+
+## Part B
+
+We can use a CI for a mean response here. We're just analyzing currently existing data, not predicting anything new.
+
+## Part C
+
+Prediction interval works better here. Though the numbers are the same as present, we are still predicting a new data point.
+
+# Problem 2.13
+## Part A
+```{r}
+predict(gpa_reg, newdata = data.frame(act.score = 28), interval = "confidence", level = 0.95)
+```
+
+We can be 95% confident that the expected value of the mean GPA for students with an act score of 28 falls between 3.06 and 3.34.
+
+## Part B
+
+```{r}
+predict(gpa_reg, newdata = data.frame(act.score = 28), interval = "prediction", level = 0.95)
+```
+
+We can be 95% that a student with a 28 act score will have between a 1.96 and 4.0 gpa after their freshman year of college. Note that the CI goes up to 4.44 but that is not a possible value of gpa. 
+
+## Part C
+
+The prediction interval in part b is larger than part a because it is predicting a single value, not an average. Averages will always be closer together than individual values so this is expected. You can roll a hundred sided dice, get a 1 and 99 and still get an average of 50 for instance.  
+
+# Problem 2.18
+
+The t-test is more versatile as the f test cannot be used for one-sided alternative hypotheses. For the two sided alternative hypothesis they are equivalent though. 
+
+# Problem 2.23
+
+## Part A
+
+```{r}
+anova(gpa_reg)
+```
+
+## Part B
+
+Both MSE and MSR estimate the same thing, the sample variance, assuming the null hypothesis is true. When the null hypothesis is false, MSE still estimates the variance but MSR overestimates it. The degree to which this overestimation ocurrs is where you get the F statistic.
+
+## Part C
+
+$$
+\begin{aligned}
+H_0 &: \beta_1 = 0 \\
+H_a &: \beta_1 \neq 0 \\
+\alpha &= .01 \\
+F &= 9.24 \\
+p &= .0029
+\end{aligned}
+$$
+
+As $p < \alpha$, there is significant evidence to reject the null hypothesis that act scores and gpa have no relationship.
+
+## Part D
+
+$$
+\begin{aligned}
+SSTO - SSE = SSR = 3.5878 \\
+R^2 = \frac{SSR}{SSTO} = \frac{3.5878}{3.976} \approx .902
+\end{aligned}
+$$
+
+## Part E
+
+$$
+\begin{aligned}
+R^2 \approx .902 \\
+r \approx +\sqrt{.902} \approx .950
+\end{aligned}
+$$
+
+## Part F
+
+$r$ has a more clear cut interpretation as it indicates if the slope is positive or negative.
+
+# Problem 2.25
+
+## Part A
+
+```{r}
+anova(breakage_reg)
+```
+
+Df and sums of squares are additive. Mean squares are not.
+
+## Part B
+
+$$
+\begin{aligned}
+H_0 &: \beta_1 = 0 \\
+H_a &: \beta_1 \neq 0 \\
+\alpha &= .05 \\
+F &= 72.727 \\
+p &= 2.749 \cdot 10^{-5}
+\end{aligned}
+$$
+
+As $p < \alpha$, there is significant evidence to reject the null hypothesis that there is no relationship between the number of transfers and the number of broken ampules.
+
+## Part C
+
+$$
+\begin{aligned}
+&t = 8.528 & p = 2.75e-05 \\
+&F = 72.727 & p = 2.75e-05
+\end{aligned}
+$$
+
+## Part D
+
+$$
+\begin{aligned}
+SSTO - SSE = SSR = 160 \\
+R^2 = \frac{SSR}{SSTO} = \frac{160}{176.6} \approx .906 \\
+r = +\sqrt{.906} \approx .952
+\end{aligned}
+$$
+
+$90.6\%$ of the variance is accounted for by introducing X into the regression model.

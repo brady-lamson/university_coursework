@@ -1,0 +1,99 @@
+---
+title: "Lab 5"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r}
+nigeria <- read.table("../datasets/NigeriaRefuse.txt", header = T)
+satis <- read.table("../datasets/satisfaction.txt", header = T)
+```
+
+# Part A
+
+```{r}
+satis_model <- lm(satisfaction ~ ., data = satis)
+satis_model |> anova()
+```
+
+## Problem 3
+
+$$
+\begin{aligned}
+SSR(X_1) = 8275.4 \\
+SSR(X_2 | X_1) = 480.9 \\
+SSR(X_3|X_1, X_2) = 364.2
+\end{aligned}
+$$
+
+## Problem 4
+
+$$
+\begin{aligned}
+H_0: \beta_3 = 0 \\
+H_a: \beta_3 \neq 0 \\
+\end{aligned}
+$$
+
+The observed value of the partial F test statistic is: 3.6
+
+The p-value: 0.06
+
+Based on $\alpha = 0.025$, is $X_3$ useful to add to a model with $X_1$ and $X_2$? No.
+
+## Problem 5
+
+$$
+\begin{aligned}
+t = -1.897 \\
+t^2 = 3.598 \\
+\end{aligned}
+$$
+
+Both p-values are also 0.0647.
+
+# Part B
+
+## Problem 5
+
+I do think a linear regression seems appropriate. The relationship appears linear and the residuals appear to fluctuate in a way that doesn't cause me much concern. It's possible a polynomial will fair better, but I think you could do worse than a simple linear regression. 
+
+## Problem 7
+
+```{r, echo=FALSE}
+nigeria$size2 <- nigeria$size^2
+nigeria$size3 <- nigeria$size^3
+nigeria$size4 <- nigeria$size^4
+
+poly_reg <- lm(refuse ~ .,data = nigeria)
+```
+
+Based on the summary results, none of the predictors appear statistically significant. 
+
+Based on the overall model F test, $\beta_2$ is different from 0.
+
+## Problem 8
+
+$$
+\begin{aligned}
+SSR(X) &= 65.768 &p = 2.2 \cdot 10^{-16}\\
+SSR(X^2 | X) &= 0.045  &p = 0.55\\
+SSR(X^3|X, X^2) &= 1.932 &p= 0.00306\\
+SSR(X^4|X, X^2, X^3) &= 0.003 &p= 0.873\\
+\end{aligned}
+$$
+
+Based on the test results, $X, X^2, X^3$ should be kept in the model.
+
+## Problem 9
+
+```{r}
+poly_reg_3rd <- lm(refuse ~ .-size4,data = nigeria)
+```
+
+$$Y = 12.95 - 4.77X + 0.646X^2 - 0.025X^3 + \epsilon$$ 
+
+## Problem 10
+
+The polynomial seems to fit the data quite well. 

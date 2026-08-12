@@ -1,0 +1,104 @@
+---
+title: "Lab 3"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r}
+data <- read.table(header = T, file = "../datasets/properties.txt")
+```
+
+
+# 1.1
+
+```{r, echo=FALSE, include=FALSE}
+plot(y= data$Rent.Rate, x=data$Op.Expense, xlim = c(0,15), ylim = c(0,20), pch=20)
+```
+
+
+## 3. 
+
+```{r}
+data_reg <- lm(Rent.Rate ~ -1 + Op.Expense, data = data)
+data_reg |> summary()
+```
+
+$$
+Y_i = 1.478X_i + \epsilon_i
+$$
+
+## 4. 
+
+Forcing the line to go through the origin does **not** seem appropriate for this data set.
+
+## 5. 
+
+The pattern seems relatively flat, maybe a slight positive relationship as theres a larger clustering around the top on the righthand side than the left.
+
+## 6. 
+
+The residuals do not sum to zero, they sum to 66.27
+
+# Part B
+
+## 2.
+
+```{r}
+standard_reg <- lm(Rent.Rate ~ Op.Expense, data = data)
+X <- model.matrix(standard_reg)
+
+solve(t(X) %*% X)
+```
+
+## 4.
+
+```{r}
+Y <- data$Rent.Rate
+b <- solve(t(X) %*% X) %*% (t(X) %*% Y)
+b
+```
+
+The coefficients in $\vec{b}$ are the same as the output of summary.
+
+## 5.
+
+```{r}
+y_hat <- X %*% b
+y_hat |> head()
+```
+
+These values are the same as the fitted values from the regression.
+
+## 6.
+
+```{r}
+(Y - y_hat) |> head()
+```
+
+These match the residuals of the regression.
+
+## 7. 
+
+```{r, echo=FALSE, include=FALSE}
+standard_reg |> summary()
+```
+
+```{r}
+sqrt(1.575^2 * solve(t(X) %*% X))
+```
+
+The diagonals are the same as the std. error from the output of summary.
+
+# Part C
+
+```{r}
+length <- c(63, 63, 63, 63, 63, 63, 63, 63, 63)
+weight<- c(136, 198, 194, 140, 93, 172, 116, 174, 145)
+snakes <- data.frame(Length = length, Weight = weight)
+
+my.reg <- lm(Weight ~ Length, data = snakes)
+```
+
+There's only 1 unique value for length, so that ruins everything here. 
+

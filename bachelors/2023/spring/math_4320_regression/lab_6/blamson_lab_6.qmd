@@ -1,0 +1,39 @@
+---
+title: "Lab 6"
+author: "Brady Lamson"
+format: pdf
+editor: visual
+---
+
+```{r, echo=FALSE, include=FALSE}
+data <- read.table("../datasets/properties.txt", header = T)
+data$Op.Expense <- NULL
+data
+```
+
+```{r, echo=FALSE, include=FALSE}
+reg <- lm(Rent.Rate ~ Age * Vac.Rate * Sq.Ft - Age:Vac.Rate:Sq.Ft - Age:Sq.Ft - Vac.Rate:Sq.Ft, data = data)
+reg |> summary()
+```
+
+## 2a
+
+$t = -.287$
+
+$p = .77$
+
+No
+
+## 2b
+
+Is age:vac significant? No
+
+Is age:sq.ft significant? No
+
+Is vac:sq.ft rate significant? No
+
+# 4
+
+Is age:vac significant? Yes
+
+Is Sq.Ft significant? Yes
